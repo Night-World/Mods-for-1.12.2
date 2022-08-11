@@ -1,0 +1,15 @@
+itemGroup.foxesmod=HardTools
+
+#Blocks
+tile.hardened_dirt.name=A very hard dirt block
+tile.marble_raw.name=Raw marble
+
+#Tools
+item.dirtsword.name=Dirt Sword
+item.dirtaxe.name=Dirt Axe
+item.dirthoe.name=Dirt Hoe
+item.dirtspade.name=Dirt Shovel
+item.dirtpickaxe.name=Dirt Pickaxe
+
+#Food
+item.lapis_apple.name=Lapis Apple

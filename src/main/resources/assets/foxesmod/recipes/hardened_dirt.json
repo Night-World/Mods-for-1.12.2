@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "aaa",
+    "aaa",
+    "aaa"
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:dirt",
+      "data": 1
+    }
+  },
+  "result": {
+    "item": "foxesmod:hardened_dirt",
+    "count": 1
+  }
+}

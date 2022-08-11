@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "aa",
+    "ba",
+    "b "
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:dirt",
+      "data": 1
+    },
+    "b": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "foxesmod:dirtaxe",
+    "count": 1
+  }
+}

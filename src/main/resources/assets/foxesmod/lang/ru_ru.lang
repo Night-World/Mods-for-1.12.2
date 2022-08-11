@@ -1,0 +1,15 @@
+itemGroup.foxesmod=Жесткие Инструменты
+
+#Blocks
+tile.hardened_dirt.name=Укрепленный Блок
+tile.marble_raw.name=Сырой Мрамор
+
+#Tools
+item.dirtsword.name=Грязевой Меч
+item.dirtaxe.name=Грязевой Топор
+item.dirthoe.name=Грязевая Мотыга
+item.dirtspade.name=Грязевая Лопата
+item.dirtpickaxe.name=Грязевая Кирка
+
+#Food
+item.lapis_apple.name=Лазуритное Яблоко

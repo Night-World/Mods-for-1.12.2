@@ -1,0 +1,16 @@
+[
+  {
+    "modid": "foxesmod",
+    "name": "HardTools Mod",
+    "description": "Usefull HardTools!",
+    "version": "1.0.0",
+    "mcversion": "1.12.2",
+    "url": "",
+    "updateUrl": "",
+    "authorList": ["AidenFox"],
+    "credits": "Your friend Aiden",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+  }
+]

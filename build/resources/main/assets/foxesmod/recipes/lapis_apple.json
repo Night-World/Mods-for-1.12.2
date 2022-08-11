@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "aaa",
+    "aba",
+    "aaa"
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:dye",
+      "data": 4
+    },
+    "b": {
+      "item": "minecraft:apple"
+    }
+  },
+  "result": {
+    "item": "foxesmod:lapis_apple",
+    "count": 1
+  }
+}
