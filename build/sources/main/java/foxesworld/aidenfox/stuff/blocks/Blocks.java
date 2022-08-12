@@ -1,6 +1,7 @@
 package foxesworld.aidenfox.stuff.blocks;
 
 import foxesworld.aidenfox.cfg.Environment;
+import foxesworld.aidenfox.stuff.world.WorldGen;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -18,14 +19,28 @@ import static foxesworld.aidenfox.cfg.CreativeTab.MOD_TAB;
 public abstract class Blocks extends Block {
 
     protected String name;
+    public Integer blockParticle = 1;
 
-    public Blocks(String name, Material material) {
+    public Blocks(String name,
+                  Material material,
+                  Integer particle,
+                  SoundType snd,
+                  String harvestTool,
+                  Integer harvestLevel,
+                  float hardness,
+                  float resistance) {
         super(material);
-        this.name = name;
-        this.setTranslationKey(name);
-        this.setRegistryName(Environment.MODID, name);
-        this.setSoundType(SoundType.METAL);
-        setCreativeTab(MOD_TAB);
+
+                this.name = name;
+                this.blockParticle = particle;
+                this.setTranslationKey(name);
+                this.setSoundType(snd);
+                this.setHarvestLevel(harvestTool, harvestLevel);
+                this.setHardness(hardness);
+                this.setResistance(resistance);
+                this.setRegistryName(Environment.MODID, name);
+
+                setCreativeTab(MOD_TAB);
 
         Environment.BLOCKS.add(this);
     }
@@ -51,7 +66,7 @@ public abstract class Blocks extends Block {
             float randX = rand.nextFloat();
             float randY = rand.nextFloat();
             float randZ = rand.nextFloat();
-            worldIn.spawnParticle(EnumParticleTypes.SPELL_MOB,
+            worldIn.spawnParticle(EnumParticleTypes.getParticleFromId(blockParticle),
                     pos.getX() + randX,
                     pos.getY() + randY,
                     pos.getZ() + randZ,

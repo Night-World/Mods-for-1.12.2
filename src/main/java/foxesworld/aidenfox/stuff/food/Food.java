@@ -5,6 +5,10 @@ import foxesworld.aidenfox.cfg.Environment;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
+import net.minecraft.nbt.NBTTagString;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.World;
 
 import static foxesworld.aidenfox.stuff.effects.Effects.randomEffect;
@@ -20,6 +24,12 @@ public abstract class Food extends ItemFood {
         this.setRegistryName(Environment.MODID, name);
         if(alwaysEdible == true) {
             this.setAlwaysEdible();
+            /* ItemStack stack = new ItemStack(this, 1);
+            NBTTagCompound itemCompound = stack.getTagCompound();
+            NBTTagList tags = new NBTTagList();
+            NBTTagString eString = new NBTTagString("e.getRegistryName().toString(");
+            tags.appendTag(eString);
+            itemCompound.setTag("lore", tags); */
         }
         this.setCreativeTab(CreativeTab.MOD_TAB);
 
@@ -32,5 +42,9 @@ public abstract class Food extends ItemFood {
             super.onFoodEaten(stack, worldIn, player);
             player.addPotionEffect(randomEffect(player.getFoodStats().getFoodLevel()));
         }
+    }
+
+    private void onItemRightClick() {
+       System.out.println("GFG");
     }
 }

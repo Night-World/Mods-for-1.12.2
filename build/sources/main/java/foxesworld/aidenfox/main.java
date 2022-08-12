@@ -2,6 +2,7 @@ package foxesworld.aidenfox;
 
 import foxesworld.aidenfox.cfg.Environment;
 import foxesworld.aidenfox.proxy.CommonProxy;
+import foxesworld.aidenfox.stuff.world.WorldGen;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -10,6 +11,7 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import org.apache.logging.log4j.Logger;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -34,13 +36,13 @@ public class main {
         proxy.preInit(event);
         initConfig(event);
         ContentInit contentInit = new ContentInit();
+        GameRegistry.registerWorldGenerator(new WorldGen(), 3);
         registerItems();
         registerBlocks();
     }
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
-
         proxy.init(event);
     }
 

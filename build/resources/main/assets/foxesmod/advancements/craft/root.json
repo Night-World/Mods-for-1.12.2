@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "foxesmod:lapis_apple"
+    },
+    "title": {
+      "translate": "advancements.tutorial.key.title"
+    },
+    "description": {
+      "translate": "advancements.tutorial.key.description"
+    },
+    "frame": "goal"
+  },
+  "parent": "foxesmod:craft/root",
+  "criteria": {
+    "recipe_unlocked": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "foxesmod:lapis_apple"
+      }
+    }
+  }
+}

@@ -3,6 +3,7 @@ itemGroup.foxesmod=HardTools
 #Blocks
 tile.hardened_dirt.name=A very hard dirt block
 tile.marble_raw.name=Raw marble
+tile.marble_bricks.name=Marble Bricks
 
 #Tools
 item.dirtsword.name=Dirt Sword
@@ -12,4 +13,4 @@ item.dirtspade.name=Dirt Shovel
 item.dirtpickaxe.name=Dirt Pickaxe
 
 #Food
-item.lapis_apple.name=Lapis Apple
+item.lapis_apple.name=§3§lLapis Apple

@@ -7,8 +7,7 @@
   ],
   "key": {
     "a": {
-      "item": "minecraft:dirt",
-      "data": 1
+      "item": "foxesmod:hardened_dirt"
     },
     "b": {
       "item": "minecraft:stick"
