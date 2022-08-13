@@ -7,10 +7,20 @@ tile.marble_bricks.name=Marble Bricks
 
 #Tools
 item.dirtsword.name=Dirt Sword
+item.dirtsword.lore=A sword that will be an essential in a fight
 item.dirtaxe.name=Dirt Axe
+item.dirtaxe.lore=Axe that can easily punch a tree
 item.dirthoe.name=Dirt Hoe
+item.dirthoe.lore=A hoe made of very solid material
 item.dirtspade.name=Dirt Shovel
+item.dirtspade.lore=A shovell that can easily dig dirt cuz made of it!
 item.dirtpickaxe.name=Dirt Pickaxe
+item.dirtpickaxe.lore=Not the best pickaxe but also can be used
 
 #Food
 item.lapis_apple.name=§3§lLapis Apple
+item.lapis_apple.lore=A very uncertain thing
+
+#Items
+item.debug_item.name=A Debug Thing
+item.debug_item.lore=Made not for good things...

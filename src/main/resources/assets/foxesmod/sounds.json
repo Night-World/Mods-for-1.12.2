@@ -1,0 +1,29 @@
+{
+  "event.action.success": {
+    "category": "player",
+    "stream": true,
+    "sounds": [
+      "foxesmod:congrats/congrats1",
+      "foxesmod:congrats/congrats2"
+    ]
+  },
+  "event.action.fail": {
+    "category": "player",
+    "stream": true,
+    "sounds": [
+      "foxesmod:fail/fail1",
+      "foxesmod:fail/fail2"
+    ]
+  },
+  "event.action.ask": {
+    "category": "hostile",
+    "stream": true,
+    "sounds": [
+      "foxesmod:other/other1",
+      "foxesmod:other/other2",
+      "foxesmod:other/othe32",
+      "foxesmod:other/other4",
+      "foxesmod:other/other5"
+    ]
+  }
+}

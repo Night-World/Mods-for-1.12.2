@@ -2,6 +2,7 @@ package foxesworld.aidenfox;
 
 import foxesworld.aidenfox.cfg.Environment;
 import foxesworld.aidenfox.proxy.CommonProxy;
+import foxesworld.aidenfox.stuff.sounds.ModSounds;
 import foxesworld.aidenfox.stuff.world.WorldGen;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelBakery;
@@ -35,6 +36,7 @@ public class main {
         logger = event.getModLog();
         proxy.preInit(event);
         initConfig(event);
+        ModSounds.init();
         ContentInit contentInit = new ContentInit();
         GameRegistry.registerWorldGenerator(new WorldGen(), 3);
         registerItems();

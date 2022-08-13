@@ -6,11 +6,21 @@ tile.marble_raw.name=Сырой Мрамор
 tile.marble_bricks.name=Мраморные Кирпичи
 
 #Tools
-item.dirtsword.name=Грязевой Меч
 item.dirtaxe.name=Грязевой Топор
+item.dirtaxe.lore=Топорь из высокопрочного материала - Урепленной земли
+item.dirtsword.name=Грязевой Меч
+item.dirtsword.lore=Меч, который будет незаменим в любой потасовке
 item.dirthoe.name=Грязевая Мотыга
+item.dirthoe.lore=Мотыга с легкостью, вспахивающая землю
 item.dirtspade.name=Грязевая Лопата
+item.dirtspade.lore=Чтобы грести деньги этой лопаткой, одной лопатки будет  не достаточно...
 item.dirtpickaxe.name=Грязевая Кирка
+item.dirtpickaxe.lore=И кирка без дела ржавеет...
 
 #Food
 item.lapis_apple.name=§3§lЛазуритное Яблоко
+item.lapis_apple.lore=Очень необычное яблоко
+
+#Items
+item.debug_item.name=Предмет Хвастовства
+item.debug_item.lore=Захотел себе такой же?

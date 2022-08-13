@@ -2,13 +2,17 @@ package foxesworld.aidenfox.stuff.blocks;
 
 import foxesworld.aidenfox.cfg.Environment;
 import foxesworld.aidenfox.stuff.world.WorldGen;
+import ibxm.Player;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.event.ClickEvent;
 import net.minecraft.world.World;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
