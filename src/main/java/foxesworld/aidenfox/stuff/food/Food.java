@@ -13,6 +13,7 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 import java.util.List;
 
+import static foxesworld.aidenfox.cfg.Environment.foxesSounds;
 import static foxesworld.aidenfox.stuff.sounds.ModSounds.*;
 
 public abstract class Food extends ItemFood {
@@ -46,7 +47,7 @@ public abstract class Food extends ItemFood {
                     player.posX,
                     player.posY,
                     player.posZ,
-                    ASK,
+                    foxesSounds.get("event.action.success"),
                     SoundCategory.NEUTRAL,
                     1.5F, 1F);
             player.addExperience(playerHunger);

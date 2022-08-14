@@ -60,10 +60,6 @@ processResources {
     }
 }
 
-dependencies {
-	compile name: 'Baubles-1.12-1.5.2-dev'
-}
-
 task devJar(type: Jar) {
 	classifier = 'dev'
 	from sourceSets.main.output

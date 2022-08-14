@@ -9,13 +9,14 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import javax.annotation.Nullable;
 import java.util.List;
 
-import static foxesworld.aidenfox.stuff.sounds.ModSounds.FAIL;
+import static foxesworld.aidenfox.cfg.Environment.foxesSounds;
 
-public abstract class Items extends Item {
+public abstract class Items extends Item  {
 
     private String itemName;
     private Boolean itemLore;
@@ -38,12 +39,13 @@ public abstract class Items extends Item {
         }
     }
 
+    //@SubscribeEvent
     public static void onItemRightClick(ItemStack stack, World worldIn, EntityPlayer player){
         worldIn.playSound((EntityPlayer)null,
                 player.posX,
                 player.posY,
                 player.posZ,
-                FAIL,
+                foxesSounds.get("event.action.success"),
                 SoundCategory.NEUTRAL,
                 085F,
                 1.4F);

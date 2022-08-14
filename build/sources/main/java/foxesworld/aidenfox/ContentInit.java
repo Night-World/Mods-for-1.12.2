@@ -19,7 +19,6 @@ import net.minecraftforge.common.util.EnumHelper;
 import java.util.Objects;
 
 import static foxesworld.aidenfox.cfg.ConfigCreator.*;
-import static foxesworld.aidenfox.stuff.sounds.ModSounds.ASK;
 
 public class ContentInit {
 

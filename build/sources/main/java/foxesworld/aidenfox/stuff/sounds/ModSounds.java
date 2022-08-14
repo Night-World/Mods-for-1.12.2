@@ -1,29 +1,39 @@
 package foxesworld.aidenfox.stuff.sounds;
 
+import com.google.common.reflect.TypeToken;
+import com.google.gson.*;
 import foxesworld.aidenfox.cfg.Environment;
-import net.minecraft.client.audio.Sound;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.lang.reflect.Type;
+import java.util.*;
+
+import static foxesworld.aidenfox.Utils.debugSend;
+import static foxesworld.aidenfox.cfg.Environment.foxesSounds;
 
 public class ModSounds {
 
-    public static SoundEvent SUCCESS;
-    public static SoundEvent FAIL;
-    public static SoundEvent ASK;
+    private static String  SoundsFile = "sounds.json";
 
-    public static void init() {
-        SUCCESS = registerSound("item.action.success");
-        FAIL = registerSound("event.action.fail");
-        ASK  = registerSound("event.action.ask");
+    public static void init()  {
+
+        FileAsStream instance  = new FileAsStream(SoundsFile);
+        Object JsonString = instance.getFileContents();
+        Gson gson = new Gson();
+
+        Type FullSoundsMap =  new TypeToken<HashMap<String, Object>>(){}.getType();
+        HashMap<String, Object> SoundsMap =  gson.fromJson((String) JsonString, FullSoundsMap);
+        for(Map.Entry entry: SoundsMap.entrySet()){
+            foxesSounds.put((String) entry.getKey(), registerSound((String) entry.getKey()));
+        }
     }
 
     private static SoundEvent registerSound(String id) {
+        debugSend("Registering sound " + id);
         ResourceLocation soundID = new ResourceLocation(Environment.MODID, id);
         return new SoundEvent(soundID).setRegistryName(soundID);
     }
@@ -32,11 +42,10 @@ public class ModSounds {
     public static class RegistrationHandler {
         @SubscribeEvent
         public static void registerSoundEvents(final RegistryEvent.Register<SoundEvent> event) {
-            event.getRegistry().registerAll(
-                    SUCCESS,
-                    FAIL,
-                    ASK
-            );
+            for(Map.Entry entry: foxesSounds.entrySet()){
+                debugSend("GameEvent gegister - " + entry.getValue());
+                event.getRegistry().register((SoundEvent) entry.getValue());
+            }
         }
     }
 }
