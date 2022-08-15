@@ -1,8 +1,9 @@
 package foxesworld.aidenfox;
 
+import foxesworld.aidenfox.cfg.ConfigCreator;
 import foxesworld.aidenfox.cfg.Environment;
 import foxesworld.aidenfox.proxy.CommonProxy;
-import foxesworld.aidenfox.stuff.sounds.ModSounds;
+import foxesworld.aidenfox.stuff.sounds.Sounds;
 import foxesworld.aidenfox.stuff.world.WorldGen;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelBakery;
@@ -21,6 +22,8 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
+import java.io.File;
+
 import static foxesworld.aidenfox.cfg.ConfigCreator.initConfig;
 
 @Mod(modid = Environment.MODID, name = Environment.NAME, version = Environment.VERSION)
@@ -36,7 +39,7 @@ public class main {
         logger = event.getModLog();
         proxy.preInit(event);
         initConfig(event);
-        ModSounds.init();
+        Sounds Sounds = new Sounds("sounds.json", Environment.MODID);
         ContentInit contentInit = new ContentInit();
         GameRegistry.registerWorldGenerator(new WorldGen(), 3);
         registerItems();

@@ -1,5 +1,6 @@
 package foxesworld.aidenfox.stuff.food;
 
+import foxesworld.aidenfox.cfg.ConfigCreator;
 import foxesworld.aidenfox.cfg.CreativeTab;
 import foxesworld.aidenfox.cfg.Environment;
 import net.minecraft.client.util.ITooltipFlag;
@@ -14,7 +15,6 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 import static foxesworld.aidenfox.cfg.Environment.foxesSounds;
-import static foxesworld.aidenfox.stuff.sounds.ModSounds.*;
 
 public abstract class Food extends ItemFood {
 
@@ -47,7 +47,7 @@ public abstract class Food extends ItemFood {
                     player.posX,
                     player.posY,
                     player.posZ,
-                    foxesSounds.get("event.action.success"),
+                    foxesSounds.get(ConfigCreator.onAppleEaten),
                     SoundCategory.NEUTRAL,
                     1.5F, 1F);
             player.addExperience(playerHunger);

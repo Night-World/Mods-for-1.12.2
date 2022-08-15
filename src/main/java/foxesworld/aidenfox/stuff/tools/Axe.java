@@ -2,8 +2,6 @@ package foxesworld.aidenfox.stuff.tools;
 import foxesworld.aidenfox.cfg.CreativeTab;
 import foxesworld.aidenfox.cfg.Environment;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextComponentTranslation;
@@ -42,7 +40,6 @@ public class Axe extends ItemAxe {
 
     @SubscribeEvent
     public void onItemCraft(PlayerEvent.ItemCraftedEvent event) {
-        if (event.player instanceof EntityPlayerMP && !event.crafting.isEmpty())
             System.out.println("GG");
     }
 }

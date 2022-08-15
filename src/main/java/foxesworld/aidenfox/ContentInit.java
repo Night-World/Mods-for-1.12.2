@@ -9,14 +9,9 @@ import foxesworld.aidenfox.stuff.food.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.world.World;
 import net.minecraftforge.common.util.EnumHelper;
-
-import java.util.Objects;
 
 import static foxesworld.aidenfox.cfg.ConfigCreator.*;
 

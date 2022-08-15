@@ -1,6 +1,4 @@
-package foxesworld.aidenfox.stuff.sounds;
-
-import foxesworld.aidenfox.cfg.Environment;
+package foxesworld.aidenfox.util;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,12 +7,15 @@ import java.io.InputStreamReader;
 
 public class FileAsStream {
 
-    private final String pathRoot = "assets/" + Environment.MODID + "/";
+
     private InputStream fileContents;
     private String fullPath;
+    private String modDir;
+    private final String pathRoot = "assets/";
 
-    public FileAsStream(String path) {
-        this.fullPath = this.pathRoot + path;
+    public FileAsStream(String filePath, String ModDir) {
+        this.modDir = ModDir;
+        this.fullPath = this.pathRoot + this.modDir +"/"+  filePath;
         this.getFileAsIOStream();
     }
 

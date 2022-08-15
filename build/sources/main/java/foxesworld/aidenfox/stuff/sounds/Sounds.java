@@ -1,8 +1,9 @@
 package foxesworld.aidenfox.stuff.sounds;
 
 import com.google.common.reflect.TypeToken;
-import com.google.gson.*;
+import com.google.gson.Gson;
 import foxesworld.aidenfox.cfg.Environment;
+import foxesworld.aidenfox.util.FileAsStream;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraftforge.event.RegistryEvent;
@@ -12,22 +13,30 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import java.lang.reflect.Type;
 import java.util.*;
 
-import static foxesworld.aidenfox.Utils.debugSend;
+import static foxesworld.aidenfox.util.Utils.debugSend;
 import static foxesworld.aidenfox.cfg.Environment.foxesSounds;
 
-public class ModSounds {
+public class Sounds {
 
-    private static String  SoundsFile = "sounds.json";
+    /*INPUT*/
+    private static String SoundsFile = "sounds.json";
+    private static String modDir;
 
-    public static void init()  {
+    /*INTERNAL*/
+    private FileAsStream soundScan;
+    private Object JsonString;
+    private Gson gson = new Gson();
 
-        FileAsStream instance  = new FileAsStream(SoundsFile);
-        Object JsonString = instance.getFileContents();
-        Gson gson = new Gson();
+    public Sounds(String soundsFile, String modDir) {
+        this.SoundsFile = soundsFile;
+        this.modDir = modDir;
 
-        Type FullSoundsMap =  new TypeToken<HashMap<String, Object>>(){}.getType();
-        HashMap<String, Object> SoundsMap =  gson.fromJson((String) JsonString, FullSoundsMap);
-        for(Map.Entry entry: SoundsMap.entrySet()){
+        soundScan = new FileAsStream(this.SoundsFile, modDir);
+        JsonString = soundScan.getFileContents();
+        Type FullSoundsMap = new TypeToken<HashMap<String, Object>>() {
+        }.getType();
+        HashMap<String, Object> SoundsMap = gson.fromJson((String) JsonString, FullSoundsMap);
+        for (Map.Entry entry : SoundsMap.entrySet()) {
             foxesSounds.put((String) entry.getKey(), registerSound((String) entry.getKey()));
         }
     }
@@ -42,7 +51,7 @@ public class ModSounds {
     public static class RegistrationHandler {
         @SubscribeEvent
         public static void registerSoundEvents(final RegistryEvent.Register<SoundEvent> event) {
-            for(Map.Entry entry: foxesSounds.entrySet()){
+            for (Map.Entry entry : foxesSounds.entrySet()) {
                 debugSend("GameEvent gegister - " + entry.getValue());
                 event.getRegistry().register((SoundEvent) entry.getValue());
             }
