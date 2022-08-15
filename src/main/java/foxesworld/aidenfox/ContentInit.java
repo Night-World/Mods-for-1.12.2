@@ -19,6 +19,7 @@ public class ContentInit {
 
     /* BLOCKS */
     public static Block hardened_dirt;
+    public static Block hardened_gravel;
     public static Block marble_raw;
     public static Block marble_bricks;
 
@@ -44,9 +45,10 @@ public class ContentInit {
         debug_item = new Items("debug_item", true){};
 
         /*BLOCKS*/
-        hardened_dirt = new Blocks("hardened_dirt", Material.GROUND, 5, SoundType.GROUND, "shovel", 1, 2.0F, 5.0F){};
-        marble_raw = new Blocks("marble_raw", Material.ROCK, 0, SoundType.STONE, "pickaxe", 1, 2.8F, 6.0F) {};
-        marble_bricks = new Blocks("marble_bricks", Material.CLAY, 0, SoundType.STONE, "pickaxe", 1, 5.0F, 8.0F){};
+        hardened_dirt = new Blocks("hardened_dirt", true, Material.GROUND, 5, SoundType.GROUND, "shovel", 1, 2.0F, 5.0F){};
+        hardened_gravel = new Blocks("hardened_gravel", true, Material.GROUND, 4, SoundType.GROUND, "shovel", 1, 4.0F, 6.0F){};
+        marble_raw = new Blocks("marble_raw", true, Material.ROCK, 0, SoundType.STONE, "pickaxe", 1, 2.8F, 6.0F) {};
+        marble_bricks = new Blocks("marble_bricks", true,  Material.CLAY, 0, SoundType.STONE, "pickaxe", 1, 9.0F, 18.0F){};
 
         /*FOOD*/
         lapis_apple = new Food("lapis_apple", 	 true, 4, 1, false, true,true){};

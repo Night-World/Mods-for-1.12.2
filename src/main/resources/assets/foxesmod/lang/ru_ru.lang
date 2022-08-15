@@ -2,8 +2,13 @@ itemGroup.foxesmod=Жесткие Инструменты
 
 #Blocks
 tile.hardened_dirt.name=Укрепленный Блок Земли
+tile.hardened_dirt.lore=Начальный блок для строительства укреплений и создания инструментов
+tile.hardened_gravel.name=Укрепленный Блок Гравия
+tile.hardened_gravel.lore=Более прочный блок для постройки базы
 tile.marble_raw.name=Сырой Мрамор
+tile.marble_raw.lore=Сырой и необработанный блок мрамора, мало подходит для строительства укреплений
 tile.marble_bricks.name=Мраморные Кирпичи
+tile.marble_bricks.lore=Очень прочный и красивый блок для постройки и защиты своей базы
 
 #Tools
 item.dirtaxe.name=Грязевой Топор

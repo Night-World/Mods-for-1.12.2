@@ -52,7 +52,7 @@ public class Sounds {
         @SubscribeEvent
         public static void registerSoundEvents(final RegistryEvent.Register<SoundEvent> event) {
             for (Map.Entry entry : foxesSounds.entrySet()) {
-                debugSend("GameEvent gegister - " + entry.getValue());
+                debugSend("GameEvent register - " + entry.getValue());
                 event.getRegistry().register((SoundEvent) entry.getValue());
             }
         }

@@ -1,7 +1,8 @@
 itemGroup.foxesmod=HardTools
 
 #Blocks
-tile.hardened_dirt.name=A very hard dirt block
+tile.hardened_dirt.name=Hardened Dirt
+tile.hardened_gravel.name=Hardened Gravel
 tile.marble_raw.name=Raw marble
 tile.marble_bricks.name=Marble Bricks
 

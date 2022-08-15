@@ -13,9 +13,9 @@ public class ConfigCreator {
     private static final String CATEGORY_SOUNDS = "Sounds";
 
     /*TOOLS*/
-    public static float materialEfficiency = 2.521F;
-    public static float materialDamage = 1.1F;
-    public static Integer materialHarvestLevel = 1;
+    public static float materialEfficiency = 5.0F;
+    public static float materialDamage = 1.5F;
+    public static Integer materialHarvestLevel = 2;
     public static Integer materialEnchantability = 8;
     public static  String fixMaterial = "DIRT";
     public static Integer fixMaterialMeta = 1;

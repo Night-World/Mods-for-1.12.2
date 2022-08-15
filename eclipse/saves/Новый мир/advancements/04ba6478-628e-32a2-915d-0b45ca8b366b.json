@@ -1,28 +1,4 @@
 {
-  "minecraft:recipes/combat/wooden_sword": {
-    "criteria": {
-      "has_stick": "2022-08-12 12:24:28 +0300"
-    },
-    "done": true
-  },
-  "minecraft:recipes/redstone/wooden_button": {
-    "criteria": {
-      "has_planks": "2022-08-14 21:58:11 +0300"
-    },
-    "done": true
-  },
-  "minecraft:recipes/decorations/item_frame": {
-    "criteria": {
-      "has_leather": "2022-08-14 21:59:59 +0300"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/oak_planks": {
-    "criteria": {
-      "has_log": "2022-08-12 12:24:28 +0300"
-    },
-    "done": true
-  },
   "minecraft:recipes/tools/wooden_axe": {
     "criteria": {
       "has_stick": "2022-08-12 12:24:28 +0300"
@@ -35,9 +11,9 @@
     },
     "done": true
   },
-  "minecraft:recipes/decorations/spruce_fence": {
+  "minecraft:recipes/redstone/lever": {
     "criteria": {
-      "has_planks": "2022-08-14 21:58:11 +0300"
+      "has_cobblestone": "2022-08-15 08:08:48 +0300"
     },
     "done": true
   },
@@ -65,15 +41,9 @@
     },
     "done": true
   },
-  "minecraft:recipes/tools/wooden_hoe": {
+  "minecraft:story/mine_stone": {
     "criteria": {
-      "has_stick": "2022-08-12 12:24:28 +0300"
-    },
-    "done": true
-  },
-  "minecraft:recipes/building_blocks/stonebrick": {
-    "criteria": {
-      "has_stone": "2022-08-12 12:24:28 +0300"
+      "get_stone": "2022-08-15 08:08:48 +0300"
     },
     "done": true
   },
@@ -83,13 +53,13 @@
     },
     "done": true
   },
-  "minecraft:recipes/redstone/spruce_fence_gate": {
+  "minecraft:recipes/decorations/furnace": {
     "criteria": {
-      "has_planks": "2022-08-14 21:58:11 +0300"
+      "has_cobblestone": "2022-08-15 08:08:48 +0300"
     },
     "done": true
   },
-  "minecraft:recipes/building_blocks/spruce_stairs": {
+  "minecraft:recipes/redstone/spruce_fence_gate": {
     "criteria": {
       "has_planks": "2022-08-14 21:58:11 +0300"
     },
@@ -149,9 +119,21 @@
     },
     "done": true
   },
-  "minecraft:recipes/building_blocks/spruce_wooden_slab": {
+  "minecraft:recipes/combat/stone_sword": {
     "criteria": {
-      "has_planks": "2022-08-14 21:58:11 +0300"
+      "has_cobblestone": "2022-08-15 08:08:48 +0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/painting": {
+    "criteria": {
+      "has_wool": "2022-08-15 08:06:22 +0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/cobblestone_wall": {
+    "criteria": {
+      "has_cobblestone": "2022-08-15 08:08:48 +0300"
     },
     "done": true
   },
@@ -161,15 +143,9 @@
     },
     "done": true
   },
-  "minecraft:story/root": {
+  "minecraft:recipes/tools/stone_pickaxe": {
     "criteria": {
-      "crafting_table": "2022-08-12 12:24:28 +0300"
-    },
-    "done": true
-  },
-  "minecraft:recipes/redstone/stone_button": {
-    "criteria": {
-      "has_stone": "2022-08-12 12:24:28 +0300"
+      "has_cobblestone": "2022-08-15 08:08:48 +0300"
     },
     "done": true
   },
@@ -218,6 +194,120 @@
   "minecraft:recipes/decorations/sign": {
     "criteria": {
       "has_planks": "2022-08-14 21:58:11 +0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/combat/wooden_sword": {
+    "criteria": {
+      "has_stick": "2022-08-12 12:24:28 +0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/redstone/wooden_button": {
+    "criteria": {
+      "has_planks": "2022-08-14 21:58:11 +0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/tools/stone_shovel": {
+    "criteria": {
+      "has_cobblestone": "2022-08-15 08:08:48 +0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/item_frame": {
+    "criteria": {
+      "has_leather": "2022-08-14 21:59:59 +0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/gray_banner": {
+    "criteria": {
+      "has_gray_wool": "2022-08-15 08:06:22 +0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/oak_planks": {
+    "criteria": {
+      "has_log": "2022-08-12 12:24:28 +0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/tools/stone_hoe": {
+    "criteria": {
+      "has_cobblestone": "2022-08-15 08:08:48 +0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/spruce_fence": {
+    "criteria": {
+      "has_planks": "2022-08-14 21:58:11 +0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/tools/wooden_hoe": {
+    "criteria": {
+      "has_stick": "2022-08-12 12:24:28 +0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/stonebrick": {
+    "criteria": {
+      "has_stone": "2022-08-12 12:24:28 +0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/cobblestone_slab": {
+    "criteria": {
+      "has_cobblestone": "2022-08-15 08:08:48 +0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/spruce_stairs": {
+    "criteria": {
+      "has_planks": "2022-08-14 21:58:11 +0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/gray_carpet": {
+    "criteria": {
+      "has_gray_wool": "2022-08-15 08:06:22 +0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/stone_stairs": {
+    "criteria": {
+      "has_cobblestone": "2022-08-15 08:08:48 +0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/gray_bed": {
+    "criteria": {
+      "has_gray_wool": "2022-08-15 08:06:22 +0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/spruce_wooden_slab": {
+    "criteria": {
+      "has_planks": "2022-08-14 21:58:11 +0300"
+    },
+    "done": true
+  },
+  "minecraft:story/root": {
+    "criteria": {
+      "crafting_table": "2022-08-12 12:24:28 +0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/redstone/stone_button": {
+    "criteria": {
+      "has_stone": "2022-08-12 12:24:28 +0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/tools/stone_axe": {
+    "criteria": {
+      "has_cobblestone": "2022-08-15 08:08:48 +0300"
     },
     "done": true
   },

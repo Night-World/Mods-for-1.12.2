@@ -43,7 +43,7 @@ public abstract class Food extends ItemFood {
         if(this.onEatenEffect) {
             super.onFoodEaten(stack, worldIn, player);
             int playerHunger = player.getFoodStats().getFoodLevel();
-            worldIn.playSound((EntityPlayer)null,
+            worldIn.playSound((EntityPlayer)player,
                     player.posX,
                     player.posY,
                     player.posZ,
