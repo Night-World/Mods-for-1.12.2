@@ -3,16 +3,43 @@
     "category": "player",
     "stream": true,
     "sounds": [
-      "foxesmod:success/success1",
-      "foxesmod:success/success2"
+      "foxesmod:event/success/success1",
+      "foxesmod:event/success/success2"
     ]
   },
   "event.action.fail": {
     "category": "player",
     "stream": true,
     "sounds": [
-      "foxesmod:fail/fail1",
-      "foxesmod:fail/fail2"
+      "foxesmod:event/fail/fail1",
+      "foxesmod:event/fail/fail2"
+    ]
+  },
+  "entity.topielec.idle": {
+    "category": "hostile",
+    "stream": true,
+    "sounds": [
+      "foxesmod:entity/topielec/idle/idle_01",
+      "foxesmod:entity/topielec/idle/idle_02",
+      "foxesmod:entity/topielec/idle/idle_03"
+    ]
+  },
+  "entity.topielec.hurt": {
+    "category": "hostile",
+    "stream": true,
+    "sounds": [
+      "foxesmod:entity/topielec/hurt/hurt_01",
+      "foxesmod:entity/topielec/hurt/hurt_02",
+      "foxesmod:entity/topielec/hurt/hurt_03"
+    ]
+  },
+  "entity.topielec.die": {
+    "category": "hostile",
+    "stream": true,
+    "sounds": [
+      "foxesmod:entity/topielec/die/die_01",
+      "foxesmod:entity/topielec/die/die_02",
+      "foxesmod:entity/topielec/die/die_03"
     ]
   },
   "event.action.other": {

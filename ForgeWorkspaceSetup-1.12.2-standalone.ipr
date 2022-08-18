@@ -184,14 +184,6 @@
       </item>
     </group>
   </component>
-  <component name="ProjectModuleManager">
-    <modules>
-      <module fileurl="file://$PROJECT_DIR$/ForgeWorkspaceSetup-1.12.2-standalone.iml" filepath="$PROJECT_DIR$/ForgeWorkspaceSetup-1.12.2-standalone.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ForgeWorkspaceSetup-1.12.2-standalone.api.iml" filepath="$PROJECT_DIR$/ForgeWorkspaceSetup-1.12.2-standalone.api.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ForgeWorkspaceSetup-1.12.2-standalone.main.iml" filepath="$PROJECT_DIR$/ForgeWorkspaceSetup-1.12.2-standalone.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ForgeWorkspaceSetup-1.12.2-standalone.test.iml" filepath="$PROJECT_DIR$/ForgeWorkspaceSetup-1.12.2-standalone.test.iml" />
-    </modules>
-  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
@@ -234,6 +226,9 @@
   </component>
   <component name="SvnBranchConfigurationManager">
     <option name="mySupportsUserInfoFilter" value="true" />
+  </component>
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
   </component>
   <component name="libraryTable">
     <library name="Gradle: :Baubles-1.12-1.5.2-dev:">

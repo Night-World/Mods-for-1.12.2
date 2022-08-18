@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="938c06a4-e680-4d7f-bb67-5ebfdbe16436" name="Changes" comment="" />
+    <list default="true" id="938c06a4-e680-4d7f-bb67-5ebfdbe16436" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/4.9/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.9/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.9/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.9/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForgeWorkspaceSetup-1.12.2-standalone.api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ForgeWorkspaceSetup-1.12.2-standalone.api.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForgeWorkspaceSetup-1.12.2-standalone.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ForgeWorkspaceSetup-1.12.2-standalone.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForgeWorkspaceSetup-1.12.2-standalone.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/ForgeWorkspaceSetup-1.12.2-standalone.ipr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForgeWorkspaceSetup-1.12.2-standalone.iws" beforeDir="false" afterPath="$PROJECT_DIR$/ForgeWorkspaceSetup-1.12.2-standalone.iws" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForgeWorkspaceSetup-1.12.2-standalone.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ForgeWorkspaceSetup-1.12.2-standalone.main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForgeWorkspaceSetup-1.12.2-standalone.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ForgeWorkspaceSetup-1.12.2-standalone.test.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -63,29 +75,7 @@
         </task>
         <projects_view>
           <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="ForgeWorkspaceSetup-1.12.2-standalone" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="ForgeWorkspaceSetup-1.12.2-standalone" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="ForgeWorkspaceSetup-1.12.2-standalone" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="ForgeWorkspaceSetup-1.12.2-standalone" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="forgegradle" type="c8890929:TasksNode$1" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </tree_state>
         </projects_view>
@@ -98,6 +88,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -323,6 +316,9 @@
       <workItem from="1660227760568" duration="440000" />
       <workItem from="1660228224114" duration="841000" />
       <workItem from="1660229086745" duration="13315000" />
+      <workItem from="1660587071824" duration="17000" />
+      <workItem from="1660587099049" duration="3000" />
+      <workItem from="1660587137991" duration="303000" />
     </task>
     <servers />
   </component>

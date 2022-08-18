@@ -1,6 +1,6 @@
 package foxesworld.aidenfox.stuff.tools;
 
-import foxesworld.aidenfox.cfg.CreativeTab;
+import foxesworld.aidenfox.util.CreativeTab;
 import foxesworld.aidenfox.cfg.Environment;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemPickaxe;

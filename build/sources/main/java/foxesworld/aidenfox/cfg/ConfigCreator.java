@@ -1,6 +1,7 @@
 package foxesworld.aidenfox.cfg;
 
 import foxesworld.aidenfox.proxy.CommonProxy;
+import foxesworld.aidenfox.util.FileAsStream;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
@@ -8,9 +9,16 @@ import java.io.File;
 
 public class ConfigCreator {
 
+    private File cfgPath;
+    private static FileAsStream cfgFile;
+    private static Object cfgContents;
+    private static String cfgName = "hardtools.cfg";
+
     private static final String CATEGORY_GENERAL = "General";
     private static final String CATEGORY_WORLDGEN= "WorldGen";
     private static final String CATEGORY_SOUNDS = "Sounds";
+
+
 
     /*TOOLS*/
     public static float materialEfficiency = 5.0F;
@@ -31,6 +39,13 @@ public class ConfigCreator {
     /*SOUNDS */
     public static String onAppleEaten = "event.action.success";
 
+    public ConfigCreator(String cfgName){
+        this.cfgName = cfgName;
+        //cfgFile = new FileAsStream(ConfigCreator.cfgName, Environment.MODID);
+        //cfgContents = cfgFile.getFileContents();
+        //System.out.println(cfgContents);
+    }
+
     public static void readConfig() {
         Configuration cfg = CommonProxy.config;
         try {
@@ -47,7 +62,7 @@ public class ConfigCreator {
 
     public static void initConfig(FMLPreInitializationEvent e) {
         File directory = e.getModConfigurationDirectory();
-        CommonProxy.config = new Configuration(new File(directory.getPath(), "hardtools.cfg"));
+        CommonProxy.config = new Configuration(new File(directory.getPath(), ConfigCreator.cfgName));
         readConfig();
     }
 

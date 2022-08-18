@@ -1,6 +1,7 @@
 package foxesworld.aidenfox.cfg;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
 import net.minecraft.item.Item;
 import net.minecraft.util.SoundEvent;
 
@@ -19,5 +20,7 @@ public class Environment {
 
     public static final List<Block> BLOCKS = new ArrayList<Block>();
     public static final ArrayList<Item> ITEMS = new ArrayList<Item>();
-    public static Map<String, SoundEvent> foxesSounds = new HashMap();
+    public static Map<String, SoundEvent> SOUNDS = new HashMap();
+    public static Map<String, Object> cfgMap = new HashMap();
+    public static Minecraft mc = Minecraft.getMinecraft();
 }

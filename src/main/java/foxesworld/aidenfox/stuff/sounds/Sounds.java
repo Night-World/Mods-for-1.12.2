@@ -10,11 +10,11 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-import java.lang.reflect.Type;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
+import static foxesworld.aidenfox.cfg.Environment.SOUNDS;
 import static foxesworld.aidenfox.util.Utils.debugSend;
-import static foxesworld.aidenfox.cfg.Environment.foxesSounds;
 
 public class Sounds {
 
@@ -30,14 +30,16 @@ public class Sounds {
     public Sounds(String soundsFile, String modDir) {
         this.SoundsFile = soundsFile;
         this.modDir = modDir;
+    }
 
+    public void scanSounds(){
+        //ResourceLocation JsonFile = new ResourceLocation(modDir, this.SoundsFile);
         soundScan = new FileAsStream(this.SoundsFile, modDir);
         JsonString = soundScan.getFileContents();
-        Type FullSoundsMap = new TypeToken<HashMap<String, Object>>() {
-        }.getType();
-        HashMap<String, Object> SoundsMap = gson.fromJson((String) JsonString, FullSoundsMap);
+        //Type FullSoundsMap = new TypeToken<HashMap<String, Object>>() {}.getType();
+        HashMap<String, Object> SoundsMap = gson.fromJson((String) JsonString, new TypeToken<HashMap<String, Object>>() {}.getType());
         for (Map.Entry entry : SoundsMap.entrySet()) {
-            foxesSounds.put((String) entry.getKey(), registerSound((String) entry.getKey()));
+            SOUNDS.put((String) entry.getKey(), registerSound((String) entry.getKey()));
         }
     }
 
@@ -51,7 +53,7 @@ public class Sounds {
     public static class RegistrationHandler {
         @SubscribeEvent
         public static void registerSoundEvents(final RegistryEvent.Register<SoundEvent> event) {
-            for (Map.Entry entry : foxesSounds.entrySet()) {
+            for (Map.Entry entry : SOUNDS.entrySet()) {
                 debugSend("GameEvent register - " + entry.getValue());
                 event.getRegistry().register((SoundEvent) entry.getValue());
             }
