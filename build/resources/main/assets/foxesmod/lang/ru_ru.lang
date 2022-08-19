@@ -9,8 +9,8 @@ tile.marble_raw.name=Сырой Мрамор
 tile.marble_raw.lore=Сырой и необработанный блок мрамора, мало подходит для строительства укреплений
 tile.marble_bricks.name=Мраморные Кирпичи
 tile.marble_bricks.lore=Очень прочный и красивый блок для постройки и защиты своей базы
-tile.stone_bricks.name=Каменные кирпичи
-tile.stone_bricks.lore=Кирпичики из камушка
+tile.black_marble.name=Черный мрамор
+tile.black_marble.lore=Мраморные кирпичи, покрашенные в чёрный цвет
 
 #Tools
 item.dirtaxe.name=Грязевой Топор

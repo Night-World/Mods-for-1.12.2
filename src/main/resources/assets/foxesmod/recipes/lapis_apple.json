@@ -7,8 +7,7 @@
   ],
   "key": {
     "a": {
-      "item": "minecraft:dye",
-      "data": 4
+      "item": "minecraft:lapis_block"
     },
     "b": {
       "item": "minecraft:apple"

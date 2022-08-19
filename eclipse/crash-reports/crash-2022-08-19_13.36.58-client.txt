@@ -1,0 +1,129 @@
+---- Minecraft Crash Report ----
+
+WARNING: coremods are present:
+  ClientFixer (clientfixer-1.12.2-1.9.jar)
+Contact their authors BEFORE contacting forge
+
+// You're mean.
+
+Time: 8/19/22 1:36 PM
+Description: Unexpected error
+
+java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:911)
+	at java.util.ArrayList$Itr.next(ArrayList.java:861)
+	at com.google.common.collect.Iterators$3.next(Iterators.java:174)
+	at net.minecraft.client.renderer.RenderGlobal.renderEntities(RenderGlobal.java:616)
+	at net.minecraft.client.renderer.EntityRenderer.renderWorldPass(EntityRenderer.java:1347)
+	at net.minecraft.client.renderer.EntityRenderer.renderWorld(EntityRenderer.java:1259)
+	at net.minecraft.client.renderer.EntityRenderer.updateCameraAndRender(EntityRenderer.java:1062)
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1119)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:398)
+	at net.minecraft.client.main.Main.main(SourceFile:123)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97)
+	at GradleStart.main(GradleStart.java:25)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Client thread
+Stacktrace:
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:911)
+	at java.util.ArrayList$Itr.next(ArrayList.java:861)
+	at com.google.common.collect.Iterators$3.next(Iterators.java:174)
+	at net.minecraft.client.renderer.RenderGlobal.renderEntities(RenderGlobal.java:616)
+	at net.minecraft.client.renderer.EntityRenderer.renderWorldPass(EntityRenderer.java:1347)
+	at net.minecraft.client.renderer.EntityRenderer.renderWorld(EntityRenderer.java:1259)
+
+-- Affected level --
+Details:
+	Level name: MpServer
+	All players: 1 total; [EntityPlayerSP['Player234'/104, l='MpServer', x=1065.98, y=237.00, z=-780.14]]
+	Chunk stats: MultiplayerChunkCache: 4224, 4224
+	Level seed: 0
+	Level generator: ID 01 - flat, ver 0. Features enabled: false
+	Level generator options: 
+	Level spawn location: World: (915,4,-661), Chunk: (at 3,0,11 in 57,-42; contains blocks 912,0,-672 to 927,255,-657), Region: (1,-2; contains chunks 32,-64 to 63,-33, blocks 512,0,-1024 to 1023,255,-513)
+	Level time: 36568 game time, 1000 day time
+	Level dimension: 0
+	Level storage version: 0x00000 - Unknown?
+	Level weather: Rain time: 0 (now: false), thunder time: 0 (now: false)
+	Level game mode: Game mode: creative (ID 1). Hardcore: false. Cheats: false
+	Forced entities: 123 total; [EntityExpBottle['entity.ThrownExpBottle.name'/2048, l='MpServer', x=1065.14, y=237.00, z=-788.09], EntityExpBottle['entity.ThrownExpBottle.name'/2049, l='MpServer', x=1068.18, y=237.00, z=-787.83], EntityExpBottle['entity.ThrownExpBottle.name'/2050, l='MpServer', x=1070.90, y=237.00, z=-786.44], EntityExpBottle['entity.ThrownExpBottle.name'/2051, l='MpServer', x=1072.91, y=237.00, z=-784.14], EntityExpBottle['entity.ThrownExpBottle.name'/2052, l='MpServer', x=1073.90, y=237.00, z=-781.25], EntitySkeleton['Скелет'/19, l='MpServer', x=987.50, y=199.00, z=-829.50], EntitySkeleton['Скелет'/20, l='MpServer', x=990.49, y=195.00, z=-826.22], EntityZombie['Зомби'/22, l='MpServer', x=986.70, y=196.00, z=-823.30], EntityExpBottle['entity.ThrownExpBottle.name'/2070, l='MpServer', x=1073.98, y=237.00, z=-780.14], EntityBat['Летучая мышь'/23, l='MpServer', x=989.25, y=197.10, z=-823.09], EntityExpBottle['entity.ThrownExpBottle.name'/2071, l='MpServer', x=1073.40, y=237.00, z=-777.14], EntityExpBottle['entity.ThrownExpBottle.name'/2072, l='MpServer', x=1071.73, y=237.00, z=-774.58], EntityExpBottle['entity.ThrownExpBottle.name'/2073, l='MpServer', x=1069.23, y=237.00, z=-772.83], EntityExpBottle['entity.ThrownExpBottle.name'/2074, l='MpServer', x=1066.26, y=237.00, z=-772.14], EntityBat['Летучая мышь'/27, l='MpServer', x=988.90, y=199.03, z=-759.60], EntityExpBottle['entity.ThrownExpBottle.name'/2075, l='MpServer', x=1063.24, y=237.00, z=-772.62], EntityExpBottle['entity.ThrownExpBottle.name'/2076, l='MpServer', x=1060.63, y=237.00, z=-774.19], EntityCreeper['Крипер'/29, l='MpServer', x=1004.54, y=195.00, z=-845.18], EntityExpBottle['entity.ThrownExpBottle.name'/2077, l='MpServer', x=1058.79, y=237.00, z=-776.63], EntityCreeper['Крипер'/30, l='MpServer', x=1007.70, y=195.00, z=-841.70], EntityExpBottle['entity.ThrownExpBottle.name'/2078, l='MpServer', x=1058.00, y=237.00, z=-779.58], EntityCreeper['Крипер'/31, l='MpServer', x=993.84, y=194.00, z=-834.53], EntityExpBottle['entity.ThrownExpBottle.name'/2079, l='MpServer', x=1058.37, y=237.00, z=-782.61], EntityCreeper['Крипер'/32, l='MpServer', x=1003.95, y=194.00, z=-834.30], EntityExpBottle['entity.ThrownExpBottle.name'/2080, l='MpServer', x=1059.85, y=237.00, z=-785.28], EntitySkeleton['Скелет'/33, l='MpServer', x=1005.50, y=195.00, z=-845.50], EntityExpBottle['entity.ThrownExpBottle.name'/2081, l='MpServer', x=1062.22, y=237.00, z=-787.20], EntityMinecartChest['Грузовая вагонетка'/34, l='MpServer', x=995.50, y=199.06, z=-829.50], EntityExpBottle['entity.ThrownExpBottle.name'/2082, l='MpServer', x=1065.14, y=237.00, z=-788.09], EntityZombie['Зомби'/35, l='MpServer', x=996.50, y=199.00, z=-829.50], EntityExpBottle['entity.ThrownExpBottle.name'/2083, l='MpServer', x=1068.18, y=237.00, z=-787.83], EntityBat['Летучая мышь'/36, l='MpServer', x=994.29, y=196.10, z=-827.48], EntityExpBottle['entity.ThrownExpBottle.name'/2084, l='MpServer', x=1070.90, y=237.00, z=-786.44], EntitySpider['Паук'/37, l='MpServer', x=994.70, y=195.00, z=-829.68], EntityExpBottle['entity.ThrownExpBottle.name'/2085, l='MpServer', x=1072.91, y=237.00, z=-784.14], EntityBat['Летучая мышь'/38, l='MpServer', x=1006.75, y=195.10, z=-816.13], EntityExpBottle['entity.ThrownExpBottle.name'/2086, l='MpServer', x=1073.90, y=237.00, z=-781.25], EntityBat['Летучая мышь'/39, l='MpServer', x=1006.65, y=196.10, z=-831.75], EntitySkeleton['Скелет'/40, l='MpServer', x=1003.50, y=194.00, z=-824.50], EntitySkeleton['Скелет'/41, l='MpServer', x=1000.50, y=194.00, z=-827.50], EntitySkeleton['Скелет'/42, l='MpServer', x=1015.24, y=195.00, z=-830.50], EntityZombie['Зомби'/43, l='MpServer', x=1002.04, y=194.00, z=-825.72], EntityZombie['Зомби'/44, l='MpServer', x=999.50, y=194.00, z=-823.50], EntitySpider['Паук'/45, l='MpServer', x=1006.30, y=194.00, z=-822.05], EntitySpider['Паук'/46, l='MpServer', x=999.45, y=198.00, z=-790.55], EntitySkeleton['Скелет'/47, l='MpServer', x=1002.78, y=197.00, z=-775.50], EntityCreeper['Крипер'/48, l='MpServer', x=993.85, y=199.00, z=-759.50], EntityEnderman['Эндермен'/49, l='MpServer', x=1009.20, y=199.00, z=-760.53], EntityCreeper['Крипер'/51, l='MpServer', x=1014.50, y=199.00, z=-856.50], EntitySkeleton['Скелет'/52, l='MpServer', x=1014.50, y=199.00, z=-857.50], EntityCreeper['Крипер'/53, l='MpServer', x=1010.50, y=195.00, z=-850.50], EntitySkeleton['Скелет'/54, l='MpServer', x=1017.50, y=195.00, z=-852.50], EntitySkeleton['Скелет'/55, l='MpServer', x=1011.30, y=195.00, z=-834.30], EntityCreeper['Крипер'/56, l='MpServer', x=1015.70, y=200.00, z=-832.30], EntitySpider['Паук'/57, l='MpServer', x=1013.70, y=199.00, z=-844.52], EntityZombie['Зомби'/58, l='MpServer', x=1010.70, y=195.00, z=-832.30], EntityCreeper['Крипер'/59, l='MpServer', x=1010.70, y=199.00, z=-832.30], EntityZombie['Зомби'/60, l='MpServer', x=1023.50, y=196.00, z=-835.50], EntityBat['Летучая мышь'/61, l='MpServer', x=1013.25, y=201.10, z=-842.25], EntityBat['Летучая мышь'/62, l='MpServer', x=1013.25, y=200.10, z=-835.88], EntitySpider['Паук'/63, l='MpServer', x=1023.50, y=194.00, z=-845.50], EntitySkeleton['Скелет'/64, l='MpServer', x=1008.50, y=195.00, z=-843.50], EntitySkeleton['Скелет'/65, l='MpServer', x=1011.30, y=195.00, z=-831.70], EntityEnderman['Эндермен'/66, l='MpServer', x=1018.63, y=195.00, z=-831.30], EntitySkeleton['Скелет'/67, l='MpServer', x=1023.30, y=196.00, z=-828.30], EntityZombie['Зомби'/68, l='MpServer', x=1008.50, y=195.00, z=-819.50], EntitySkeleton['Скелет'/69, l='MpServer', x=1015.50, y=195.00, z=-816.50], EntityZombie['Зомби'/70, l='MpServer', x=1015.50, y=195.00, z=-818.50], EntityZombie['Зомби'/71, l='MpServer', x=1008.50, y=195.00, z=-814.50], EntityZombie['Зомби'/72, l='MpServer', x=1016.50, y=195.00, z=-814.50], EntityCreeper['Крипер'/73, l='MpServer', x=1010.22, y=197.00, z=-776.50], EntityCreeper['Крипер'/74, l='MpServer', x=1015.17, y=199.00, z=-760.04], EntityCreeper['Крипер'/75, l='MpServer', x=1013.70, y=199.00, z=-760.70], EntityBat['Летучая мышь'/76, l='MpServer', x=1008.25, y=199.10, z=-765.25], EntityCreeper['Крипер'/77, l='MpServer', x=1009.66, y=197.00, z=-761.30], EntitySkeleton['Скелет'/78, l='MpServer', x=1010.03, y=199.00, z=-760.49], EntitySkeleton['Скелет'/79, l='MpServer', x=1029.70, y=189.00, z=-845.50], EntityMinecartChest['Грузовая вагонетка'/80, l='MpServer', x=1032.50, y=190.06, z=-839.49], EntitySkeleton['Скелет'/81, l='MpServer', x=1033.31, y=190.00, z=-839.50], EntitySkeleton['Скелет'/82, l='MpServer', x=1033.84, y=190.00, z=-839.50], EntitySkeleton['Скелет'/83, l='MpServer', x=1030.86, y=190.00, z=-839.50], EntitySkeleton['Скелет'/84, l='MpServer', x=1027.71, y=190.00, z=-841.49], EntitySkeleton['Скелет'/85, l='MpServer', x=1029.50, y=199.00, z=-840.50], EntitySkeleton['Скелет'/86, l='MpServer', x=1031.50, y=199.00, z=-841.25], EntityBat['Летучая мышь'/87, l='MpServer', x=1033.37, y=190.97, z=-845.25], EntityBat['Летучая мышь'/88, l='MpServer', x=1035.50, y=200.10, z=-836.88], EntityMinecartChest['Грузовая вагонетка'/89, l='MpServer', x=1027.50, y=196.06, z=-826.12], EntityBat['Летучая мышь'/90, l='MpServer', x=1033.50, y=199.00, z=-824.30], EntitySkeleton['Скелет'/91, l='MpServer', x=1028.50, y=196.00, z=-826.24], EntityBat['Летучая мышь'/92, l='MpServer', x=1033.50, y=199.02, z=-828.98], EntitySkeleton['Скелет'/93, l='MpServer', x=1029.07, y=196.00, z=-805.30], EntityBat['Летучая мышь'/94, l='MpServer', x=1035.47, y=195.29, z=-800.14], EntityBat['Летучая мышь'/95, l='MpServer', x=1034.88, y=196.10, z=-799.25], EntityZombie['Зомби'/96, l='MpServer', x=1030.30, y=196.00, z=-794.30], EntityZombie['Зомби'/97, l='MpServer', x=1036.98, y=192.00, z=-795.50], EntityZombie['Зомби'/98, l='MpServer', x=1037.74, y=192.00, z=-795.50], EntityBat['Летучая мышь'/99, l='MpServer', x=1019.65, y=196.34, z=-782.74], EntityBat['Летучая мышь'/100, l='MpServer', x=1011.14, y=196.03, z=-781.56], EntityItem['item.item.dyePowder.black'/101, l='MpServer', x=1044.37, y=191.00, z=-796.88], EntitySkeleton['Скелет'/102, l='MpServer', x=1048.69, y=191.00, z=-794.50], EntityZombie['Зомби'/103, l='MpServer', x=1053.50, y=191.00, z=-796.50], EntitySkeleton['Скелет'/1190, l='MpServer', x=1035.50, y=196.00, z=-804.50], EntitySpider['Паук'/1192, l='MpServer', x=1035.50, y=196.00, z=-802.50], EntityCreeper['Крипер'/703, l='MpServer', x=1024.50, y=196.00, z=-837.50], EntitySkeleton['Скелет'/707, l='MpServer', x=1028.50, y=196.00, z=-829.50], EntitySkeleton['Скелет'/1990, l='MpServer', x=1010.70, y=195.00, z=-842.30], EntitySkeleton['Скелет'/1991, l='MpServer', x=1013.52, y=195.00, z=-844.71], EntitySkeleton['Скелет'/1992, l='MpServer', x=1016.50, y=195.00, z=-846.50], EntityZombie['Зомби'/1993, l='MpServer', x=1007.50, y=195.00, z=-850.50], EntityPlayerSP['Player234'/104, l='MpServer', x=1065.98, y=237.00, z=-780.14], EntitySkeleton['Скелет'/1263, l='MpServer', x=1008.50, y=195.00, z=-854.50], EntityExpBottle['entity.ThrownExpBottle.name'/2036, l='MpServer', x=1073.98, y=237.00, z=-780.14], EntityExpBottle['entity.ThrownExpBottle.name'/2037, l='MpServer', x=1073.40, y=237.00, z=-777.14], EntityExpBottle['entity.ThrownExpBottle.name'/2038, l='MpServer', x=1071.73, y=237.00, z=-774.58], EntityExpBottle['entity.ThrownExpBottle.name'/2039, l='MpServer', x=1069.23, y=237.00, z=-772.83], EntityExpBottle['entity.ThrownExpBottle.name'/2040, l='MpServer', x=1066.26, y=237.00, z=-772.14], EntityExpBottle['entity.ThrownExpBottle.name'/2041, l='MpServer', x=1063.24, y=237.00, z=-772.62], EntityExpBottle['entity.ThrownExpBottle.name'/2042, l='MpServer', x=1060.63, y=237.00, z=-774.19], EntityExpBottle['entity.ThrownExpBottle.name'/2043, l='MpServer', x=1058.79, y=237.00, z=-776.63], EntityExpBottle['entity.ThrownExpBottle.name'/2044, l='MpServer', x=1058.00, y=237.00, z=-779.58], EntityExpBottle['entity.ThrownExpBottle.name'/2045, l='MpServer', x=1058.37, y=237.00, z=-782.61], EntityExpBottle['entity.ThrownExpBottle.name'/2046, l='MpServer', x=1059.85, y=237.00, z=-785.28], EntityExpBottle['entity.ThrownExpBottle.name'/2047, l='MpServer', x=1062.22, y=237.00, z=-787.20]]
+	Retry entities: 0 total; []
+	Server brand: fml,forge
+	Server type: Integrated singleplayer server
+Stacktrace:
+	at net.minecraft.client.multiplayer.WorldClient.addWorldInfoToCrashReport(WorldClient.java:420)
+	at net.minecraft.client.Minecraft.addGraphicsAndWorldToCrashReport(Minecraft.java:2741)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:427)
+	at net.minecraft.client.main.Main.main(SourceFile:123)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97)
+	at GradleStart.main(GradleStart.java:25)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.12.2
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 1.8.0_345, BellSoft
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode), BellSoft
+	Memory: 1699242720 bytes (1620 MB) / 4019191808 bytes (3833 MB) up to 7598505984 bytes (7246 MB)
+	JVM Flags: 0 total; 
+	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
+	FML: MCP 9.42 Powered by Forge 14.23.5.2847 9 mods loaded, 9 mods active
+	States: 'U' = Unloaded 'L' = Loaded 'C' = Constructed 'H' = Pre-initialized 'I' = Initialized 'J' = Post-initialized 'A' = Available 'D' = Disabled 'E' = Errored
+
+	| State  | ID                        | Version      | Source                                 | Signature |
+	|:------ |:------------------------- |:------------ |:-------------------------------------- |:--------- |
+	| LCHIJA | minecraft                 | 1.12.2       | minecraft.jar                          | None      |
+	| LCHIJA | mcp                       | 9.42         | minecraft.jar                          | None      |
+	| LCHIJA | FML                       | 8.0.99.99    | forgeBin-1.12.2-14.23.5.2847.jar       | None      |
+	| LCHIJA | forge                     | 14.23.5.2847 | forgeBin-1.12.2-14.23.5.2847.jar       | None      |
+	| LCHIJA | ClientFixer               | 1.12.2-1.9   | minecraft.jar                          | None      |
+	| LCHIJA | foxesmod                  | 1.5          | HardTools mod-1.5.jar                  | None      |
+	| LCHIJA | customdebug               | 1.3          | customdebug_1.12_1.3.jar               | None      |
+	| LCHIJA | satako                    | 2.26         | Satako+1.12-2.26.jar                   | None      |
+	| LCHIJA | extended_item_information | 1.0          | extendediteminformation-1.12.2-1.0.jar | None      |
+
+	Loaded coremods (and transformers): 
+ClientFixer (clientfixer-1.12.2-1.9.jar)
+  com.gamerforea.clientfixer.asm.ASMTransformer
+	GL info: ' Vendor: 'NVIDIA Corporation' Version: '4.6.0 NVIDIA 391.35' Renderer: 'GeForce GTX 480/PCIe/SSE2'
+	Launched Version: 1.12.2
+	LWJGL: 2.9.4
+	OpenGL: GeForce GTX 480/PCIe/SSE2 GL version 4.6.0 NVIDIA 391.35, NVIDIA Corporation
+	GL Caps: Using GL 1.3 multitexturing.
+Using GL 1.3 texture combiners.
+Using framebuffer objects because OpenGL 3.0 is supported and separate blending is supported.
+Shaders are available because OpenGL 2.1 is supported.
+VBOs are available because OpenGL 1.5 is supported.
+
+	Using VBOs: Yes
+	Is Modded: Definitely; Client brand changed to 'fml,forge'
+	Type: Client (map_client.txt)
+	Resource Packs: 
+	Current Language: Русский (Россия)
+	Profiler Position: N/A (disabled)
+	CPU: 12x Intel(R) Core(TM) i7-5820K CPU @ 3.30GHz
