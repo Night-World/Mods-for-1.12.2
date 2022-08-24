@@ -3,9 +3,9 @@ package foxesworld.aidenfox;
 import foxesworld.aidenfox.cfg.ConfigCreator;
 import foxesworld.aidenfox.cfg.Environment;
 import foxesworld.aidenfox.proxy.CommonProxy;
-import foxesworld.aidenfox.stuff.sounds.Sounds;
-import foxesworld.aidenfox.stuff.world.WorldGen;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
+import foxesworld.aidenfox.sounds.Sounds;
+import foxesworld.aidenfox.world.WorldGen;
+import foxesworld.aidenfox.world.structure.StructureGenerator;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -15,28 +15,28 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import org.apache.logging.log4j.Logger;
 
-import static foxesworld.aidenfox.cfg.ConfigCreator.initConfig;
-
 @Mod(modid = Environment.MODID, name = Environment.NAME, version = Environment.VERSION)
 public class main {
+
+    @Mod.Instance
+    public static main instance;
     @SidedProxy(clientSide = Environment.clientsideProxy, serverSide = Environment.serversideProxy)
 
     public static CommonProxy proxy;
     public static Logger logger;
-
-
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         logger = event.getModLog();
         proxy.preInit(event);
-        ConfigCreator cfg = new ConfigCreator("hardtools.cfg");
-        initConfig(event);
+        ConfigCreator cfg = new ConfigCreator(Environment.CFGNAME, event);
+            cfg.initCfg();
         Sounds sounds = new Sounds("sounds.json", Environment.MODID);
-            sounds.scanSounds();
+            sounds.registerSounds();
         Content content = new Content();
             content.registerItems();
             content.registerBlocks();
         GameRegistry.registerWorldGenerator(new WorldGen(), 3);
+        StructureGenerator StructureGenerator = new StructureGenerator();
     }
 
     @EventHandler

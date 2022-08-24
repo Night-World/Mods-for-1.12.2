@@ -1,19 +1,13 @@
 package foxesworld.aidenfox.cfg;
 
 import foxesworld.aidenfox.proxy.CommonProxy;
-import foxesworld.aidenfox.util.FileAsStream;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 import java.io.File;
 
 public class ConfigCreator {
-
-    private File cfgPath;
-    private static FileAsStream cfgFile;
-    private static Object cfgContents;
     private static String cfgName = "hardtools.cfg";
-
     private static final String CATEGORY_GENERAL = "General";
     private static final String CATEGORY_WORLDGEN= "WorldGen";
     private static final String CATEGORY_SOUNDS = "Sounds";
@@ -21,7 +15,7 @@ public class ConfigCreator {
 
 
     /*TOOLS*/
-    public static float materialEfficiency = 5.0F;
+    public static float materialEfficiency = 2.8F;
     public static float materialDamage = 1.5F;
     public static Integer materialHarvestLevel = 2;
     public static Integer materialEnchantability = 8;
@@ -38,14 +32,14 @@ public class ConfigCreator {
 
     /*SOUNDS */
     public static String onAppleEaten = "event.action.success";
-
-    public ConfigCreator(String cfgName){
+    public ConfigCreator(String cfgName, FMLPreInitializationEvent e){
         this.cfgName = cfgName;
-        //cfgFile = new FileAsStream(ConfigCreator.cfgName, Environment.MODID);
-        //cfgContents = cfgFile.getFileContents();
-        //System.out.println(cfgContents);
+        CommonProxy.config = new Configuration(new File(e.getModConfigurationDirectory().getPath(), ConfigCreator.cfgName));
     }
 
+    public static void initCfg(){
+        readConfig();
+    }
     public static void readConfig() {
         Configuration cfg = CommonProxy.config;
         try {
@@ -59,16 +53,9 @@ public class ConfigCreator {
             }
         }
     }
-
-    public static void initConfig(FMLPreInitializationEvent e) {
-        File directory = e.getModConfigurationDirectory();
-        CommonProxy.config = new Configuration(new File(directory.getPath(), ConfigCreator.cfgName));
-        readConfig();
-    }
-
     private static void initGeneralConfig(Configuration cfg) {
         cfg.addCustomCategoryComment(CATEGORY_GENERAL, "General HardTools Configuration");
-        materialEfficiency = cfg.getFloat("materialEfficiency", CATEGORY_GENERAL, 1.5F, 0.01F, 30.0F, "Material efficiency");
+        materialEfficiency = cfg.getFloat("materialEfficiency", CATEGORY_GENERAL, 2.8F, 0.01F, 30.0F, "Material efficiency");
         materialDamage = cfg.getFloat("materialDamage", CATEGORY_GENERAL, 1.0F, 0.0F, 20.0F, "Base material damage");
         materialEnchantability = cfg.getInt("materialEnchantability", CATEGORY_GENERAL, 12, 1, 12, "Max enchantment level for tools");
         materialHarvestLevel = cfg.getInt("materialHarvestLevel", CATEGORY_GENERAL, 2, 1, 5, "Max enchantment level for tools");

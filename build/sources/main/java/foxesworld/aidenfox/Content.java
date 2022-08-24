@@ -74,7 +74,6 @@ public class Content {
                         SoundCategory.NEUTRAL,
                         1.5F, 1F);
                 return super.onItemRightClick(worldIn, playerIn, hand);
-
             }
         };
 
@@ -108,7 +107,8 @@ public class Content {
             @Override
             protected void onFoodEaten(ItemStack stack, World worldIn, EntityPlayer player) {
                 super.onFoodEaten(stack, worldIn, player);
-                AppleEaten appleEaten = new AppleEaten(16, 8, player, worldIn) {};
+                AppleEaten appleEaten = new AppleEaten(16, 8, player, worldIn) {
+                };
                 appleEaten.start();
                 player.getCooldownTracker().setCooldown(this, 50);
             }
@@ -141,15 +141,4 @@ public class Content {
             ModelLoader.setCustomModelResourceLocation(net.minecraft.item.Item.getItemFromBlock(block), 0, new ModelResourceLocation(block.getRegistryName(), "inventory"));
         }
     }
-    /*
-    public static void onItemRightClick(ItemStack stack, World worldIn, EntityPlayer player){
-        worldIn.playSound((EntityPlayer)null,
-                player.posX,
-                player.posY,
-                player.posZ,
-                ASK,
-                SoundCategory.NEUTRAL,
-                0.5F,
-                1.4F);
-    } */
 }
