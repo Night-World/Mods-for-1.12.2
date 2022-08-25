@@ -1,6 +1,6 @@
 package foxesworld.aidenfox.cfg;
 
-import foxesworld.aidenfox.world.structureGen.StructureGenerator;
+import foxesworld.aidenfox.world.structureGen.StructureParser;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.Item;
@@ -21,7 +21,8 @@ public class Environment {
     public static final String serversideProxy = "foxesworld.aidenfox.proxy.CommonProxy";
     public static final List<Block> BLOCKS = new ArrayList<Block>();
     public static final ArrayList<Item> ITEMS = new ArrayList<Item>();
-    public static final ArrayList<StructureGenerator> STRUCTURES = new ArrayList<StructureGenerator>();
+    public static final ArrayList<StructureParser> STRUCTURES = new ArrayList<StructureParser>();
+
     public static Map<String, SoundEvent> SOUNDS = new HashMap();
     public static Map<String, Object> cfgMap = new HashMap();
     public static Minecraft mc = Minecraft.getMinecraft();

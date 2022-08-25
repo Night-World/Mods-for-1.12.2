@@ -4,8 +4,9 @@ import foxesworld.aidenfox.cfg.ConfigCreator;
 import foxesworld.aidenfox.cfg.Environment;
 import foxesworld.aidenfox.proxy.CommonProxy;
 import foxesworld.aidenfox.sounds.Sounds;
+import foxesworld.aidenfox.stuff.blocks.BlocksParser;
 import foxesworld.aidenfox.world.WorldGen;
-import foxesworld.aidenfox.world.structureGen.StructureGenerator;
+import foxesworld.aidenfox.world.structureGen.StructureParser;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -32,11 +33,13 @@ public class main {
             cfg.initCfg();
         Sounds sounds = new Sounds("sounds.json", Environment.MODID);
             sounds.registerSounds();
+        BlocksParser blockParser = new BlocksParser("blocks.json", Environment.MODID);
+            blockParser.readTplFile();
         Content content = new Content();
             content.registerItems();
             content.registerBlocks();
         GameRegistry.registerWorldGenerator(new WorldGen(), 3);
-        StructureGenerator StructureGenerator = new StructureGenerator("structures.json", Environment.MODID);
+        StructureParser StructureGenerator = new StructureParser("structures.json", Environment.MODID);
             StructureGenerator.readTplFile();
     }
 

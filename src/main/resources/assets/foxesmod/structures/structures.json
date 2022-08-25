@@ -1,0 +1,32 @@
+[
+  {
+    "nbtFile": "nbt/bush/bush1",
+    "biome": 3,
+    "rarity": 30,
+    "blockToGenOn": "GRASS"
+  },
+  {
+    "nbtFile": "nbt/bush/bush2",
+    "biome": 3,
+    "rarity": 70,
+    "blockToGenOn": "GRASS"
+  },
+  {
+    "nbtFile": "nbt/bush/bush3",
+    "biome": 3,
+    "rarity": 50,
+    "blockToGenOn": "GRASS"
+  },
+  {
+    "nbtFile": "nbt/bush/bush4",
+    "biome": 3,
+    "rarity": 40,
+    "blockToGenOn": "GRASS"
+  },
+  {
+    "nbtFile": "nbt/survivor_house",
+    "biome": 3,
+    "rarity": "125",
+    "blockToGenOn": "GRASS"
+  }
+]

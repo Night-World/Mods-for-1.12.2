@@ -1,7 +1,7 @@
 package foxesworld.aidenfox.world;
 
-import foxesworld.aidenfox.Content;
 import foxesworld.aidenfox.cfg.ConfigCreator;
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.state.pattern.BlockMatcher;
 import net.minecraft.init.Blocks;
@@ -75,7 +75,7 @@ public class WorldGen implements IWorldGenerator {
      */
     private void generateOverworld(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
         if (ConfigCreator.genMarble) {
-            generateOre(Content.marble_raw.getDefaultState(),
+            generateOre(Block.getBlockFromName("foxesmod:marble_raw").getDefaultState(),
                     world, random, chunkX * 16, chunkZ * 16, ConfigCreator.marbleMaxHeight, ConfigCreator.marbleMaxHeight, random.nextInt(ConfigCreator.marbleVeinSize) + 1, ConfigCreator.marbleSpawnTries, BlockMatcher.forBlock(Blocks.STONE));
         }
     }

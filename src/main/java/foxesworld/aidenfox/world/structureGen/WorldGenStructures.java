@@ -24,7 +24,7 @@ public class WorldGenStructures implements IWorldGenerator {
             case 1: //End
                 break;
             case 0: //Default world
-                for (StructureGenerator structure : Environment.STRUCTURES) {
+                for (StructureParser structure : Environment.STRUCTURES) {
                     debugSend("Generating - " + structure.structureName + " | with rarity " + structure.rarity + " | on block " + structure.topBlock + " | In biome " + structure.biomeToGen);
                     generateStructure(new StructureInstance(structure.structureName), world, random, chunkX, chunkZ, structure.rarity, structure.topBlock, BiomeMesa.getBiomeForId(structure.biomeToGen));
                 }

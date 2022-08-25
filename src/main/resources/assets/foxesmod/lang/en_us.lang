@@ -5,6 +5,8 @@ tile.hardened_dirt.name=Hardened Dirt
 tile.hardened_gravel.name=Hardened Gravel
 tile.marble_raw.name=Raw marble
 tile.marble_bricks.name=Marble Bricks
+tile.black_marble.name=Black Marble Bricks
+tile.black_marble.lore=Marble bricks painted black
 
 #Tools
 item.dirtsword.name=Dirt Sword
@@ -25,3 +27,5 @@ item.lapis_apple.lore=A very uncertain thing
 #Items
 item.debug_item.name=A Debug Thing
 item.debug_item.lore=Made not for good things...
+item.staff.name=Khadgar's Staff
+item.staff.lore=That staff used to be a property of Mediv

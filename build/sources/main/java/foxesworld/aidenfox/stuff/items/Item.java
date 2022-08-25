@@ -14,11 +14,9 @@ import static foxesworld.aidenfox.util.Utils.addLore;
 public abstract class Item extends net.minecraft.item.Item {
 
     private String itemName;
-    private Boolean itemLore;
 
-    public Item(String name, Boolean lore) {
+    public Item(String name) {
         this.itemName = name;
-        this.itemLore = lore;
         this.setRegistryName(Environment.MODID, name);
         this.setTranslationKey(name);
         this.setCreativeTab(CreativeTab.MOD_TAB);

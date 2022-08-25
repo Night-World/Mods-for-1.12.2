@@ -9,9 +9,6 @@ import foxesworld.aidenfox.stuff.items.Item;
 import foxesworld.aidenfox.stuff.tools.*;
 import foxesworld.aidenfox.util.AppleEaten;
 import net.minecraft.block.Block;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;
@@ -21,28 +18,16 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
-
-import java.util.Random;
 
 import static foxesworld.aidenfox.cfg.ConfigCreator.*;
 import static foxesworld.aidenfox.cfg.Environment.SOUNDS;
-import static foxesworld.aidenfox.util.Utils.spawnParticles;
+import static foxesworld.aidenfox.util.Utils.debugSend;
 
 public class Content {
-
-    /* BLOCKS */
-    public static Block hardened_dirt;
-    public static Block hardened_gravel;
-    public static Block marble_raw;
-    public static Block marble_bricks;
-    public static Block black_marble;
 
     /*TOOLS*/
     public static net.minecraft.item.Item dirtpickaxe;
@@ -56,6 +41,7 @@ public class Content {
 
     /*ITEMS*/
     public static net.minecraft.item.Item debug_item;
+    public static net.minecraft.item.Item staff;
 
     /*MATERIAL*/
     public static final net.minecraft.item.Item.ToolMaterial DIRT_MATERIAL
@@ -65,7 +51,7 @@ public class Content {
     public Content() {
 
         /*ITEMS*/
-        debug_item = new Item("debug_item", true) {
+        debug_item = new Item("debug_item") {
             @Override
             public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand hand) {
                 worldIn.playSound((EntityPlayer) playerIn,
@@ -78,31 +64,7 @@ public class Content {
                 return super.onItemRightClick(worldIn, playerIn, hand);
             }
         };
-
-        /*BLOCKS*/
-        black_marble = new Blocks("black_marble", Material.ROCK, SoundType.STONE, "pickaxe", 2, 9.5F, 19.5F) {
-            @Override
-            public void onBlockClicked(World p_onBlockClicked_1_, BlockPos p_onBlockClicked_2_, EntityPlayer p_onBlockClicked_3_) {
-                super.onBlockClicked(p_onBlockClicked_1_, p_onBlockClicked_2_, p_onBlockClicked_3_);
-                p_onBlockClicked_3_.spawnSweepParticles();
-            }
-        };
-        hardened_dirt = new Blocks("hardened_dirt", Material.GROUND, SoundType.GROUND, "shovel", 1, 2.0F, 5.0F) {
-            @SideOnly(Side.CLIENT)
-            public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
-                spawnParticles(stateIn, worldIn, pos, rand, 3);
-            }
-        };
-        hardened_gravel = new Blocks("hardened_gravel", Material.GROUND, SoundType.GROUND, "shovel", 1, 4.0F, 6.0F) {
-        };
-        marble_raw = new Blocks("marble_raw", Material.ROCK, SoundType.STONE, "pickaxe", 1, 2.8F, 6.0F) {
-            @SideOnly(Side.CLIENT)
-            public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
-                spawnParticles(stateIn, worldIn, pos, rand, 0);
-            }
-        };
-        marble_bricks = new Blocks("marble_bricks", Material.STRUCTURE_VOID, SoundType.STONE, "pickaxe", 1, 9.0F, 18.0F) {
-        };
+        staff = new Item("staff"){};
 
         /*FOOD*/
         lapis_apple = new Food("lapis_apple", 4, 1, false, true) {
@@ -136,9 +98,10 @@ public class Content {
 
     public static void registerBlocks() {
         for (Block block : Environment.BLOCKS) {
+            debugSend("Registering " + block.getRegistryName());
             ForgeRegistries.BLOCKS.register(block);
             ForgeRegistries.ITEMS.register(new ItemBlock(block).setRegistryName(block.getRegistryName()));
             ModelLoader.setCustomModelResourceLocation(net.minecraft.item.Item.getItemFromBlock(block), 0, new ModelResourceLocation(block.getRegistryName(), "inventory"));
         }
     }
-}
+}//for (BlocksParser block : Environment.BLIST) {
