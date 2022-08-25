@@ -1,25 +1,24 @@
 package foxesworld.aidenfox.stuff.tools;
 
-import foxesworld.aidenfox.util.CreativeTab;
 import foxesworld.aidenfox.cfg.Environment;
+import foxesworld.aidenfox.util.CreativeTab;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemSpade;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 import java.util.List;
 
+import static foxesworld.aidenfox.util.Utils.addLore;
+
 public class Spade extends ItemSpade {
 
     private static String toolName;
-    private static Boolean toolLore;
 
-    public Spade(String name, Boolean lore, ToolMaterial material) {
+    public Spade(String name, ToolMaterial material) {
         super(material);
         this.toolName = name;
-        this.toolLore = lore;
         this.setRegistryName(Environment.MODID, name);
         this.setTranslationKey(name);
         this.setCreativeTab(CreativeTab.MOD_TAB);
@@ -29,9 +28,6 @@ public class Spade extends ItemSpade {
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-        if (this.toolLore) {
-            TextComponentTranslation msg = new TextComponentTranslation("item."+ this.toolName + ".lore");
-            tooltip.add(msg.getUnformattedText());
-        }
+        addLore(this.toolName,"item", tooltip);
     }
 }

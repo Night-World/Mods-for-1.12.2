@@ -7,6 +7,8 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import java.io.File;
 
 public class ConfigCreator {
+
+    public static Boolean debug = false;
     private static String cfgName = "hardtools.cfg";
     private static final String CATEGORY_GENERAL = "General";
     private static final String CATEGORY_WORLDGEN= "WorldGen";
@@ -55,6 +57,7 @@ public class ConfigCreator {
     }
     private static void initGeneralConfig(Configuration cfg) {
         cfg.addCustomCategoryComment(CATEGORY_GENERAL, "General HardTools Configuration");
+        debug = cfg.getBoolean("debug", CATEGORY_GENERAL, false, "Debug logging");
         materialEfficiency = cfg.getFloat("materialEfficiency", CATEGORY_GENERAL, 2.8F, 0.01F, 30.0F, "Material efficiency");
         materialDamage = cfg.getFloat("materialDamage", CATEGORY_GENERAL, 1.0F, 0.0F, 20.0F, "Base material damage");
         materialEnchantability = cfg.getInt("materialEnchantability", CATEGORY_GENERAL, 12, 1, 12, "Max enchantment level for tools");

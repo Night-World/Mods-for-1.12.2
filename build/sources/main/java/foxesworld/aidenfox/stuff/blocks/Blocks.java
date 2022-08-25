@@ -7,41 +7,32 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 import java.util.List;
 
 import static foxesworld.aidenfox.util.CreativeTab.MOD_TAB;
+import static foxesworld.aidenfox.util.Utils.addLore;
 
 public abstract class Blocks extends Block {
 
     protected String name;
-    protected Boolean blockLore = false;
-    //public Integer blockParticle = 1;
 
-    public Blocks(String name,
-                  Boolean blockLore,
-                  Material material,
-                  SoundType snd,
-                  String harvestTool,
-                  Integer harvestLevel,
-                  float hardness,
-                  float resistance) {
+    public Blocks(String name, Material material, SoundType snd, String harvestTool, Integer harvestLevel, float hardness, float resistance) {
         super(material);
 
-                this.name = name;
-                this.blockLore = blockLore;
-                //this.blockParticle = particle;
-                this.setTranslationKey(name);
-                this.setSoundType(snd);
-                this.setHarvestLevel(harvestTool, harvestLevel);
-                this.setHardness(hardness);
-                this.setResistance(resistance);
-                this.setRegistryName(Environment.MODID, name);
+        this.name = name;
+        this.setTranslationKey(name);
+        this.setSoundType(snd);
+        this.setHarvestLevel(harvestTool, harvestLevel);
+        this.setHardness(hardness);
+        this.setResistance(resistance);
+        this.setRegistryName(Environment.MODID, name);
 
-                setCreativeTab(MOD_TAB);
+        setCreativeTab(MOD_TAB);
 
         Environment.BLOCKS.add(this);
     }
@@ -53,7 +44,12 @@ public abstract class Blocks extends Block {
 
     @Override
     public boolean isFullCube(IBlockState state) {
-        return false;
+        return true;
+    }
+
+    @Override
+    public boolean isNormalCube(IBlockState state, IBlockAccess world, BlockPos pos) {
+        return super.isNormalCube(state, world, pos);
     }
 
     public String getBlockName() {
@@ -62,9 +58,10 @@ public abstract class Blocks extends Block {
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-        if (this.blockLore) {
-            TextComponentTranslation msg = new TextComponentTranslation("tile."+this.name+".lore");
+        addLore(this.name, "tile", tooltip);
+       /* TextComponentTranslation msg = new TextComponentTranslation("tile."+this.name+".lore");
+        if (!msg.getUnformattedComponentText().contains("tile")) {
             tooltip.add(msg.getUnformattedText());
-        }
+        } */
     }
 }

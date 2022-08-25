@@ -58,7 +58,9 @@ public class Content {
     public static net.minecraft.item.Item debug_item;
 
     /*MATERIAL*/
-    public static final net.minecraft.item.Item.ToolMaterial DIRT_MATERIAL = EnumHelper.addToolMaterial("foxesmod:dirt", materialHarvestLevel, 56, materialEfficiency, materialDamage, materialEnchantability);
+    public static final net.minecraft.item.Item.ToolMaterial DIRT_MATERIAL
+            = EnumHelper.addToolMaterial("foxesmod:dirt", materialHarvestLevel, 56, materialEfficiency, materialDamage, materialEnchantability)
+            .setRepairItem(new ItemStack(Blocks.getBlockFromName(fixMaterial), fixMaterialAmmount, fixMaterialMeta));
 
     public Content() {
 
@@ -78,32 +80,32 @@ public class Content {
         };
 
         /*BLOCKS*/
-        black_marble = new Blocks("black_marble", true, Material.ROCK, SoundType.STONE, "pickaxe", 2, 9.5F, 19.5F) {
+        black_marble = new Blocks("black_marble", Material.ROCK, SoundType.STONE, "pickaxe", 2, 9.5F, 19.5F) {
             @Override
             public void onBlockClicked(World p_onBlockClicked_1_, BlockPos p_onBlockClicked_2_, EntityPlayer p_onBlockClicked_3_) {
                 super.onBlockClicked(p_onBlockClicked_1_, p_onBlockClicked_2_, p_onBlockClicked_3_);
                 p_onBlockClicked_3_.spawnSweepParticles();
             }
         };
-        hardened_dirt = new Blocks("hardened_dirt", true, Material.GROUND, SoundType.GROUND, "shovel", 1, 2.0F, 5.0F) {
+        hardened_dirt = new Blocks("hardened_dirt", Material.GROUND, SoundType.GROUND, "shovel", 1, 2.0F, 5.0F) {
             @SideOnly(Side.CLIENT)
             public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
                 spawnParticles(stateIn, worldIn, pos, rand, 3);
             }
         };
-        hardened_gravel = new Blocks("hardened_gravel", true, Material.GROUND, SoundType.GROUND, "shovel", 1, 4.0F, 6.0F) {
+        hardened_gravel = new Blocks("hardened_gravel", Material.GROUND, SoundType.GROUND, "shovel", 1, 4.0F, 6.0F) {
         };
-        marble_raw = new Blocks("marble_raw", true, Material.ROCK, SoundType.STONE, "pickaxe", 1, 2.8F, 6.0F) {
+        marble_raw = new Blocks("marble_raw", Material.ROCK, SoundType.STONE, "pickaxe", 1, 2.8F, 6.0F) {
             @SideOnly(Side.CLIENT)
             public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
                 spawnParticles(stateIn, worldIn, pos, rand, 0);
             }
         };
-        marble_bricks = new Blocks("marble_bricks", true, Material.STRUCTURE_VOID, SoundType.STONE, "pickaxe", 1, 9.0F, 18.0F) {
+        marble_bricks = new Blocks("marble_bricks", Material.STRUCTURE_VOID, SoundType.STONE, "pickaxe", 1, 9.0F, 18.0F) {
         };
 
         /*FOOD*/
-        lapis_apple = new Food("lapis_apple", true, 4, 1, false, true) {
+        lapis_apple = new Food("lapis_apple", 4, 1, false, true) {
             @Override
             protected void onFoodEaten(ItemStack stack, World worldIn, EntityPlayer player) {
                 super.onFoodEaten(stack, worldIn, player);
@@ -115,13 +117,11 @@ public class Content {
         };
 
         /*TOOLS*/
-        dirtaxe = new Axe("dirtaxe", true, DIRT_MATERIAL);
-        dirtspade = new Spade("dirtspade", true, DIRT_MATERIAL);
-        dirthoe = new Hoe("dirthoe", true, DIRT_MATERIAL);
-        dirtsword = new Sword("dirtsword", true, DIRT_MATERIAL);
-        dirtpickaxe = new Pickaxe("dirtpickaxe", true, DIRT_MATERIAL);
-
-        DIRT_MATERIAL.setRepairItem(new ItemStack(Blocks.getBlockFromName(fixMaterial), fixMaterialAmmount, fixMaterialMeta));
+        dirtaxe = new Axe("dirtaxe",  DIRT_MATERIAL);
+        dirtspade = new Spade("dirtspade", DIRT_MATERIAL);
+        dirthoe = new Hoe("dirthoe", DIRT_MATERIAL);
+        dirtsword = new Sword("dirtsword",DIRT_MATERIAL);
+        dirtpickaxe = new Pickaxe("dirtpickaxe",DIRT_MATERIAL);
     }
 
     public static void registerItems() {

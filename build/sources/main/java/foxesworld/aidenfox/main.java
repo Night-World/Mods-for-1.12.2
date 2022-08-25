@@ -5,7 +5,7 @@ import foxesworld.aidenfox.cfg.Environment;
 import foxesworld.aidenfox.proxy.CommonProxy;
 import foxesworld.aidenfox.sounds.Sounds;
 import foxesworld.aidenfox.world.WorldGen;
-import foxesworld.aidenfox.world.structure.StructureGenerator;
+import foxesworld.aidenfox.world.structureGen.StructureGenerator;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -36,7 +36,8 @@ public class main {
             content.registerItems();
             content.registerBlocks();
         GameRegistry.registerWorldGenerator(new WorldGen(), 3);
-        StructureGenerator StructureGenerator = new StructureGenerator();
+        StructureGenerator StructureGenerator = new StructureGenerator("structures.json", Environment.MODID);
+            StructureGenerator.readTplFile();
     }
 
     @EventHandler

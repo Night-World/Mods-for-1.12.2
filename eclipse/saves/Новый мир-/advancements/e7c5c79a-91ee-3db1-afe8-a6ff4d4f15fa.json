@@ -1,0 +1,14 @@
+{
+  "minecraft:recipes/redstone/repeater": {
+    "criteria": {
+      "has_redstone_torch": "2022-08-25 11:18:24 +0300"
+    },
+    "done": true
+  },
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "extreme_hills": "2022-08-25 11:18:24 +0300"
+    },
+    "done": false
+  }
+}

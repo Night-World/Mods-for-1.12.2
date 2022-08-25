@@ -1,6 +1,6 @@
 package foxesworld.aidenfox.cfg;
 
-import foxesworld.aidenfox.world.structure.StructureGenerator;
+import foxesworld.aidenfox.world.structureGen.StructureGenerator;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.Item;
