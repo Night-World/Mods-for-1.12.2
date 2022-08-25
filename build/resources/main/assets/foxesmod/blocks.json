@@ -2,7 +2,7 @@
   {
     "blockName": "black_marble",
     "blockMaterial": "ROCK",
-    "blockSound": "STONE",
+    "blockSound": "GLASS",
     "blockTool": "pickaxe",
     "blockHarvestLevel": 2,
     "blockHardness": 9.5,
@@ -19,7 +19,7 @@
   },
   {
     "blockName": "hardened_gravel",
-    "blockMaterial": "GROUND",
+    "blockMaterial": "CLAY",
     "blockSound": "GROUND",
     "blockTool": "shovel",
     "blockHarvestLevel": 1,

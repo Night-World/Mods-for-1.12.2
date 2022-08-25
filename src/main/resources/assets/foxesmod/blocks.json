@@ -19,7 +19,7 @@
   },
   {
     "blockName": "hardened_gravel",
-    "blockMaterial": "GROUND",
+    "blockMaterial": "CLAY",
     "blockSound": "GROUND",
     "blockTool": "shovel",
     "blockHarvestLevel": 1,

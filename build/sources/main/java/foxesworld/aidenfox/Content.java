@@ -1,7 +1,5 @@
 package foxesworld.aidenfox;
 
-/* IMPORTING CONTENT */
-
 import foxesworld.aidenfox.cfg.Environment;
 import foxesworld.aidenfox.stuff.blocks.Blocks;
 import foxesworld.aidenfox.stuff.food.Food;

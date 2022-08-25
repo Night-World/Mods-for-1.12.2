@@ -1,7 +1,5 @@
 package foxesworld.aidenfox;
 
-/* IMPORTING CONTENT */
-
 import foxesworld.aidenfox.cfg.Environment;
 import foxesworld.aidenfox.stuff.blocks.Blocks;
 import foxesworld.aidenfox.stuff.food.Food;
@@ -64,7 +62,8 @@ public class Content {
                 return super.onItemRightClick(worldIn, playerIn, hand);
             }
         };
-        staff = new Item("staff"){};
+        staff = new Item("staff") {
+        };
 
         /*FOOD*/
         lapis_apple = new Food("lapis_apple", 4, 1, false, true) {
@@ -79,11 +78,11 @@ public class Content {
         };
 
         /*TOOLS*/
-        dirtaxe = new Axe("dirtaxe",  DIRT_MATERIAL);
+        dirtaxe = new Axe("dirtaxe", DIRT_MATERIAL);
         dirtspade = new Spade("dirtspade", DIRT_MATERIAL);
         dirthoe = new Hoe("dirthoe", DIRT_MATERIAL);
-        dirtsword = new Sword("dirtsword",DIRT_MATERIAL);
-        dirtpickaxe = new Pickaxe("dirtpickaxe",DIRT_MATERIAL);
+        dirtsword = new Sword("dirtsword", DIRT_MATERIAL);
+        dirtpickaxe = new Pickaxe("dirtpickaxe", DIRT_MATERIAL);
     }
 
     public static void registerItems() {
@@ -104,4 +103,4 @@ public class Content {
             ModelLoader.setCustomModelResourceLocation(net.minecraft.item.Item.getItemFromBlock(block), 0, new ModelResourceLocation(block.getRegistryName(), "inventory"));
         }
     }
-}//for (BlocksParser block : Environment.BLIST) {
+}

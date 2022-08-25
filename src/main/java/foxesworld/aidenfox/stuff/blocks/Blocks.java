@@ -16,7 +16,6 @@ import java.util.List;
 
 import static foxesworld.aidenfox.util.CreativeTab.MOD_TAB;
 import static foxesworld.aidenfox.util.Utils.addLore;
-import static foxesworld.aidenfox.util.Utils.debugSend;
 
 public abstract class Blocks extends Block {
 
@@ -24,7 +23,7 @@ public abstract class Blocks extends Block {
 
     public Blocks(String name, Material material, SoundType snd, String harvestTool, Integer harvestLevel, float hardness, float resistance) {
         super(material);
-        debugSend("["+name+"] " +material +" | " +snd + " | " + harvestTool + " | " + harvestLevel + " | " + hardness + " | " + resistance);
+        //debugSend("["+name+"] " +material +" | " +snd + " | " + harvestTool + " | " + harvestLevel + " | " + hardness + " | " + resistance);
         this.name = name;
         this.setTranslationKey(name);
         this.setSoundType(snd);

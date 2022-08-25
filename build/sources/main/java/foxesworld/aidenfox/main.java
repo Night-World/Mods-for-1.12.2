@@ -31,10 +31,13 @@ public class main {
         proxy.preInit(event);
         ConfigCreator cfg = new ConfigCreator(Environment.CFGNAME, event);
             cfg.initCfg();
+
         Sounds sounds = new Sounds("sounds.json", Environment.MODID);
             sounds.registerSounds();
+
         BlocksParser blockParser = new BlocksParser("blocks.json", Environment.MODID);
             blockParser.readTplFile();
+
         Content content = new Content();
             content.registerItems();
             content.registerBlocks();
