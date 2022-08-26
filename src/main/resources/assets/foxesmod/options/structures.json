@@ -26,7 +26,7 @@
   {
     "nbtFile": "nbt/survivor_house",
     "biome": 3,
-    "rarity": "125",
+    "rarity": "250",
     "blockToGenOn": "GRASS"
   }
 ]

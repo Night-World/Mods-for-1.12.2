@@ -70,6 +70,7 @@ public class Content {
             }
         };
     }
+
     public static void registerItems() {
         for (net.minecraft.item.Item item : Environment.ITEMS) {
             final ResourceLocation regName = item.getRegistryName();

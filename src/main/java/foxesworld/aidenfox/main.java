@@ -6,7 +6,7 @@ import foxesworld.aidenfox.proxy.CommonProxy;
 import foxesworld.aidenfox.sounds.Sounds;
 import foxesworld.aidenfox.stuff.blocks.parser.BlocksParser;
 import foxesworld.aidenfox.stuff.tools.Tools;
-import foxesworld.aidenfox.world.OreGen.OreGen;
+import foxesworld.aidenfox.world.OreGen.OreGenParser;
 import foxesworld.aidenfox.world.structureGen.StructureParser;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -14,7 +14,6 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import org.apache.logging.log4j.Logger;
 
 @Mod(modid = Environment.MODID, name = Environment.NAME, version = Environment.VERSION)
@@ -45,7 +44,10 @@ public class main {
         Content content = new Content();
             content.registerItems();
             content.registerBlocks();
-        GameRegistry.registerWorldGenerator(new OreGen(), 3);
+
+        OreGenParser OreGenParser = new OreGenParser("options/oreGen.json", Environment.MODID);
+        OreGenParser.readTplFile();
+        //GameRegistry.registerWorldGenerator(new OreGen(), 3);
         StructureParser StructureGenerator = new StructureParser("options/structures.json", Environment.MODID);
             StructureGenerator.readTplFile();
     }

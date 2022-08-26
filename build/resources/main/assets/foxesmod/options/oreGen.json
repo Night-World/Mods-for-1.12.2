@@ -1,0 +1,10 @@
+[
+  {
+    "oreName": "foxesmod:marble_raw",
+    "oreMinHeight": 34,
+    "oreMaxHeight": 56,
+    "oreVeinSize": 12,
+    "oreSpawnTries": 5,
+    "watchForBlock": "STONE"
+  }
+]
