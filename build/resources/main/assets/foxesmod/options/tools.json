@@ -1,0 +1,27 @@
+[
+  {
+    "toolName": "dirtaxe",
+    "toolMaterial": "DIRT_MATERIAL",
+    "toolType": "Axe"
+  },
+  {
+    "toolName": "dirthoe",
+    "toolMaterial": "DIRT_MATERIAL",
+    "toolType": "Hoe"
+  },
+  {
+    "toolName": "dirtsword",
+    "toolMaterial": "DIRT_MATERIAL",
+    "toolType": "Sword"
+  },
+  {
+    "toolName": "dirtspade",
+    "toolMaterial": "DIRT_MATERIAL",
+    "toolType": "Spade"
+  },
+  {
+    "toolName": "dirtpickaxe",
+    "toolMaterial": "DIRT_MATERIAL",
+    "toolType": "Pickaxe"
+  }
+]

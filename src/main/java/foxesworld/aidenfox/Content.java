@@ -4,7 +4,6 @@ import foxesworld.aidenfox.cfg.Environment;
 import foxesworld.aidenfox.stuff.blocks.Blocks;
 import foxesworld.aidenfox.stuff.food.Food;
 import foxesworld.aidenfox.stuff.items.Item;
-import foxesworld.aidenfox.stuff.tools.*;
 import foxesworld.aidenfox.util.AppleEaten;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelBakery;
@@ -27,12 +26,6 @@ import static foxesworld.aidenfox.util.Utils.debugSend;
 
 public class Content {
 
-    /*TOOLS*/
-    public static net.minecraft.item.Item dirtpickaxe;
-    public static net.minecraft.item.Item dirtaxe;
-    public static net.minecraft.item.Item dirtspade;
-    public static net.minecraft.item.Item dirtsword;
-    public static net.minecraft.item.Item dirthoe;
 
     /*FOOD*/
     public static Food lapis_apple;
@@ -76,15 +69,7 @@ public class Content {
                 player.getCooldownTracker().setCooldown(this, 50);
             }
         };
-
-        /*TOOLS*/
-        dirtaxe = new Axe("dirtaxe", DIRT_MATERIAL);
-        dirtspade = new Spade("dirtspade", DIRT_MATERIAL);
-        dirthoe = new Hoe("dirthoe", DIRT_MATERIAL);
-        dirtsword = new Sword("dirtsword", DIRT_MATERIAL);
-        dirtpickaxe = new Pickaxe("dirtpickaxe", DIRT_MATERIAL);
     }
-
     public static void registerItems() {
         for (net.minecraft.item.Item item : Environment.ITEMS) {
             final ResourceLocation regName = item.getRegistryName();

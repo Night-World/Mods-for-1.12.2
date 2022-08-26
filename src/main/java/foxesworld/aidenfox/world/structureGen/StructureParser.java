@@ -29,7 +29,7 @@ public class StructureParser {
     }
 
     public void readTplFile(){
-        FileAsStream structuresJsonStream = new FileAsStream("structures/"+this.tplFile, this.MODID);
+        FileAsStream structuresJsonStream = new FileAsStream(this.tplFile, this.MODID);
         String jsonString = (String) structuresJsonStream.getFileContents();
         readFromJson(jsonString);
     }
