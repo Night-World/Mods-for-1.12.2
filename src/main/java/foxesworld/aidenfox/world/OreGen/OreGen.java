@@ -1,3 +1,19 @@
+/*
+ * Copyright (c) 2022  OreGen by FoxesWorld
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package foxesworld.aidenfox.world.OreGen;
 
 import net.minecraft.block.Block;
@@ -37,12 +53,15 @@ public class OreGen implements IWorldGenerator {
 
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider ) {
-        if (world.provider.getDimension() == 0) {
-            generateOverworld(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
-            debugSend("Generating " + this.oreName + " in overWorld at min " + this.oreMinHeight + " Max " + this.oreMaxHeight + " with veinSize " + this.oreVeinSize);
-        }
-        if (world.provider.getDimension() == -1) {
-            generateNether(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
+        switch (world.provider.getDimension()){
+            case 0:
+                generateOverworld(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
+                debugSend("Generating " + this.oreName + " in overWorld at min " + this.oreMinHeight + " Max " + this.oreMaxHeight + " with veinSize " + this.oreVeinSize);
+                break;
+
+            case -1:
+                generateNether(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
+                break;
         }
     }
 
