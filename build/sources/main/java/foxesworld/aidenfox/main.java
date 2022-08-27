@@ -7,7 +7,7 @@ import foxesworld.aidenfox.sounds.Sounds;
 import foxesworld.aidenfox.stuff.blocks.parser.BlocksParser;
 import foxesworld.aidenfox.stuff.tools.Tools;
 import foxesworld.aidenfox.world.OreGen.OreGenParser;
-import foxesworld.aidenfox.world.structureGen.StructureParser;
+import foxesworld.aidenfox.world.structureGen.parser.StructureParser;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;

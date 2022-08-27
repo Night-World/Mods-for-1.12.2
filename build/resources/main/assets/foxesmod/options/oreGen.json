@@ -1,10 +1,18 @@
 [
   {
     "oreName": "foxesmod:marble_raw",
-    "oreMinHeight": 34,
-    "oreMaxHeight": 56,
-    "oreVeinSize": 12,
-    "oreSpawnTries": 5,
+    "oreMinHeight": 20,
+    "oreMaxHeight": 60,
+    "oreVeinSize": 23,
+    "oreSpawnTries": 20,
     "watchForBlock": "STONE"
+  },
+  {
+    "oreName": "foxesmod:hardened_dirt",
+    "oreMinHeight": 40,
+    "oreMaxHeight": 70,
+    "oreVeinSize": 13,
+    "oreSpawnTries": 20,
+    "watchForBlock": "DIRT"
   }
 ]

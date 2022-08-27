@@ -49,7 +49,7 @@ public class Content {
                         playerIn.posX,
                         playerIn.posY,
                         playerIn.posZ,
-                        SOUNDS.get("entity.topielec.hurt"),
+                        SOUNDS.get("event.action.other"),
                         SoundCategory.NEUTRAL,
                         1.5F, 1F);
                 return super.onItemRightClick(worldIn, playerIn, hand);

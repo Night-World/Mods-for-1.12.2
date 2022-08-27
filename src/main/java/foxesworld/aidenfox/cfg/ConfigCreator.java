@@ -26,11 +26,7 @@ public class ConfigCreator {
     public static Integer fixMaterialAmmount = 8;
 
     /*GENERATIONS*/
-    public static boolean genMarble = true;
-    public static  Integer marbleMinHeight = 19;
-    public static  Integer marbleMaxHeight = 80;
-    public static Integer marbleVeinSize = 28;
-    public static Integer marbleSpawnTries = 4;
+    public static boolean genStructures = true;
 
     /*SOUNDS */
     public static String onAppleEaten = "event.action.success";
@@ -56,7 +52,7 @@ public class ConfigCreator {
         }
     }
     private static void initGeneralConfig(Configuration cfg) {
-        cfg.addCustomCategoryComment(CATEGORY_GENERAL, "General HardTools Configuration");
+        cfg.addCustomCategoryComment(CATEGORY_GENERAL, "General HardTools Configuration Version."+Environment.VERSION);
         debug = cfg.getBoolean("debug", CATEGORY_GENERAL, false, "Debug logging");
         materialEfficiency = cfg.getFloat("materialEfficiency", CATEGORY_GENERAL, 2.8F, 0.01F, 30.0F, "Material efficiency");
         materialDamage = cfg.getFloat("materialDamage", CATEGORY_GENERAL, 1.0F, 0.0F, 20.0F, "Base material damage");
@@ -66,11 +62,11 @@ public class ConfigCreator {
         fixMaterialMeta = cfg.getInt("fixMaterialMeta", CATEGORY_GENERAL, 1, 0, 255, "Meta of your fix material");
         fixMaterialAmmount = cfg.getInt("fixMaterialAmmount", CATEGORY_GENERAL, 8, 1, 255, "Ammount of material to fix");
 
-        cfg.addCustomCategoryComment(CATEGORY_SOUNDS, "Sound configuration (Alpha)");
+        cfg.addCustomCategoryComment(CATEGORY_SOUNDS, "Sound configuration (Alpha (Will be removed))");
         onAppleEaten = cfg.getString("onAppleEaten", CATEGORY_SOUNDS, "event.action.success", "Sound when eaten an apple");
 
         cfg.addCustomCategoryComment(CATEGORY_WORLDGEN, "WorldGeneration configuration");
-        genMarble = cfg.getBoolean("genMarble", CATEGORY_WORLDGEN, true, "Generate marble in world");
+        genStructures = cfg.getBoolean("genStructures", CATEGORY_WORLDGEN, true, "Generate structures in world");
 
     }
 

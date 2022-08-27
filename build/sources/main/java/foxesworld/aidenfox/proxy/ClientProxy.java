@@ -1,6 +1,6 @@
 package foxesworld.aidenfox.proxy;
 
-import foxesworld.aidenfox.world.structureGen.RegistryHandler;
+import foxesworld.aidenfox.world.structureGen.parser.RegistryHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;

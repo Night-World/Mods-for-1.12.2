@@ -15,42 +15,15 @@
       "foxesmod:event/fail/fail2"
     ]
   },
-  "entity.topielec.idle": {
-    "category": "hostile",
-    "stream": true,
-    "sounds": [
-      "foxesmod:entity/topielec/idle/idle_01",
-      "foxesmod:entity/topielec/idle/idle_02",
-      "foxesmod:entity/topielec/idle/idle_03"
-    ]
-  },
-  "entity.topielec.hurt": {
-    "category": "hostile",
-    "stream": true,
-    "sounds": [
-      "foxesmod:entity/topielec/hurt/hurt_01",
-      "foxesmod:entity/topielec/hurt/hurt_02",
-      "foxesmod:entity/topielec/hurt/hurt_03"
-    ]
-  },
-  "entity.topielec.die": {
-    "category": "hostile",
-    "stream": true,
-    "sounds": [
-      "foxesmod:entity/topielec/die/die_01",
-      "foxesmod:entity/topielec/die/die_02",
-      "foxesmod:entity/topielec/die/die_03"
-    ]
-  },
   "event.action.other": {
     "category": "hostile",
     "stream": true,
     "sounds": [
-      "foxesmod:other/other1",
-      "foxesmod:other/other2",
-      "foxesmod:other/other3",
-      "foxesmod:other/other4",
-      "foxesmod:other/other5"
+      "foxesmod:event/other/other1",
+      "foxesmod:event/other/other2",
+      "foxesmod:event/other/other3",
+      "foxesmod:event/other/other4",
+      "foxesmod:event/other/other5"
     ]
   }
 }

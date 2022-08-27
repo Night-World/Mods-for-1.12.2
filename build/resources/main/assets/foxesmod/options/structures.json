@@ -1,32 +1,32 @@
 [
   {
-    "nbtFile": "nbt/bush/bush1",
-    "biome": 3,
-    "rarity": 30,
+    "nbtFile": "bush/bush1",
+    "biome": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],
+    "rarity": 10,
     "blockToGenOn": "GRASS"
   },
   {
-    "nbtFile": "nbt/bush/bush2",
-    "biome": 3,
+    "nbtFile": "bush/bush2",
+    "biome": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],
     "rarity": 70,
     "blockToGenOn": "GRASS"
   },
   {
-    "nbtFile": "nbt/bush/bush3",
-    "biome": 3,
-    "rarity": 50,
-    "blockToGenOn": "GRASS"
-  },
-  {
-    "nbtFile": "nbt/bush/bush4",
-    "biome": 3,
+    "nbtFile": "bush/bush3",
+    "biome": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],
     "rarity": 40,
     "blockToGenOn": "GRASS"
   },
   {
-    "nbtFile": "nbt/survivor_house",
-    "biome": 3,
-    "rarity": "250",
+    "nbtFile": "bush/bush4",
+    "biome": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],
+    "rarity": 20,
+    "blockToGenOn": "GRASS"
+  },
+  {
+    "nbtFile": "survivor_house",
+    "biome": [3,4,5,6,7,8,9],
+    "rarity": 450,
     "blockToGenOn": "GRASS"
   }
 ]
