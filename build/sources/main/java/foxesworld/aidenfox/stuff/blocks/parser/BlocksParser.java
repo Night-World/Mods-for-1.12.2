@@ -32,6 +32,7 @@ public class BlocksParser {
         };
         List<BlockAttributes> object = gson.fromJson(jsonIn, typeToken.getType());
         for (BlockAttributes obj : object) {
+            int dropAmmount = 1;
             String blockName = obj.getBlockName();
             Material blockMaterial = obj.getBlockMaterial().getType();
             SoundType blockSound = obj.getBlockSound().getSnd();
@@ -41,7 +42,10 @@ public class BlocksParser {
             float blockResistance = obj.getBlockResistance();
             boolean creatureSpawn = obj.getCreatureSpawn();
             String itemDrop = obj.getItemDrop();
-            new Blocks(blockName, blockMaterial, blockSound, blockHarvestTool, blockHarvestLevel, blockHardness, blockResistance, creatureSpawn, itemDrop) {};
+            if(!itemDrop.equals("")){
+                dropAmmount = obj.getDropAmmount();
+            }
+            new Blocks(blockName, blockMaterial, blockSound, blockHarvestTool, blockHarvestLevel, blockHardness, blockResistance, creatureSpawn, itemDrop, dropAmmount) {};
         }
     }
 }

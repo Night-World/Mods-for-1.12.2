@@ -8,7 +8,8 @@
     "blockHardness": 9.5,
     "blockResistance": 19.5,
     "creatureSpawn": false,
-    "itemDrop": "lapis_apple"
+    "itemDrop": "minecraft:coal",
+      "dropAmmount": 6
   },
   {
     "blockName": "hardened_dirt",

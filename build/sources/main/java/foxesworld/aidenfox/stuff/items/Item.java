@@ -11,7 +11,7 @@ import java.util.List;
 
 import static foxesworld.aidenfox.util.Utils.addLore;
 
-public abstract class Item extends net.minecraft.item.Item {
+public class Item extends net.minecraft.item.Item {
 
     private String itemName;
 
