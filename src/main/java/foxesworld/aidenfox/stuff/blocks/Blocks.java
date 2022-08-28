@@ -61,21 +61,6 @@ public abstract class Blocks extends Block {
             return false;
         }
     }
-/*
-    @Override
-    public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        Item item;
-        if (!this.itemDrop.equals("")) {
-            item = getByNameOrId(this.itemDrop);
-        } else {
-            item = Item.getItemFromBlock(this);
-        }
-        return item;
-    }
-
-    public int quantityDropped(IBlockState state, int fortune, Random random) {
-        return this.dropAmmount;//quantityDroppedWithBonus(fortune, random);
-    } */
 
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
@@ -87,7 +72,8 @@ public abstract class Blocks extends Block {
     }
 
     public int quantityDropped(IBlockState state, int fortune, Random random) {
-        return this.dropAmmount; //quantityDroppedWithBonus(fortune, random);
+        return this.dropAmmount;
+        //quantityDroppedWithBonus(fortune, random);
     }
 
     @Override
