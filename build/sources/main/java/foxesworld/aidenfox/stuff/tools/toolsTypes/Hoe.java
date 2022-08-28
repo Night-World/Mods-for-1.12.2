@@ -15,17 +15,15 @@ import static foxesworld.aidenfox.util.Utils.addLore;
 public class Hoe extends ItemHoe {
 
     private static String toolName;
-    //private static Boolean toolLore;
 
     public Hoe(String name, ToolMaterial material) {
         super(material);
         this.toolName = name;
-        //this.toolLore = lore;
         this.setRegistryName(Environment.MODID, name);
         this.setTranslationKey(name);
         this.setCreativeTab(CreativeTab.MOD_TAB);
 
-        Environment.ITEMS.add(this);
+        Environment.ITEMS.put(name, this);
     }
 
     @Override

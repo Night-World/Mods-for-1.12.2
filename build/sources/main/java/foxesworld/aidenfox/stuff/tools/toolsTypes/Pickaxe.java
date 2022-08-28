@@ -15,15 +15,17 @@ import static foxesworld.aidenfox.util.Utils.addLore;
 public class Pickaxe extends ItemPickaxe {
 
     private static String toolName;
+    private static ToolMaterial toolMaterial;
 
     public Pickaxe(String name, ToolMaterial material) {
         super(material);
         this.toolName = name;
+        this.toolMaterial = material;
         this.setRegistryName(Environment.MODID, name);
         this.setTranslationKey(name);
         this.setCreativeTab(CreativeTab.MOD_TAB);
 
-        Environment.ITEMS.add(this);
+        Environment.ITEMS.put(name, this);
     }
 
     @Override

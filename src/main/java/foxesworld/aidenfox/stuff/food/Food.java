@@ -29,7 +29,7 @@ public abstract class Food extends ItemFood {
         }
         this.setCreativeTab(CreativeTab.MOD_TAB);
 
-        Environment.ITEMS.add(this);
+        Environment.ITEMS.put(name, this);
     }
 
     @Override

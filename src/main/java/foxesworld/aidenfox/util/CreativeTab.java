@@ -18,6 +18,6 @@ public class CreativeTab extends CreativeTabs {
 
     @Override
     public ItemStack createIcon() {
-        return new ItemStack(ITEMS.get(0));
+        return new ItemStack(ITEMS.get("lapis_apple"));
     }
 }

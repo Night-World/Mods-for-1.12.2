@@ -1,10 +1,10 @@
 {
-  "event.action.success": {
+  "event.action.warn": {
     "category": "player",
     "stream": true,
     "sounds": [
-      "foxesmod:event/success/success1",
-      "foxesmod:event/success/success2"
+      "foxesmod:event/warn/warn1",
+      "foxesmod:event/warn/warn2"
     ]
   },
   "event.action.fail": {

@@ -1,10 +1,12 @@
 package foxesworld.aidenfox.stuff.tools.parser;
 
-import foxesworld.aidenfox.Content;
 import net.minecraft.item.Item;
 
+import static foxesworld.aidenfox.cfg.Environment.MATERIALS;
+
 public enum ToolMaterial {
-    DIRT_MATERIAL(Content.DIRT_MATERIAL),
+    DIRT_MATERIAL(MATERIALS.get("foxesmod:dirt")),
+    GRAVEL_MATERIAL(MATERIALS.get("foxesmod:gravel")),
     WOOD(Item.ToolMaterial.WOOD),
     STONE(Item.ToolMaterial.STONE),
     IRON(Item.ToolMaterial.IRON),

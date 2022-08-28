@@ -20,15 +20,17 @@ import static foxesworld.aidenfox.util.Utils.addLore;
 public class Axe extends ItemAxe {
 
     private String toolName;
+    private ToolMaterial toolMaterial;
 
     public Axe(String name, ToolMaterial material) {
         super(material, 2.0f, 3.2f);
         this.toolName = name;
+        this.toolMaterial = material;
         this.setTranslationKey(name);
         this.setRegistryName(Environment.MODID, name);
         this.setCreativeTab(CreativeTab.MOD_TAB);
 
-        Environment.ITEMS.add(this);
+        Environment.ITEMS.put(name, this);
     }
 
     @Override

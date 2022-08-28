@@ -2,6 +2,7 @@ package foxesworld.aidenfox;
 
 import foxesworld.aidenfox.cfg.ConfigCreator;
 import foxesworld.aidenfox.cfg.Environment;
+import foxesworld.aidenfox.material.parser.MaterialParser;
 import foxesworld.aidenfox.proxy.CommonProxy;
 import foxesworld.aidenfox.sounds.Sounds;
 import foxesworld.aidenfox.stuff.blocks.parser.BlocksParser;
@@ -29,27 +30,31 @@ public class main {
     public void preInit(FMLPreInitializationEvent event) {
         logger = event.getModLog();
         proxy.preInit(event);
+
         ConfigCreator cfg = new ConfigCreator(Environment.CFGNAME, event);
             cfg.initCfg();
 
         Sounds sounds = new Sounds("sounds.json", Environment.MODID);
             sounds.registerSounds();
 
+        MaterialParser materials= new MaterialParser("options/material.json", Environment.MODID);
+            materials.readTplFile();
+
         BlocksParser blockParser = new BlocksParser("options/blocks.json", Environment.MODID);
             blockParser.readTplFile();
 
         Tools toolsParser = new Tools("options/tools.json", Environment.MODID);
-        toolsParser.readTplFile();
+            toolsParser.readTplFile();
 
         Content content = new Content();
             content.registerItems();
             content.registerBlocks();
 
-        OreGenParser OreGenParser = new OreGenParser("options/oreGen.json", Environment.MODID);
-        OreGenParser.readTplFile();
-        //GameRegistry.registerWorldGenerator(new OreGen(), 3);
-        StructureParser StructureGenerator = new StructureParser("options/structures.json", Environment.MODID);
-            StructureGenerator.readTplFile();
+        OreGenParser oreGen = new OreGenParser("options/oreGen.json", Environment.MODID);
+            oreGen.readTplFile();
+
+        StructureParser structures = new StructureParser("options/structures.json", Environment.MODID);
+            structures.readTplFile();
     }
 
     @EventHandler

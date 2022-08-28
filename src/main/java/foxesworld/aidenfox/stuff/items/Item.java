@@ -21,7 +21,7 @@ public abstract class Item extends net.minecraft.item.Item {
         this.setTranslationKey(name);
         this.setCreativeTab(CreativeTab.MOD_TAB);
 
-        Environment.ITEMS.add(this);
+        Environment.ITEMS.put(name, this);
     }
 
     @Override

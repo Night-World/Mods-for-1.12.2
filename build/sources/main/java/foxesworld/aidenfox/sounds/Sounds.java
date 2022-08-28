@@ -2,7 +2,6 @@ package foxesworld.aidenfox.sounds;
 
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
-import com.google.gson.annotations.SerializedName;
 import foxesworld.aidenfox.cfg.Environment;
 import foxesworld.aidenfox.util.FileAsStream;
 import net.minecraft.util.ResourceLocation;
@@ -39,7 +38,7 @@ public class Sounds {
         }
     }
     private static SoundEvent regSnd(String id) {
-        debugSend("Registering sound " + id);
+        debugSend("Registering soundgroup " + id);
         ResourceLocation soundID = new ResourceLocation(Environment.MODID, id);
         return new SoundEvent(soundID).setRegistryName(soundID);
     }
@@ -52,32 +51,5 @@ public class Sounds {
                 event.getRegistry().register((SoundEvent) entry.getValue());
             }
         }
-    }
-
-    public class soundData {
-        public String packageName;
-        @SerializedName("category")
-        public String category;
-        @SerializedName("stream")
-        public Boolean stream;
-        @SerializedName("sounds")
-        public String[] sounds;
-
-        public String getPackageName(){
-            return packageName;
-        }
-
-        public String getCategory(){
-            return category;
-        }
-
-        public Boolean gertStream(){
-            return stream;
-        }
-
-        public String[] getSounds(){
-            return sounds;
-        }
-
     }
 }

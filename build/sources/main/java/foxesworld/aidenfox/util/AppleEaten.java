@@ -1,6 +1,5 @@
 package foxesworld.aidenfox.util;
 
-import foxesworld.aidenfox.cfg.ConfigCreator;
 import net.minecraft.entity.item.EntityExpBottle;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumParticleTypes;
@@ -21,7 +20,7 @@ public abstract class AppleEaten {
                         player.posX,
                         player.posY,
                         player.posZ,
-                        SOUNDS.get(ConfigCreator.onAppleEaten),
+                        SOUNDS.get("event.action.warn"),
                         SoundCategory.NEUTRAL,
                         1.5F, 1F);
 

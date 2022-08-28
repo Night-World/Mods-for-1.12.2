@@ -40,7 +40,8 @@ public class BlocksParser {
             float blockHardness = obj.getBlockHardness();
             float blockResistance = obj.getBlockResistance();
             boolean creatureSpawn = obj.getCreatureSpawn();
-            new Blocks(blockName, blockMaterial, blockSound, blockHarvestTool, blockHarvestLevel, blockHardness, blockResistance, creatureSpawn) {};
+            String itemDrop = obj.getItemDrop();
+            new Blocks(blockName, blockMaterial, blockSound, blockHarvestTool, blockHarvestLevel, blockHardness, blockResistance, creatureSpawn, itemDrop) {};
         }
     }
 }

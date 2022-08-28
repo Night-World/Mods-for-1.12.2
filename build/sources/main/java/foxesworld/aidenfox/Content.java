@@ -1,7 +1,6 @@
 package foxesworld.aidenfox;
 
 import foxesworld.aidenfox.cfg.Environment;
-import foxesworld.aidenfox.stuff.blocks.Blocks;
 import foxesworld.aidenfox.stuff.food.Food;
 import foxesworld.aidenfox.stuff.items.Item;
 import foxesworld.aidenfox.util.AppleEaten;
@@ -17,10 +16,10 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
-import static foxesworld.aidenfox.cfg.ConfigCreator.*;
+import java.util.Map;
+
 import static foxesworld.aidenfox.cfg.Environment.SOUNDS;
 import static foxesworld.aidenfox.util.Utils.debugSend;
 
@@ -33,11 +32,6 @@ public class Content {
     /*ITEMS*/
     public static net.minecraft.item.Item debug_item;
     public static net.minecraft.item.Item staff;
-
-    /*MATERIAL*/
-    public static final net.minecraft.item.Item.ToolMaterial DIRT_MATERIAL
-            = EnumHelper.addToolMaterial("foxesmod:dirt", materialHarvestLevel, 56, materialEfficiency, materialDamage, materialEnchantability)
-            .setRepairItem(new ItemStack(Blocks.getBlockFromName(fixMaterial), fixMaterialAmmount, fixMaterialMeta));
 
     public Content() {
 
@@ -71,15 +65,26 @@ public class Content {
         };
     }
 
-    public static void registerItems() {
-        for (net.minecraft.item.Item item : Environment.ITEMS) {
-            final ResourceLocation regName = item.getRegistryName();
+   public static void registerItems() {
+        //for (net.minecraft.item.Item item : Environment.ITEMS) {
+        for (Map.Entry entry : Environment.ITEMS.entrySet()) {
+            net.minecraft.item.Item thisItem = (net.minecraft.item.Item) entry.getValue();
+            final ResourceLocation regName = thisItem.getRegistryName();
             final ModelResourceLocation mrl = new ModelResourceLocation(regName, "inventory");
-            ForgeRegistries.ITEMS.registerAll(item);
-            ModelBakery.registerItemVariants(item, mrl);
-            ModelLoader.setCustomModelResourceLocation(item, 0, mrl);
+            ForgeRegistries.ITEMS.registerAll(thisItem);
+            ModelBakery.registerItemVariants(thisItem, mrl);
+            ModelLoader.setCustomModelResourceLocation(thisItem, 0, mrl);
         }
     }
+ /*  public static void registerItems() {
+     for (net.minecraft.item.Item item : Environment.ITEMS) {
+         final ResourceLocation regName = item.getRegistryName();
+         final ModelResourceLocation mrl = new ModelResourceLocation(regName, "inventory");
+         ForgeRegistries.ITEMS.registerAll(item);
+         ModelBakery.registerItemVariants(item, mrl);
+         ModelLoader.setCustomModelResourceLocation(item, 0, mrl);
+     }
+ }*/
 
     public static void registerBlocks() {
         for (Block block : Environment.BLOCKS) {

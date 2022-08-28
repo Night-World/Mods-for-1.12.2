@@ -12,9 +12,6 @@ public class ConfigCreator {
     private static String cfgName = "hardtools.cfg";
     private static final String CATEGORY_GENERAL = "General";
     private static final String CATEGORY_WORLDGEN= "WorldGen";
-    private static final String CATEGORY_SOUNDS = "Sounds";
-
-
 
     /*TOOLS*/
     public static float materialEfficiency = 2.8F;
@@ -28,8 +25,6 @@ public class ConfigCreator {
     /*GENERATIONS*/
     public static boolean genStructures = true;
 
-    /*SOUNDS */
-    public static String onAppleEaten = "event.action.success";
     public ConfigCreator(String cfgName, FMLPreInitializationEvent e){
         this.cfgName = cfgName;
         CommonProxy.config = new Configuration(new File(e.getModConfigurationDirectory().getPath(), ConfigCreator.cfgName));
@@ -61,9 +56,6 @@ public class ConfigCreator {
         fixMaterial = cfg.getString("fixMaterial", CATEGORY_GENERAL, "DIRT", "Material to fix your tool");
         fixMaterialMeta = cfg.getInt("fixMaterialMeta", CATEGORY_GENERAL, 1, 0, 255, "Meta of your fix material");
         fixMaterialAmmount = cfg.getInt("fixMaterialAmmount", CATEGORY_GENERAL, 8, 1, 255, "Ammount of material to fix");
-
-        cfg.addCustomCategoryComment(CATEGORY_SOUNDS, "Sound configuration (Alpha (Will be removed))");
-        onAppleEaten = cfg.getString("onAppleEaten", CATEGORY_SOUNDS, "event.action.success", "Sound when eaten an apple");
 
         cfg.addCustomCategoryComment(CATEGORY_WORLDGEN, "WorldGeneration configuration");
         genStructures = cfg.getBoolean("genStructures", CATEGORY_WORLDGEN, true, "Generate structures in world");

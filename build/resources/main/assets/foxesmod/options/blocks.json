@@ -7,7 +7,8 @@
     "blockHarvestLevel": 2,
     "blockHardness": 9.5,
     "blockResistance": 19.5,
-    "creatureSpawn": false
+    "creatureSpawn": false,
+    "itemDrop": "lapis_apple"
   },
   {
     "blockName": "hardened_dirt",
@@ -17,7 +18,8 @@
     "blockHarvestLevel": 1,
     "blockHardness": 2.0,
     "blockResistance": 5.0,
-    "creatureSpawn": false
+    "creatureSpawn": false,
+    "itemDrop": ""
   },
   {
     "blockName": "hardened_gravel",
@@ -27,7 +29,8 @@
     "blockHarvestLevel": 1,
     "blockHardness": 4.0,
     "blockResistance": 6.0,
-    "creatureSpawn": false
+    "creatureSpawn": false,
+    "itemDrop": ""
   },
   {
     "blockName": "marble_raw",
@@ -37,7 +40,8 @@
     "blockHarvestLevel": 1,
     "blockHardness": 2.8,
     "blockResistance": 6.0,
-    "creatureSpawn": false
+    "creatureSpawn": false,
+    "itemDrop": ""
   },
   {
     "blockName": "marble_bricks",
@@ -47,6 +51,7 @@
     "blockHarvestLevel": 3,
     "blockHardness": 9.0,
     "blockResistance": 18.0,
-    "creatureSpawn": false
+    "creatureSpawn": false,
+    "itemDrop": ""
   }
 ]

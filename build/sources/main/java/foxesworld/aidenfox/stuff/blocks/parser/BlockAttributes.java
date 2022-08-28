@@ -11,6 +11,7 @@ public class BlockAttributes {
     private float blockHardness;
     private float blockResistance;
     private boolean creatureSpawn;
+    private String itemDrop;
 
     public String getBlockName() {
         return blockName;
@@ -41,4 +42,6 @@ public class BlockAttributes {
     }
 
     public boolean getCreatureSpawn(){return  creatureSpawn;}
+
+    public String getItemDrop(){ return  itemDrop;}
 }

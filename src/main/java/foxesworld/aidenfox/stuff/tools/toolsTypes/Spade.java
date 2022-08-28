@@ -23,7 +23,7 @@ public class Spade extends ItemSpade {
         this.setTranslationKey(name);
         this.setCreativeTab(CreativeTab.MOD_TAB);
 
-        Environment.ITEMS.add(this);
+        Environment.ITEMS.put(name, this);
     }
 
     @Override

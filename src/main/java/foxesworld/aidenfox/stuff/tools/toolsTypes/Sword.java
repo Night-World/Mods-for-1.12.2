@@ -24,7 +24,7 @@ public class Sword extends ItemSword {
         this.setTranslationKey(name);
         this.setCreativeTab(CreativeTab.MOD_TAB);
 
-        Environment.ITEMS.add(this);
+        Environment.ITEMS.put(name, this);
     }
 
     @Override
