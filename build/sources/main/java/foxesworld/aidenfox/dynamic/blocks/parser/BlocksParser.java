@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import foxesworld.aidenfox.cfg.Environment;
 import foxesworld.aidenfox.dynamic.blocks.Blocks;
-import foxesworld.aidenfox.util.FileAsStream;
+import foxesworld.aidenfox.methods.FileAsStream;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 

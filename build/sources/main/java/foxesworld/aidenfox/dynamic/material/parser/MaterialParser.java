@@ -20,7 +20,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import foxesworld.aidenfox.cfg.Environment;
 import foxesworld.aidenfox.dynamic.material.Material;
-import foxesworld.aidenfox.util.FileAsStream;
+import foxesworld.aidenfox.methods.FileAsStream;
 
 import java.util.List;
 

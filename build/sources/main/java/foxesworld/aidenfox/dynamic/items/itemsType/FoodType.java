@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022  ItemItem by FoxesWorld
+ * Copyright (c) 2022  ItemFood by FoxesWorld
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,32 +16,49 @@
 
 package foxesworld.aidenfox.dynamic.items.itemsType;
 
+import foxesworld.aidenfox.cfg.CreativeTab;
 import foxesworld.aidenfox.cfg.Environment;
-import foxesworld.aidenfox.util.CreativeTab;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 import java.util.List;
 
-import static foxesworld.aidenfox.util.Utils.addLore;
+import static foxesworld.aidenfox.methods.Utils.addLore;
 
-public abstract class ItemItem extends net.minecraft.item.Item {
+public class FoodType extends ItemFood {
 
     private String itemName;
+    private String onEatenEffect;
 
-    public ItemItem (String name) {
+
+    public FoodType(String name, int amount, float saturation, boolean isWolfFood, boolean alwaysEdible, String onEatenEffect) {
+        super(amount, saturation, isWolfFood);
         this.itemName = name;
-        this.setRegistryName(Environment.MODID, name);
+        this.onEatenEffect = onEatenEffect;
         this.setTranslationKey(name);
+        this.setRegistryName(Environment.MODID, name);
+        if (alwaysEdible) {
+            this.setAlwaysEdible();
+        }
         this.setCreativeTab(CreativeTab.MOD_TAB);
 
         Environment.ITEMS.put(name, this);
     }
 
     @Override
+    protected void onFoodEaten(ItemStack item, World world, EntityPlayer player) {
+        if (!onEatenEffect.equals("")) {
+            player.sendMessage(new TextComponentString(onEatenEffect));
+        }
+    }
+
+    @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-        addLore(this.itemName,"item", tooltip);
+        addLore(this.itemName, "item", tooltip);
     }
 }

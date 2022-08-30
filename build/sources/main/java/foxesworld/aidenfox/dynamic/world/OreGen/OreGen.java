@@ -29,7 +29,7 @@ import net.minecraftforge.fml.common.IWorldGenerator;
 
 import java.util.Random;
 
-import static foxesworld.aidenfox.util.Utils.debugSend;
+import static foxesworld.aidenfox.methods.Utils.debugSend;
 
 public class OreGen implements IWorldGenerator {
 

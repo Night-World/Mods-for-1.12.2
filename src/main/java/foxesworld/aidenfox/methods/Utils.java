@@ -1,4 +1,4 @@
-package foxesworld.aidenfox.util;
+package foxesworld.aidenfox.methods;
 
 import foxesworld.aidenfox.cfg.ConfigCreator;
 import net.minecraft.block.state.IBlockState;
@@ -49,13 +49,24 @@ public class Utils {
         }
     }
 
-    public void debugStuff(World worldIn, EntityPlayer playerIn){
-        worldIn.playSound((EntityPlayer) playerIn,
-                playerIn.posX,
-                playerIn.posY,
-                playerIn.posZ,
-                SOUNDS.get("event.action.other"),
-                SoundCategory.NEUTRAL,
-                1.5F, 1F);
+    public static void playFoxesSound(World worldIn, EntityPlayer playerIn, String snd){
+        Thread sndPlay = new Thread(new Runnable() {
+            public void run() {
+                worldIn.playSound((EntityPlayer) playerIn,
+                        playerIn.posX,
+                        playerIn.posY,
+                        playerIn.posZ,
+                        SOUNDS.get(snd),
+                        SoundCategory.NEUTRAL,
+                        1.5F, 1F);
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        sndPlay.start();
+
     }
 }

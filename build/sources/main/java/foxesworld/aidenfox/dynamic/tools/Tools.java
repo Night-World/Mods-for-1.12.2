@@ -5,7 +5,7 @@ import com.google.gson.stream.JsonReader;
 import foxesworld.aidenfox.cfg.Environment;
 import foxesworld.aidenfox.dynamic.tools.parser.ToolAttributes;
 import foxesworld.aidenfox.dynamic.tools.toolsTypes.*;
-import foxesworld.aidenfox.util.FileAsStream;
+import foxesworld.aidenfox.methods.FileAsStream;
 import net.minecraft.item.Item;
 
 import java.io.StringReader;

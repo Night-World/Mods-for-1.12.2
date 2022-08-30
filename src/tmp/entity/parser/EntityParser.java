@@ -19,7 +19,7 @@ package foxesworld.aidenfox.deprecated.entity.parser;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import foxesworld.aidenfox.deprecated.entity.MobEntity;
-import foxesworld.aidenfox.util.FileAsStream;
+import foxesworld.aidenfox.methods.FileAsStream;
 import net.minecraft.entity.Entity;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;

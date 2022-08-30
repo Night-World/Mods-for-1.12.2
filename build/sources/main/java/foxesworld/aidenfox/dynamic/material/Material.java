@@ -21,7 +21,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.EnumHelper;
 
 import static foxesworld.aidenfox.cfg.Environment.MATERIALS;
-import static foxesworld.aidenfox.util.Utils.debugSend;
+import static foxesworld.aidenfox.methods.Utils.debugSend;
 
 public class Material {
     String materialName;

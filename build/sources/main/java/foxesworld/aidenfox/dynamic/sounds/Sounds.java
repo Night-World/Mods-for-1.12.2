@@ -3,7 +3,7 @@ package foxesworld.aidenfox.dynamic.sounds;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import foxesworld.aidenfox.cfg.Environment;
-import foxesworld.aidenfox.util.FileAsStream;
+import foxesworld.aidenfox.methods.FileAsStream;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraftforge.event.RegistryEvent;
@@ -13,7 +13,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import java.util.HashMap;
 import java.util.Map;
 
-import static foxesworld.aidenfox.util.Utils.debugSend;
+import static foxesworld.aidenfox.methods.Utils.debugSend;
 
 public class Sounds {
 

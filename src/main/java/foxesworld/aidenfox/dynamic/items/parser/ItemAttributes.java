@@ -20,12 +20,15 @@ public class ItemAttributes {
     String itemName;
     String itemType;
 
-
+    /*ITEM*/
     String onItemRightClick;
+
+    /*Food*/
     int amount;
     float saturation;
     boolean isWolfFood;
     boolean alwaysEdible;
+    String onEatenEffect;
 
     public String getName() {
         return itemName;
@@ -53,5 +56,9 @@ public class ItemAttributes {
 
     public boolean isAlwaysEdible() {
         return alwaysEdible;
+    }
+
+    public String getOnEatenEffect() {
+        return onEatenEffect;
     }
 }

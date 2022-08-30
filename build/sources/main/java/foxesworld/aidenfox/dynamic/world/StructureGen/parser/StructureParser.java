@@ -19,12 +19,12 @@ package foxesworld.aidenfox.dynamic.world.StructureGen.parser;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 import foxesworld.aidenfox.cfg.Environment;
-import foxesworld.aidenfox.util.FileAsStream;
+import foxesworld.aidenfox.methods.FileAsStream;
 import net.minecraft.block.Block;
 
 import java.io.StringReader;
 
-import static foxesworld.aidenfox.util.Utils.debugSend;
+import static foxesworld.aidenfox.methods.Utils.debugSend;
 
 public class StructureParser {
 

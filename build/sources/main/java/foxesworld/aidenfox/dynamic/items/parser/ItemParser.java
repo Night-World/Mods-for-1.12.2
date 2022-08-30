@@ -18,11 +18,13 @@ package foxesworld.aidenfox.dynamic.items.parser;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import foxesworld.aidenfox.dynamic.items.itemsType.FoodItem;
-import foxesworld.aidenfox.dynamic.items.itemsType.ItemItem;
-import foxesworld.aidenfox.util.FileAsStream;
+import foxesworld.aidenfox.dynamic.items.itemsType.FoodType;
+import foxesworld.aidenfox.dynamic.items.itemsType.ItemType;
+import foxesworld.aidenfox.methods.FileAsStream;
 
 import java.util.List;
+
+import static foxesworld.aidenfox.methods.Utils.debugSend;
 
 public class ItemParser {
 
@@ -47,28 +49,13 @@ public class ItemParser {
         };
         List<ItemAttributes> object = gson.fromJson(jsonIn, typeToken.getType());
         for (ItemAttributes obj : object) {
+            ItemType item;
+            FoodType food;
             String itemName = obj.getName();
             switch (obj.getItemType()) {
                 case "item":
-                    //String onRightClick = obj.getOnItemRightClick();
-                    final ItemItem item = new ItemItem(itemName) {
-                            /*
-                        @Override
-                        public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand hand) {
-                            if(!onRightClick.equals("")){
-                                Class<?> classObj = onRightClick.getClass();
-                                Method method;
-                                try {
-                                    method = Utils.class.getMethod(onRightClick, null);
-                                    method.invoke(classObj, null);
-                                } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
-                                    e.printStackTrace();
-                                }
-                                return super.onItemRightClick(worldIn, playerIn, hand);
-                        }
-                            return null;
-                        } */
-                    };
+                    String onRightClick = obj.getOnItemRightClick();
+                    item = new ItemType(itemName, onRightClick);
                     break;
 
                 case "food":
@@ -76,11 +63,11 @@ public class ItemParser {
                     float saturation = obj.getSaturation();
                     boolean isWolfFood = obj.isWolfFood;
                     boolean alwaysEdible = obj.isAlwaysEdible();
-                    final FoodItem food = new FoodItem(itemName, amount, saturation, isWolfFood, alwaysEdible) {
-                    };
+                    String onEatenEffect = obj.getOnEatenEffect();
+                    food = new FoodType(itemName, amount, saturation, isWolfFood, alwaysEdible, onEatenEffect);
                     break;
                 default:
-                    throw new IllegalStateException("Unexpected value: " + obj.getItemType());
+                    debugSend("Unexpected value: " + obj.getItemType());
             }
         }
     }

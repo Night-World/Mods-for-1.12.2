@@ -17,9 +17,9 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Random;
 
-import static foxesworld.aidenfox.util.CreativeTab.MOD_TAB;
-import static foxesworld.aidenfox.util.Utils.addLore;
-import static foxesworld.aidenfox.util.Utils.debugSend;
+import static foxesworld.aidenfox.cfg.CreativeTab.MOD_TAB;
+import static foxesworld.aidenfox.methods.Utils.addLore;
+import static foxesworld.aidenfox.methods.Utils.debugSend;
 import static net.minecraft.item.Item.getByNameOrId;
 
 public abstract class Blocks extends Block {

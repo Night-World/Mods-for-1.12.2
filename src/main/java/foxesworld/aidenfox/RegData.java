@@ -10,7 +10,7 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 import java.util.Map;
 
-import static foxesworld.aidenfox.util.Utils.debugSend;
+import static foxesworld.aidenfox.methods.Utils.debugSend;
 
 public class RegData {
 

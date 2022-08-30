@@ -2,12 +2,12 @@
   {
     "itemName": "staff",
     "itemType": "item",
-    "onItemRightClick": ""
+    "onItemRightClick": "send->Not ready"
   },
   {
     "itemName":"debug_item",
     "itemType": "item",
-    "onItemRightClick": "debugStuff"
+    "onItemRightClick": "playFoxesSound->event.action.other"
   },
   {
     "itemName": "lapis_apple",
@@ -15,6 +15,7 @@
     "amount": 4,
     "saturation": 1,
     "isWolfFood": false,
-    "alwaysEdible":true
+    "alwaysEdible":true,
+    "onEatenEffect": "foxesworld.aidenfox.util.AppleEaten.AppleEaten"
   }
 ]

@@ -1,4 +1,4 @@
-package foxesworld.aidenfox.util;
+package foxesworld.aidenfox.methods;
 
 import java.io.BufferedReader;
 import java.io.IOException;

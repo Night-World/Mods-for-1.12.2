@@ -1,4 +1,4 @@
-package foxesworld.aidenfox.util;
+package foxesworld.aidenfox.methods;
 
 import net.minecraft.entity.item.EntityExpBottle;
 import net.minecraft.entity.player.EntityPlayer;
