@@ -57,7 +57,9 @@ public class FoodType extends ItemFood {
         if (!onEatenEffect.equals("")) {
             player.sendMessage(new TextComponentString(onEatenEffect));
         }
-        player.getCooldownTracker().setCooldown(this, this.actionCoolDown);
+        if (!player.isCreative()) {
+            player.getCooldownTracker().setCooldown(this, this.actionCoolDown);
+        }
     }
 
     @Override

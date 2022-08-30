@@ -36,7 +36,7 @@ public class ItemType extends net.minecraft.item.Item {
 
     private String itemName;
     private String onRightClick;
-    private  int actionCoolDown;
+    private int actionCoolDown;
 
     public ItemType(String name, String onRightClick, int actionCoolDown) {
         this.itemName = name;
@@ -60,7 +60,9 @@ public class ItemType extends net.minecraft.item.Item {
             String[] onClickData = this.onRightClick.split("->");
             ItemActions itemAction = new ItemActions(onClickData[0], onClickData[1], world, player, itemHeld);
             itemAction.performAction();
-            player.getCooldownTracker().setCooldown(this, this.actionCoolDown);
+            if (!player.isCreative()) {
+                player.getCooldownTracker().setCooldown(this, this.actionCoolDown);
+            }
         }
         return new ActionResult(EnumActionResult.PASS, player.getHeldItem(itemHeld));
     }

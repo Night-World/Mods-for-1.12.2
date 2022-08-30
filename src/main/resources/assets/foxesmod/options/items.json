@@ -2,8 +2,8 @@
   {
     "itemName": "staff",
     "itemType": "item",
-    "onItemRightClick": "send->Not ready",
-    "actionCoolDown": 4
+    "onItemRightClick": "thor->FLAME",
+    "actionCoolDown": 30
   },
   {
     "itemName":"debug_item",
