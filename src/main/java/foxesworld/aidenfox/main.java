@@ -2,13 +2,14 @@ package foxesworld.aidenfox;
 
 import foxesworld.aidenfox.cfg.ConfigCreator;
 import foxesworld.aidenfox.cfg.Environment;
-import foxesworld.aidenfox.material.parser.MaterialParser;
+import foxesworld.aidenfox.dynamic.blocks.parser.BlocksParser;
+import foxesworld.aidenfox.dynamic.items.Item;
+import foxesworld.aidenfox.dynamic.material.parser.MaterialParser;
+import foxesworld.aidenfox.dynamic.sounds.Sounds;
+import foxesworld.aidenfox.dynamic.tools.Tools;
+import foxesworld.aidenfox.dynamic.world.OreGen.parser.OreGenParser;
+import foxesworld.aidenfox.dynamic.world.StructureGen.parser.StructureParser;
 import foxesworld.aidenfox.proxy.CommonProxy;
-import foxesworld.aidenfox.sounds.Sounds;
-import foxesworld.aidenfox.stuff.blocks.parser.BlocksParser;
-import foxesworld.aidenfox.stuff.tools.Tools;
-import foxesworld.aidenfox.world.OreGen.parser.OreGenParser;
-import foxesworld.aidenfox.world.StructureGen.parser.StructureParser;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -34,26 +35,28 @@ public class main {
         ConfigCreator cfg = new ConfigCreator(Environment.CFGNAME, event);
             cfg.initCfg();
 
-        Sounds sounds = new Sounds("sounds.json", Environment.MODID);
+        Sounds sounds = new Sounds("sounds.json");
             sounds.registerSounds();
 
-        MaterialParser materials= new MaterialParser("options/material.json", Environment.MODID);
+        MaterialParser materials= new MaterialParser("options/material.json");
             materials.readTplFile();
 
-        BlocksParser blockParser = new BlocksParser("options/blocks.json", Environment.MODID);
+        BlocksParser blockParser = new BlocksParser("options/blocks.json");
             blockParser.readTplFile();
 
-        Tools toolsParser = new Tools("options/tools.json", Environment.MODID);
+        Tools toolsParser = new Tools("options/tools.json");
             toolsParser.readTplFile();
 
-        Content content = new Content();
-            content.registerItems();
-            content.registerBlocks();
+            Item item = new Item("options/items.json");
 
-        OreGenParser oreGen = new OreGenParser("options/oreGen.json", Environment.MODID);
+        RegData data = new RegData();
+            data.regItems();
+            data.regBlocks();
+
+        OreGenParser oreGen = new OreGenParser("options/oreGen.json");
             oreGen.readTplFile();
 
-        StructureParser structures = new StructureParser("options/structures.json", Environment.MODID);
+        StructureParser structures = new StructureParser("options/structures.json");
             structures.readTplFile();
     }
 

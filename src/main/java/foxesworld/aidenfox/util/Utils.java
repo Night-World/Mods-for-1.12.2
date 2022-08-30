@@ -2,7 +2,9 @@ package foxesworld.aidenfox.util;
 
 import foxesworld.aidenfox.cfg.ConfigCreator;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
@@ -10,6 +12,7 @@ import net.minecraft.world.World;
 import java.util.List;
 import java.util.Random;
 
+import static foxesworld.aidenfox.cfg.Environment.SOUNDS;
 import static foxesworld.aidenfox.main.logger;
 
 public class Utils {
@@ -44,5 +47,15 @@ public class Utils {
                     0,
                     new int[0]);
         }
+    }
+
+    public void debugStuff(World worldIn, EntityPlayer playerIn){
+        worldIn.playSound((EntityPlayer) playerIn,
+                playerIn.posX,
+                playerIn.posY,
+                playerIn.posZ,
+                SOUNDS.get("event.action.other"),
+                SoundCategory.NEUTRAL,
+                1.5F, 1F);
     }
 }

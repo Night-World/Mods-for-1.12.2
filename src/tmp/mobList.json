@@ -1,0 +1,18 @@
+[
+  {
+    "FOLLOW_RANGE": 1.0,
+    "MOVEMENT_SPEED": 1.5,
+    "ATTACK_DAMAGE": 2.5,
+    "ARMOR": 5.0,
+    "ARMOR_TOUGHNESS": 1.0,
+    "EntityAIAttackMeleeNum": 1.0,
+    "EntityAIAttackMeleeBool": true,
+    "EntityAIWanderDistance":2.8,
+    "EntityAISwimming": true,
+    "EntityAIWatchClosest": "EntityPlayer.class",
+    "EntityAIWatchClosestDistance": 8.0,
+    "EntityAILookIdle":false,
+    "EntityAIHurtByTarget":["EntityZombie.class", "EntityPlayer.class"],
+    "MaxSpawnedInChunk": 25
+  }
+]

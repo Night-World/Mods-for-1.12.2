@@ -1,0 +1,20 @@
+[
+  {
+    "itemName": "staff",
+    "itemType": "item",
+    "onItemRightClick": ""
+  },
+  {
+    "itemName":"debug_item",
+    "itemType": "item",
+    "onItemRightClick": "debugStuff"
+  },
+  {
+    "itemName": "lapis_apple",
+    "itemType": "food",
+    "amount": 4,
+    "saturation": 1,
+    "isWolfFood": false,
+    "alwaysEdible":true
+  }
+]
