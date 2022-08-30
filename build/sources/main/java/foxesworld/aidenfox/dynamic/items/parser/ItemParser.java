@@ -45,6 +45,7 @@ public class ItemParser {
 
     private void readFromJson(String jsonIn) {
         gson = new Gson();
+        int actionCoolDown = 0;
         TypeToken<List<ItemAttributes>> typeToken = new TypeToken<List<ItemAttributes>>() {
         };
         List<ItemAttributes> object = gson.fromJson(jsonIn, typeToken.getType());
@@ -55,7 +56,10 @@ public class ItemParser {
             switch (obj.getItemType()) {
                 case "item":
                     String onRightClick = obj.getOnItemRightClick();
-                    item = new ItemType(itemName, onRightClick);
+                    if(!onRightClick.equals("")){
+                        actionCoolDown = obj.getActionCoolDown();
+                    }
+                    item = new ItemType(itemName, onRightClick, actionCoolDown);
                     break;
 
                 case "food":
@@ -64,7 +68,10 @@ public class ItemParser {
                     boolean isWolfFood = obj.isWolfFood;
                     boolean alwaysEdible = obj.isAlwaysEdible();
                     String onEatenEffect = obj.getOnEatenEffect();
-                    food = new FoodType(itemName, amount, saturation, isWolfFood, alwaysEdible, onEatenEffect);
+                    if(!onEatenEffect.equals("")){
+                        actionCoolDown = obj.getActionCoolDown();
+                    }
+                    food = new FoodType(itemName, amount, saturation, isWolfFood, alwaysEdible, onEatenEffect, actionCoolDown);
                     break;
                 default:
                     debugSend("Unexpected value: " + obj.getItemType());

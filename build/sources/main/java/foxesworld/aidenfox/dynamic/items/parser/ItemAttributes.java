@@ -20,6 +20,9 @@ public class ItemAttributes {
     String itemName;
     String itemType;
 
+
+    int actionCoolDown;
+
     /*ITEM*/
     String onItemRightClick;
 
@@ -34,12 +37,16 @@ public class ItemAttributes {
         return itemName;
     }
 
-    public String getOnItemRightClick() {
-        return onItemRightClick;
+    public int getActionCoolDown() {
+        return actionCoolDown;
     }
 
-    public String getItemType(){
+    public String getItemType() {
         return itemType;
+    }
+
+    public String getOnItemRightClick() {
+        return onItemRightClick;
     }
 
     public int getAmount() {

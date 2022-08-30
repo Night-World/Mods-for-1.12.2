@@ -8,7 +8,11 @@ import net.minecraft.world.World;
 
 import static foxesworld.aidenfox.cfg.Environment.SOUNDS;
 
-public abstract class AppleEaten {
+public class AppleEaten {
+
+    public AppleEaten(){
+
+    }
 
     private Thread appleEaten;
 

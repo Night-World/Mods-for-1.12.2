@@ -18,29 +18,30 @@ package foxesworld.aidenfox.dynamic.items.itemsType;
 
 import foxesworld.aidenfox.cfg.CreativeTab;
 import foxesworld.aidenfox.cfg.Environment;
+import foxesworld.aidenfox.dynamic.items.itemsType.actions.ItemActions;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 import java.util.List;
 
 import static foxesworld.aidenfox.methods.Utils.addLore;
-import static foxesworld.aidenfox.methods.Utils.playFoxesSound;
 
 public class ItemType extends net.minecraft.item.Item {
 
     private String itemName;
-    private  String onRightClick;
+    private String onRightClick;
+    private  int actionCoolDown;
 
-    public ItemType(String name, String onRightClick) {
+    public ItemType(String name, String onRightClick, int actionCoolDown) {
         this.itemName = name;
         this.onRightClick = onRightClick;
+        this.actionCoolDown = actionCoolDown;
         this.setRegistryName(Environment.MODID, name);
         this.setTranslationKey(name);
         this.setCreativeTab(CreativeTab.MOD_TAB);
@@ -50,30 +51,18 @@ public class ItemType extends net.minecraft.item.Item {
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-        addLore(this.itemName,"item", tooltip);
+        addLore(this.itemName, "item", tooltip);
     }
 
     @Override
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand itemHeld) {
-        if(!this.onRightClick.equals("")){
+        if (!this.onRightClick.equals("")) {
             String[] onClickData = this.onRightClick.split("->");
-            onClickActions(onClickData[0], onClickData[1], world, player, itemHeld);
+            ItemActions itemAction = new ItemActions(onClickData[0], onClickData[1], world, player, itemHeld);
+            itemAction.performAction();
+            player.getCooldownTracker().setCooldown(this, this.actionCoolDown);
         }
         return new ActionResult(EnumActionResult.PASS, player.getHeldItem(itemHeld));
     }
 
-    private void onClickActions(String actionType, String action, World world, EntityPlayer player, EnumHand itemHeld){
-     switch(actionType){
-         case "send":
-             player.sendMessage(new TextComponentString(action));
-             break;
-
-         case "playFoxesSound":
-             playFoxesSound(world, player, action);
-             break;
-
-         default:
-             player.sendMessage(new TextComponentString("Unknown action '" + actionType+"'"));
-     }
-    }
 }

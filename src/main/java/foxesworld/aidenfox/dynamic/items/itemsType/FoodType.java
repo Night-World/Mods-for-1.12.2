@@ -34,12 +34,14 @@ public class FoodType extends ItemFood {
 
     private String itemName;
     private String onEatenEffect;
+    private int actionCoolDown;
 
 
-    public FoodType(String name, int amount, float saturation, boolean isWolfFood, boolean alwaysEdible, String onEatenEffect) {
+    public FoodType(String name, int amount, float saturation, boolean isWolfFood, boolean alwaysEdible, String onEatenEffect, int actionCoolDown) {
         super(amount, saturation, isWolfFood);
         this.itemName = name;
         this.onEatenEffect = onEatenEffect;
+        this.actionCoolDown = actionCoolDown;
         this.setTranslationKey(name);
         this.setRegistryName(Environment.MODID, name);
         if (alwaysEdible) {
@@ -55,6 +57,7 @@ public class FoodType extends ItemFood {
         if (!onEatenEffect.equals("")) {
             player.sendMessage(new TextComponentString(onEatenEffect));
         }
+        player.getCooldownTracker().setCooldown(this, this.actionCoolDown);
     }
 
     @Override

@@ -2,12 +2,14 @@
   {
     "itemName": "staff",
     "itemType": "item",
-    "onItemRightClick": "send->Not ready"
+    "onItemRightClick": "send->Not ready",
+    "actionCoolDown": 4
   },
   {
     "itemName":"debug_item",
     "itemType": "item",
-    "onItemRightClick": "playFoxesSound->event.action.other"
+    "onItemRightClick": "playFoxesSound->event.action.other",
+    "actionCoolDown": 50
   },
   {
     "itemName": "lapis_apple",
@@ -16,6 +18,7 @@
     "saturation": 1,
     "isWolfFood": false,
     "alwaysEdible":true,
-    "onEatenEffect": "foxesworld.aidenfox.util.AppleEaten.AppleEaten"
+    "onEatenEffect": "foxesworld.aidenfox.util.AppleEaten.AppleEaten",
+    "actionCoolDown": 90
   }
 ]
