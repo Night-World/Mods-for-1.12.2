@@ -40,6 +40,7 @@ public class Tools {
             toolCreator(toolName, toolType, toolMaterial);
         }
     }
+
     private void toolCreator(String toolName, String toolType, Item.ToolMaterial toolMaterial) {
         switch (toolType) {
             case "Axe":

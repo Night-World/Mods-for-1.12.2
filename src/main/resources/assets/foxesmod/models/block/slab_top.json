@@ -1,9 +1,0 @@
-{
-  "parent": "block/upper_slab",
-  "textures":
-  {
-    "bottom": "tutorial:blocks/hardened_block",
-    "top": "tutorial:blocks/hardened_block",
-    "side": "tutorial:blocks/hardened_block"
-  }
-}

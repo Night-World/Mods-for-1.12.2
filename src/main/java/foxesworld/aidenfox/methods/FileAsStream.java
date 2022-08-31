@@ -1,28 +1,39 @@
 package foxesworld.aidenfox.methods;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 
 public class FileAsStream {
 
 
     private InputStream fileContents;
     private String fullPath;
+    private String fileName;
     private String modDir;
     private final String pathRoot = "assets/";
 
     public FileAsStream(String filePath, String ModDir) {
         this.modDir = ModDir;
-        this.fullPath = this.pathRoot + this.modDir +"/"+  filePath;
+        this.fileName = filePath;
+        this.fullPath = this.pathRoot + this.modDir + "/" + filePath;
         this.getFileAsIOStream();
     }
 
-    private void  getFileAsIOStream() {
-        //if(this.fullPath.contains("json") {
-        //  Read or copy - WIP!!!
-        // }
+    private void getFileAsIOStream() {
+        /*
+        if (this.fullPath.contains("json")) {
+            if (!new File(this.fullPath).exists()) {
+                try {
+                    try (Writer writer = new BufferedWriter(new OutputStreamWriter(
+                            new FileOutputStream(this.modDir + File.separator + this.fileName), "utf-8"))) {
+                        writer.write("something");
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+              Read or copy - WIP!!!
+        }
+        */
         InputStream ioStream = this.getClass()
                 .getClassLoader()
                 .getResourceAsStream(this.fullPath);
@@ -40,7 +51,7 @@ public class FileAsStream {
                  BufferedReader br = new BufferedReader(isr);) {
                 String line;
                 while ((line = br.readLine()) != null) {
-                    returnText+=line.replace("   ", "");
+                    returnText += line.replace("   ", "");
                 }
                 this.fileContents.close();
             }

@@ -1,8 +1,0 @@
-{
-    "parent": "block/outer_stairs",
-    "textures": {
-        "bottom": "foxesmod:blocks/hardened_block",
-        "top": "foxesmod:blocks/hardened_block",
-        "side": "foxesmod:blocks/hardened_block"
-    }
-}

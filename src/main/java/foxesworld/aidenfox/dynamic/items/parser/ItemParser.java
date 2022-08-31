@@ -24,6 +24,7 @@ import foxesworld.aidenfox.methods.FileAsStream;
 
 import java.util.List;
 
+import static foxesworld.aidenfox.cfg.ConfigCreator.regItems;
 import static foxesworld.aidenfox.methods.Utils.debugSend;
 
 public class ItemParser {
@@ -44,37 +45,39 @@ public class ItemParser {
     }
 
     private void readFromJson(String jsonIn) {
-        gson = new Gson();
-        int actionCoolDown = 0;
-        TypeToken<List<ItemAttributes>> typeToken = new TypeToken<List<ItemAttributes>>() {
-        };
-        List<ItemAttributes> object = gson.fromJson(jsonIn, typeToken.getType());
-        for (ItemAttributes obj : object) {
-            ItemType item;
-            FoodType food;
-            String itemName = obj.getName();
-            switch (obj.getItemType()) {
-                case "item":
-                    String onRightClick = obj.getOnItemRightClick();
-                    if(!onRightClick.equals("")){
-                        actionCoolDown = obj.getActionCoolDown();
-                    }
-                    item = new ItemType(itemName, onRightClick, actionCoolDown);
-                    break;
+        if (regItems) {
+            gson = new Gson();
+            int actionCoolDown = 0;
+            TypeToken<List<ItemAttributes>> typeToken = new TypeToken<List<ItemAttributes>>() {
+            };
+            List<ItemAttributes> object = gson.fromJson(jsonIn, typeToken.getType());
+            for (ItemAttributes obj : object) {
+                ItemType item;
+                FoodType food;
+                String itemName = obj.getName();
+                switch (obj.getItemType()) {
+                    case "item":
+                        String onRightClick = obj.getOnItemRightClick();
+                        if (!onRightClick.equals("")) {
+                            actionCoolDown = obj.getActionCoolDown();
+                        }
+                        item = new ItemType(itemName, onRightClick, actionCoolDown);
+                        break;
 
-                case "food":
-                    int amount = obj.getAmount();
-                    float saturation = obj.getSaturation();
-                    boolean isWolfFood = obj.isWolfFood;
-                    boolean alwaysEdible = obj.isAlwaysEdible();
-                    String onEatenEffect = obj.getOnEatenEffect();
-                    if(!onEatenEffect.equals("")){
-                        actionCoolDown = obj.getActionCoolDown();
-                    }
-                    food = new FoodType(itemName, amount, saturation, isWolfFood, alwaysEdible, onEatenEffect, actionCoolDown);
-                    break;
-                default:
-                    debugSend("Unexpected value: " + obj.getItemType());
+                    case "food":
+                        int amount = obj.getAmount();
+                        float saturation = obj.getSaturation();
+                        boolean isWolfFood = obj.isWolfFood;
+                        boolean alwaysEdible = obj.isAlwaysEdible();
+                        String onEatenEffect = obj.getOnEatenEffect();
+                        if (!onEatenEffect.equals("")) {
+                            actionCoolDown = obj.getActionCoolDown();
+                        }
+                        food = new FoodType(itemName, amount, saturation, isWolfFood, alwaysEdible, onEatenEffect, actionCoolDown);
+                        break;
+                    default:
+                        debugSend("Unexpected value: " + obj.getItemType());
+                }
             }
         }
     }

@@ -55,15 +55,17 @@ public class OreGen implements IWorldGenerator {
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
         if (oreGen) {
-            switch (world.provider.getDimension()) {
-                case 0:
-                    generateOverworld(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
-                    debugSend("Generating " + this.oreName + " in overWorld at min " + this.oreMinHeight + " Max " + this.oreMaxHeight + " with veinSize " + this.oreVeinSize);
-                    break;
+            if (!this.oreName.equals(null)) {
+                switch (world.provider.getDimension()) {
+                    case 0:
+                        generateOverworld(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
+                        debugSend("Generating " + this.oreName + " in overWorld at min " + this.oreMinHeight + " Max " + this.oreMaxHeight + " with veinSize " + this.oreVeinSize);
+                        break;
 
-                case -1:
-                    generateNether(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
-                    break;
+                    case -1:
+                        generateNether(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
+                        break;
+                }
             }
         }
     }
