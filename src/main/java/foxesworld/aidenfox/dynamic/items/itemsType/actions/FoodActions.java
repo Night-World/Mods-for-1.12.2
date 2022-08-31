@@ -16,5 +16,56 @@
 
 package foxesworld.aidenfox.dynamic.items.itemsType.actions;
 
+import foxesworld.aidenfox.methods.PlayerMethods;
+import foxesworld.aidenfox.methods.SpawnEntity;
+import foxesworld.aidenfox.methods.XpParty;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.world.World;
+
+import static foxesworld.aidenfox.methods.Utils.playFoxesSound;
+
 public class FoodActions {
+
+    private ItemStack item;
+    private World world;
+    private EntityPlayer player;
+    private String foodRequest;
+    private String foodRequestData;
+    private SpawnEntity eSpawner;
+    private PlayerMethods pMethods;
+
+    public FoodActions(ItemStack item, World world, EntityPlayer player, String onEatenEffect, PlayerMethods pMethods) {
+        String[] onEatenData = onEatenEffect.split("->");
+        this.foodRequest = onEatenData[0];
+        this.foodRequestData = onEatenData[1];
+        this.item = item;
+        this.world = world;
+        this.player = player;
+        this.pMethods = pMethods;
+        this.eSpawner = new SpawnEntity(world, pMethods);
+    }
+
+    public void performAction(){
+        switch(this.foodRequest){
+            case "playFoxesSound":
+                playFoxesSound(world, player, this.foodRequestData);
+                break;
+
+            case "sendMessage":
+                player.sendMessage(new TextComponentString(this.foodRequestData));
+                break;
+
+            case "xpParty":
+                XpParty.XpParty(16.0, Integer.valueOf(this.foodRequestData),this.player, this.world, eSpawner);
+                //XpParty.setSoundPlay("event.action.fail");
+                XpParty.start();
+                break;
+
+            default:
+                player.sendMessage(new TextComponentString("Unknown action '" + this.foodRequest + "'"));
+
+        }
+    }
 }

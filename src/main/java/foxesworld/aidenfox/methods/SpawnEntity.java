@@ -18,6 +18,7 @@ package foxesworld.aidenfox.methods;
 
 import net.minecraft.entity.EntityAreaEffectCloud;
 import net.minecraft.entity.effect.EntityLightningBolt;
+import net.minecraft.entity.item.EntityExpBottle;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.World;
 
@@ -26,28 +27,30 @@ import static net.minecraft.util.EnumParticleTypes.FLAME;
 public class SpawnEntity {
 
     private static World world;
-    private static double x;
-    private static double y;
-    private static double z;
+    private static PlayerMethods pMethods;
     private static EnumParticleTypes particle = FLAME;
 
-    public SpawnEntity(World world, double x, double y, double z) {
+    public SpawnEntity(World world, PlayerMethods pMethods) {
         this.world = world;
-        this.x = x;
-        this.y = y;
-        this.z = z;
+        this.pMethods = pMethods;
     }
 
     public static void spawnLightningBolt(boolean effectOnly){
-        EntityLightningBolt lightning = new EntityLightningBolt(world, x, y, z, effectOnly);
+        EntityLightningBolt lightning = new EntityLightningBolt(world, pMethods.getPlayerLook('x'), pMethods.getPlayerLook('y'), pMethods.getPlayerLook('z'), effectOnly);
         world.addWeatherEffect(lightning);
     }
 
     public static void spawnParticleEntity(){
-        EntityAreaEffectCloud entity = new EntityAreaEffectCloud(world, x, y, z);
+        EntityAreaEffectCloud entity = new EntityAreaEffectCloud(world, pMethods.getPlayerLook('x'), pMethods.getPlayerLook('y'), pMethods.getPlayerLook('z'));
         entity.setParticle(particle);
         entity.setDuration(1);
         world.spawnEntity(entity);
+    }
+
+    public static void spawnExpBottle(double x, double y, double z){
+        EntityExpBottle EntityExpBottle = new EntityExpBottle(world);
+        EntityExpBottle.setLocationAndAngles(x,y,z, (float) (0.0F + pMethods.getPlayerLook('x')), (float) (0.0F + pMethods.getPlayerLook('z')));
+        world.spawnEntity(EntityExpBottle);
     }
 
     public static void setParticle(EnumParticleTypes particle) {

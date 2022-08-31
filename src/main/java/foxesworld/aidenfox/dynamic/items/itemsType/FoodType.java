@@ -18,11 +18,12 @@ package foxesworld.aidenfox.dynamic.items.itemsType;
 
 import foxesworld.aidenfox.cfg.CreativeTab;
 import foxesworld.aidenfox.cfg.Environment;
+import foxesworld.aidenfox.dynamic.items.itemsType.actions.FoodActions;
+import foxesworld.aidenfox.methods.PlayerMethods;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
@@ -55,7 +56,9 @@ public class FoodType extends ItemFood {
     @Override
     protected void onFoodEaten(ItemStack item, World world, EntityPlayer player) {
         if (!onEatenEffect.equals("")) {
-            player.sendMessage(new TextComponentString(onEatenEffect));
+            PlayerMethods pMethods = new PlayerMethods(player);
+            FoodActions foodActions = new FoodActions(item, world, player, onEatenEffect, pMethods);
+            foodActions.performAction();
         }
         if (!player.isCreative()) {
             player.getCooldownTracker().setCooldown(this, this.actionCoolDown);

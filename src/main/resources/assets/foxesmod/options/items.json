@@ -2,7 +2,7 @@
   {
     "itemName": "staff",
     "itemType": "item",
-    "onItemRightClick": "thor->FLAME",
+    "onItemRightClick": "xpDerp->FLAME",
     "actionCoolDown": 30
   },
   {
@@ -18,7 +18,7 @@
     "saturation": 1,
     "isWolfFood": false,
     "alwaysEdible":true,
-    "onEatenEffect": "foxesworld.aidenfox.util.AppleEaten.AppleEaten",
+    "onEatenEffect": "xpParty->16",
     "actionCoolDown": 90
   }
 ]

@@ -19,6 +19,7 @@ package foxesworld.aidenfox.dynamic.items.itemsType;
 import foxesworld.aidenfox.cfg.CreativeTab;
 import foxesworld.aidenfox.cfg.Environment;
 import foxesworld.aidenfox.dynamic.items.itemsType.actions.ItemActions;
+import foxesworld.aidenfox.methods.PlayerMethods;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -57,8 +58,8 @@ public class ItemType extends net.minecraft.item.Item {
     @Override
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand itemHeld) {
         if (!this.onRightClick.equals("")) {
-            String[] onClickData = this.onRightClick.split("->");
-            ItemActions itemAction = new ItemActions(onClickData[0], onClickData[1], world, player, itemHeld);
+            PlayerMethods pMethods = new PlayerMethods(player);
+            ItemActions itemAction = new ItemActions(world, player, itemHeld, onRightClick, pMethods);
             itemAction.performAction();
             if (!player.isCreative()) {
                 player.getCooldownTracker().setCooldown(this, this.actionCoolDown);

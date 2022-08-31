@@ -33,20 +33,22 @@ public class ItemActions {
     private EntityPlayer player;
     private EnumHand itemHeld;
     private  PlayerMethods pMethods;
+    private SpawnEntity eSpawner;
 
-    public ItemActions(String itemRequest, String itemRequestData, World world, EntityPlayer player, EnumHand itemHeld) {
-        this.itemRequest = itemRequest;
-        this.itemRequestData = itemRequestData;
+    public ItemActions(World world, EntityPlayer player, EnumHand itemHeld, String onRightClick, PlayerMethods pMethods) {
+        String[] onClickData = onRightClick.split("->");
+        this.itemRequest = onClickData[0];
+        this.itemRequestData = onClickData[1];
         this.world = world;
         this.player = player;
         this.itemHeld = itemHeld;
-        this.pMethods = new PlayerMethods(player);
+        this.pMethods = pMethods;
     }
 
     public void performAction(){
-        SpawnEntity eSpawner = new SpawnEntity(world, pMethods.getPlayerLook('x'), pMethods.getPlayerLook('y'), pMethods.getPlayerLook('z'));
+        this.eSpawner = new SpawnEntity(world, pMethods);
         switch (this.itemRequest) {
-            case "send":
+            case "sendMessage":
                 player.sendMessage(new TextComponentString(this.itemRequestData));
                 break;
 
@@ -55,9 +57,14 @@ public class ItemActions {
                 break;
 
             case "thor":
-                eSpawner.spawnLightningBolt(false);
-                eSpawner.setParticle(EnumParticleTypes.valueOf(this.itemRequestData));
-                eSpawner.spawnParticleEntity();
+                this.eSpawner.spawnLightningBolt(false);
+                this.eSpawner.setParticle(EnumParticleTypes.valueOf(this.itemRequestData));
+                this.eSpawner.spawnParticleEntity();
+                break;
+
+            case "xpDerp":
+                this.eSpawner.spawnExpBottle(pMethods.getPlayerLook('x'), pMethods.getPlayerLook('y'), pMethods.getPlayerLook('z'));
+                this.eSpawner.setParticle(EnumParticleTypes.valueOf(this.itemRequestData));
                 break;
 
             case "explode":
@@ -67,5 +74,6 @@ public class ItemActions {
             default:
                 player.sendMessage(new TextComponentString("Unknown action '" + this.itemRequest + "'"));
         }
+
     }
 }
