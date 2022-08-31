@@ -8,7 +8,7 @@
     "materialEnchantability": 8,
     "fixMaterial": "MINECRAFT:DIRT",
     "fixMaterialAmmount": 8,
-    "fixMaterialMeta": 0
+    "fixMaterialMeta": 1
   },
   {
     "materialName": "foxesmod:gravel",

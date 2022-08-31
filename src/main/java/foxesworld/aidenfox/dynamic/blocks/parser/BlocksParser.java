@@ -3,7 +3,9 @@ package foxesworld.aidenfox.dynamic.blocks.parser;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import foxesworld.aidenfox.cfg.Environment;
-import foxesworld.aidenfox.dynamic.blocks.Blocks;
+import foxesworld.aidenfox.dynamic.blocks.blockType.Block;
+import foxesworld.aidenfox.dynamic.blocks.blockType.Slab;
+import foxesworld.aidenfox.dynamic.blocks.blockType.Stairs;
 import foxesworld.aidenfox.methods.FileAsStream;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -29,24 +31,52 @@ public class BlocksParser {
 
     private void readFromJson(String jsonIn) {
         gson = new Gson();
+        String blockName;
+        String blockType;
+        String fromBlock;
+        Material blockMaterial = Material.CIRCUITS;
+        SoundType blockSound = SoundType.METAL;
+        String blockHarvestTool = "pickaxe";
+        Integer blockHarvestLevel = 2;
+        float blockHardness = 10;
+        float blockResistance = 50;
+        boolean creatureSpawn = false;
+        String itemDrop = "";
+        int dropAmmount;
         TypeToken<List<BlockAttributes>> typeToken = new TypeToken<List<BlockAttributes>>() {
         };
         List<BlockAttributes> object = gson.fromJson(jsonIn, typeToken.getType());
         for (BlockAttributes obj : object) {
-            int dropAmmount = 1;
-            String blockName = obj.getBlockName();
-            Material blockMaterial = obj.getBlockMaterial().getType();
-            SoundType blockSound = obj.getBlockSound().getSnd();
-            String blockHarvestTool = obj.getBlockTool();
-            Integer blockHarvestLevel = obj.getBlockHarvestLevel();
-            float blockHardness = obj.getBlockHardness();
-            float blockResistance = obj.getBlockResistance();
-            boolean creatureSpawn = obj.getCreatureSpawn();
-            String itemDrop = obj.getItemDrop();
-            if(!itemDrop.equals("")){
-                dropAmmount = obj.getDropAmmount();
+            blockName = obj.getBlockName();
+            blockType = obj.getBlockType();
+            dropAmmount = 1;
+            switch(blockType){
+
+                case "Block":
+                    blockMaterial = obj.getBlockMaterial().getType();
+                    blockSound = obj.getBlockSound().getSnd();
+                    blockHarvestTool = obj.getBlockTool();
+                    blockHarvestLevel = obj.getBlockHarvestLevel();
+                    blockHardness = obj.getBlockHardness();
+                    blockResistance = obj.getBlockResistance();
+                    creatureSpawn = obj.getCreatureSpawn();
+                    itemDrop = obj.getItemDrop();
+                    if(!itemDrop.equals("")){
+                        dropAmmount = obj.getDropAmmount();
+                    }
+                    new Block(blockName, blockMaterial, blockSound, blockHarvestTool, blockHarvestLevel, blockHardness, blockResistance, creatureSpawn, itemDrop, dropAmmount);
+                    break;
+
+                case "Stairs":
+                    fromBlock = obj.getFromBlock();
+                    new Stairs(blockName, Environment.BLOCKS.get(fromBlock).getDefaultState());
+                    break;
+
+                case "Slab":
+                    fromBlock = obj.getFromBlock();
+                    new Slab(blockName, blockMaterial, Environment.BLOCKS.get(fromBlock).getDefaultState());
+                    break;
             }
-            new Blocks(blockName, blockMaterial, blockSound, blockHarvestTool, blockHarvestLevel, blockHardness, blockResistance, creatureSpawn, itemDrop, dropAmmount) {};
         }
     }
 }

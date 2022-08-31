@@ -13,17 +13,9 @@ public class ConfigCreator {
     private static final String CATEGORY_GENERAL = "General";
     private static final String CATEGORY_WORLDGEN= "WorldGen";
 
-    /*TOOLS*/
-    public static float materialEfficiency = 2.8F;
-    public static float materialDamage = 1.5F;
-    public static Integer materialHarvestLevel = 2;
-    public static Integer materialEnchantability = 8;
-    public static  String fixMaterial = "DIRT";
-    public static Integer fixMaterialMeta = 1;
-    public static Integer fixMaterialAmmount = 8;
-
     /*GENERATIONS*/
-    public static boolean genStructures = true;
+    public static boolean structureGen = true;
+    public static boolean oreGen = true;
 
     public ConfigCreator(String cfgName, FMLPreInitializationEvent e){
         this.cfgName = cfgName;
@@ -49,16 +41,11 @@ public class ConfigCreator {
     private static void initGeneralConfig(Configuration cfg) {
         cfg.addCustomCategoryComment(CATEGORY_GENERAL, "General HardTools Configuration Version."+Environment.VERSION);
         debug = cfg.getBoolean("debug", CATEGORY_GENERAL, false, "Debug logging");
-        materialEfficiency = cfg.getFloat("materialEfficiency", CATEGORY_GENERAL, 2.8F, 0.01F, 30.0F, "Material efficiency");
-        materialDamage = cfg.getFloat("materialDamage", CATEGORY_GENERAL, 1.0F, 0.0F, 20.0F, "Base material damage");
-        materialEnchantability = cfg.getInt("materialEnchantability", CATEGORY_GENERAL, 12, 1, 12, "Max enchantment level for tools");
-        materialHarvestLevel = cfg.getInt("materialHarvestLevel", CATEGORY_GENERAL, 2, 1, 5, "Max enchantment level for tools");
-        fixMaterial = cfg.getString("fixMaterial", CATEGORY_GENERAL, "DIRT", "Material to fix your tool");
-        fixMaterialMeta = cfg.getInt("fixMaterialMeta", CATEGORY_GENERAL, 1, 0, 255, "Meta of your fix material");
-        fixMaterialAmmount = cfg.getInt("fixMaterialAmmount", CATEGORY_GENERAL, 8, 1, 255, "Ammount of material to fix");
 
         cfg.addCustomCategoryComment(CATEGORY_WORLDGEN, "WorldGeneration configuration");
-        genStructures = cfg.getBoolean("genStructures", CATEGORY_WORLDGEN, true, "Generate structures in world");
+        structureGen = cfg.getBoolean("structureGem", CATEGORY_WORLDGEN, true, "Generate structures in world");
+        oreGen = cfg.getBoolean("oreGen", CATEGORY_WORLDGEN, true, "Generate ores in world");
+
 
     }
 

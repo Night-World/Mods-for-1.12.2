@@ -29,6 +29,7 @@ import net.minecraftforge.fml.common.IWorldGenerator;
 
 import java.util.Random;
 
+import static foxesworld.aidenfox.cfg.ConfigCreator.oreGen;
 import static foxesworld.aidenfox.methods.Utils.debugSend;
 
 public class OreGen implements IWorldGenerator {
@@ -52,16 +53,18 @@ public class OreGen implements IWorldGenerator {
     private WorldGenMinable worldGenMinable;
 
     @Override
-    public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider ) {
-        switch (world.provider.getDimension()){
-            case 0:
-                generateOverworld(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
-                debugSend("Generating " + this.oreName + " in overWorld at min " + this.oreMinHeight + " Max " + this.oreMaxHeight + " with veinSize " + this.oreVeinSize);
-                break;
+    public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
+        if (oreGen) {
+            switch (world.provider.getDimension()) {
+                case 0:
+                    generateOverworld(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
+                    debugSend("Generating " + this.oreName + " in overWorld at min " + this.oreMinHeight + " Max " + this.oreMaxHeight + " with veinSize " + this.oreVeinSize);
+                    break;
 
-            case -1:
-                generateNether(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
-                break;
+                case -1:
+                    generateNether(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
+                    break;
+            }
         }
     }
 
@@ -77,15 +80,15 @@ public class OreGen implements IWorldGenerator {
             generator.generate(world, rand, pos);
         }
     }
-    
+
     private void generateOverworld(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
-            generateOre(Block.getBlockFromName(this.oreName).getDefaultState(),
-                    world, random, chunkX * 16, chunkZ * 16, this.oreMinHeight, this.oreMaxHeight, random.nextInt(this.oreVeinSize) + 1,
-                    this.oreSpawnTRies, BlockMatcher.forBlock(Block.getBlockFromName(this.watchForBlock)));
+        generateOre(Block.getBlockFromName(this.oreName).getDefaultState(),
+                world, random, chunkX * 16, chunkZ * 16, this.oreMinHeight, this.oreMaxHeight, random.nextInt(this.oreVeinSize) + 1,
+                this.oreSpawnTRies, BlockMatcher.forBlock(Block.getBlockFromName(this.watchForBlock)));
     }
 
     private void generateNether(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
         generateOre(Blocks.REDSTONE_ORE.getDefaultState(),
-                world, random, chunkX * 16, chunkZ * 16, 1, 255, random.nextInt(30) + 10, 24,BlockMatcher.forBlock(Blocks.NETHERRACK));
+                world, random, chunkX * 16, chunkZ * 16, 1, 255, random.nextInt(30) + 10, 24, BlockMatcher.forBlock(Blocks.NETHERRACK));
     }
 }

@@ -31,7 +31,7 @@ import net.minecraftforge.fml.common.IWorldGenerator;
 
 import java.util.Random;
 
-import static foxesworld.aidenfox.cfg.ConfigCreator.genStructures;
+import static foxesworld.aidenfox.cfg.ConfigCreator.structureGen;
 import static foxesworld.aidenfox.methods.Utils.debugSend;
 
 
@@ -39,7 +39,7 @@ public class StructureGen implements IWorldGenerator {
 
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
-        if(genStructures) {
+        if(structureGen) {
             switch (world.provider.getDimension()) {
                 case 1: //End
                     break;

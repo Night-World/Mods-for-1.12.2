@@ -1,0 +1,6 @@
+{
+  "variants":
+  {
+    "variant=default": { "model": "block/slab_double" }
+  }
+}

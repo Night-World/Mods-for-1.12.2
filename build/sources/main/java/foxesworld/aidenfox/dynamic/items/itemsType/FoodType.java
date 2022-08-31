@@ -59,7 +59,6 @@ public class FoodType extends ItemFood {
             PlayerMethods pMethods = new PlayerMethods(player);
             FoodActions foodActions = new FoodActions(item, world, player, onEatenEffect, pMethods);
             foodActions.performAction();
-            //player.sendMessage(new TextComponentString(onEatenEffect));
         }
         if (!player.isCreative()) {
             player.getCooldownTracker().setCooldown(this, this.actionCoolDown);

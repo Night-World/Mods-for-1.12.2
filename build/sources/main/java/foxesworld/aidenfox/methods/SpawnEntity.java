@@ -49,8 +49,7 @@ public class SpawnEntity {
 
     public static void spawnExpBottle(double x, double y, double z){
         EntityExpBottle EntityExpBottle = new EntityExpBottle(world);
-        EntityExpBottle.shoot(x,y,z, (float) (0.0F + pMethods.getPlayerLook('x')), (float) (0.0F + pMethods.getPlayerLook('z')));
-        //EntityExpBottle.setLocationAndAngles(x,y,z, (float) (0.0F + pMethods.getPlayerLook('x')), (float) (0.0F + pMethods.getPlayerLook('z')));
+        EntityExpBottle.setLocationAndAngles(x,y,z, (float) (0.0F + pMethods.getPlayerLook('x')), (float) (0.0F + pMethods.getPlayerLook('z')));
         world.spawnEntity(EntityExpBottle);
     }
 

@@ -4,6 +4,8 @@ package foxesworld.aidenfox.dynamic.blocks.parser;
 public class BlockAttributes {
 
     private String blockName;
+    private String blockType;
+    private String fromBlock;
     private BlockMaterial blockMaterial;
     private BlockSound blockSound;
     private String blockTool;
@@ -18,6 +20,11 @@ public class BlockAttributes {
         return blockName;
     }
 
+    public String getBlockType() { return  blockType; }
+
+    public String getFromBlock() {
+        return fromBlock;
+    }
     public BlockMaterial getBlockMaterial() {
         return blockMaterial;
     }
@@ -42,9 +49,14 @@ public class BlockAttributes {
         return blockResistance;
     }
 
-    public boolean getCreatureSpawn(){return  creatureSpawn;}
+    public boolean getCreatureSpawn() { return creatureSpawn;
+    }
 
-    public String getItemDrop(){ return  itemDrop;}
+    public String getItemDrop() {
+        return itemDrop;
+    }
 
-    public int getDropAmmount(){ return dropAmmount;}
+    public int getDropAmmount() {
+        return dropAmmount;
+    }
 }

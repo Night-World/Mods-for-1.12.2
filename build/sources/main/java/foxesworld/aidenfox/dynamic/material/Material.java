@@ -16,12 +16,12 @@
 
 package foxesworld.aidenfox.dynamic.material;
 
-import foxesworld.aidenfox.dynamic.blocks.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.EnumHelper;
 
 import static foxesworld.aidenfox.cfg.Environment.MATERIALS;
 import static foxesworld.aidenfox.methods.Utils.debugSend;
+import static net.minecraft.block.Block.getBlockFromName;
 
 public class Material {
     String materialName;
@@ -47,7 +47,7 @@ public class Material {
         this.fixMaterialAmmount = fixMaterialAmmount;
         this.fixMaterialMeta = fixMaterialMeta;
 
-        MATERIAL = EnumHelper.addToolMaterial(this.materialName, this.materialHarvestLevel, this.materialUsages, this.materialEfficiency, this.materialDamage, this.materialEnchantability).setRepairItem(new ItemStack(Blocks.getBlockFromName(this.fixMaterial), this.fixMaterialAmmount, this.fixMaterialMeta));
+        MATERIAL = EnumHelper.addToolMaterial(this.materialName, this.materialHarvestLevel, this.materialUsages, this.materialEfficiency, this.materialDamage, this.materialEnchantability).setRepairItem(new ItemStack(getBlockFromName(this.fixMaterial), this.fixMaterialAmmount, this.fixMaterialMeta));
         debugSend("Putting " + this.materialName + " to registry");
         debugSend("Fixmaterial - " + this.fixMaterial +" FixMaterial ammount " + this.fixMaterialAmmount + " FixMaterial meta " + this.fixMaterialMeta);
         MATERIALS.put(this.materialName, this.MATERIAL);

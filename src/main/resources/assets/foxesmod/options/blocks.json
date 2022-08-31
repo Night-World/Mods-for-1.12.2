@@ -1,6 +1,7 @@
 [
   {
     "blockName": "black_marble",
+    "blockType": "Block",
     "blockMaterial": "ROCK",
     "blockSound": "STONE",
     "blockTool": "pickaxe",
@@ -9,10 +10,11 @@
     "blockResistance": 19.5,
     "creatureSpawn": false,
     "itemDrop": "minecraft:coal",
-      "dropAmmount": 6
+    "dropAmmount": 6
   },
   {
     "blockName": "hardened_dirt",
+    "blockType": "Block",
     "blockMaterial": "GROUND",
     "blockSound": "GROUND",
     "blockTool": "shovel",
@@ -24,6 +26,7 @@
   },
   {
     "blockName": "hardened_gravel",
+    "blockType": "Block",
     "blockMaterial": "CLAY",
     "blockSound": "GROUND",
     "blockTool": "shovel",
@@ -35,6 +38,7 @@
   },
   {
     "blockName": "marble_raw",
+    "blockType": "Block",
     "blockMaterial": "ROCK",
     "blockSound": "STONE",
     "blockTool": "pickaxe",
@@ -46,6 +50,7 @@
   },
   {
     "blockName": "marble_bricks",
+    "blockType": "Block",
     "blockMaterial": "ROCK",
     "blockSound": "STONE",
     "blockTool": "pickaxe",
@@ -54,5 +59,10 @@
     "blockResistance": 18.0,
     "creatureSpawn": false,
     "itemDrop": ""
+  },
+  {
+    "blockName": "stairs",
+    "blockType": "Stairs",
+    "fromBlock": "hardened_gravel"
   }
 ]

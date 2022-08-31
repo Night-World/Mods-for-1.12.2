@@ -3,7 +3,7 @@ package foxesworld.aidenfox;
 import foxesworld.aidenfox.cfg.ConfigCreator;
 import foxesworld.aidenfox.cfg.Environment;
 import foxesworld.aidenfox.dynamic.blocks.parser.BlocksParser;
-import foxesworld.aidenfox.dynamic.items.Item;
+import foxesworld.aidenfox.dynamic.items.parser.ItemParser;
 import foxesworld.aidenfox.dynamic.material.parser.MaterialParser;
 import foxesworld.aidenfox.dynamic.sounds.Sounds;
 import foxesworld.aidenfox.dynamic.tools.Tools;
@@ -47,7 +47,8 @@ public class main {
         Tools toolsParser = new Tools("options/tools.json");
             toolsParser.readTplFile();
 
-            Item item = new Item("options/items.json");
+        ItemParser ItemParser = new ItemParser("options/items.json", Environment.MODID);
+            ItemParser.readTplFile();
 
         RegData data = new RegData();
             data.regItems();

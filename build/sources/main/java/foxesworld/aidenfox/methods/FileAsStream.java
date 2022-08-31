@@ -20,6 +20,9 @@ public class FileAsStream {
     }
 
     private void  getFileAsIOStream() {
+        //if(this.fullPath.contains("json") {
+        //  Read or copy - WIP!!!
+        // }
         InputStream ioStream = this.getClass()
                 .getClassLoader()
                 .getResourceAsStream(this.fullPath);
