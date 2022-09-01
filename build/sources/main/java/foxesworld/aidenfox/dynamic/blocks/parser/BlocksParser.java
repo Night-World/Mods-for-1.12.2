@@ -7,27 +7,38 @@ import foxesworld.aidenfox.dynamic.blocks.blockType.Block;
 import foxesworld.aidenfox.dynamic.blocks.blockType.Slab;
 import foxesworld.aidenfox.dynamic.blocks.blockType.Stairs;
 import foxesworld.aidenfox.methods.FileAsStream;
+import foxesworld.aidenfox.methods.Utils;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 
 import java.util.List;
 
 import static foxesworld.aidenfox.cfg.ConfigCreator.regBlocks;
+import static foxesworld.aidenfox.methods.BufferedFileReader.BufferedFileReader;
 
 public class BlocksParser {
 
-    private String blocksFileName;
+    private String fileName;
+    private String fileDir;
     private String MODID;
     private Gson gson;
 
-    public BlocksParser(String blocksFileName) {
-        this.blocksFileName = blocksFileName;
+    public BlocksParser(String fileDir, String fileName) {
+        this.fileName = fileName;
+        this.fileDir = fileDir;
         this.MODID = Environment.MODID;
     }
 
-    public void readTplFile() {
-        FileAsStream structuresJsonStream = new FileAsStream(this.blocksFileName, this.MODID);
-        String jsonString = (String) structuresJsonStream.getFileContents();
+    public void readTplFile(boolean inputStream) {
+        String jsonString = "";
+        if(inputStream) {
+            FileAsStream structuresJsonStream = new FileAsStream(this.fileName, this.MODID);
+            jsonString = (String) structuresJsonStream.getFileContents();
+        } else {
+            Utils.createIfnotExists(this.fileDir,this.fileName);
+            jsonString = BufferedFileReader(fileDir+this.fileName);
+        }
+
         readFromJson(jsonString);
     }
 

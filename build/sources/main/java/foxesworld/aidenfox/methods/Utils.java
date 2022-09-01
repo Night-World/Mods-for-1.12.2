@@ -1,6 +1,7 @@
 package foxesworld.aidenfox.methods;
 
 import foxesworld.aidenfox.cfg.ConfigCreator;
+import foxesworld.aidenfox.cfg.Environment;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumParticleTypes;
@@ -9,6 +10,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 import java.util.Random;
 
@@ -68,4 +71,20 @@ public class Utils {
         });
         sndPlay.start();
     }
+
+    public static void createIfnotExists(String fileDir, String filename){
+        String dataTemplateDir = "dataTemplates/";
+        File cfgFile = new File(fileDir + filename);
+        FileAsStream templateFile = new FileAsStream(dataTemplateDir + filename, Environment.MODID);
+        Object templateFileContents = templateFile.getFileContents();
+        if(!cfgFile.exists()){
+            try {
+                cfgFile.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            WriteFile.appendToFile(String.valueOf(templateFileContents), String.valueOf(cfgFile));
+        }
+    }
+
 }

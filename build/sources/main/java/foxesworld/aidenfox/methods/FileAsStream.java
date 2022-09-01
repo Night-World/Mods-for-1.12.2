@@ -19,19 +19,6 @@ public class FileAsStream {
     }
 
     private void getFileAsIOStream() {
-        if (this.fullPath.contains("json")) {
-            if (!new File(this.fullPath).exists()) {
-                try {
-                    try (Writer writer = new BufferedWriter(new OutputStreamWriter(
-                            new FileOutputStream(this.modDir + File.separator + this.fileName), "utf-8"))) {
-                        writer.write("something");
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            //  Read or copy - WIP!!!
-        }
         InputStream ioStream = this.getClass()
                 .getClassLoader()
                 .getResourceAsStream(this.fullPath);

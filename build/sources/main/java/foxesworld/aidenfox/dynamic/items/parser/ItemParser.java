@@ -18,30 +18,43 @@ package foxesworld.aidenfox.dynamic.items.parser;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import foxesworld.aidenfox.cfg.Environment;
 import foxesworld.aidenfox.dynamic.items.itemsType.FoodType;
 import foxesworld.aidenfox.dynamic.items.itemsType.ItemType;
 import foxesworld.aidenfox.methods.FileAsStream;
+import foxesworld.aidenfox.methods.Utils;
 
 import java.util.List;
 
 import static foxesworld.aidenfox.cfg.ConfigCreator.regItems;
+import static foxesworld.aidenfox.methods.BufferedFileReader.BufferedFileReader;
 import static foxesworld.aidenfox.methods.Utils.debugSend;
 
 public class ItemParser {
 
-    private String itemsFileName;
+    private String fileName;
+    private String fileDir;
     private String MODID;
     private Gson gson;
 
-    public ItemParser(String itemsFileName, String MODID) {
-        this.itemsFileName = itemsFileName;
-        this.MODID = MODID;
+    public ItemParser(String fileDir, String fileName) {
+        this.fileDir = fileDir;
+        this.fileName = fileName;
+        this.MODID = Environment.MODID;
     }
 
-    public void readTplFile() {
-        FileAsStream structuresJsonStream = new FileAsStream(this.itemsFileName, this.MODID);
-        String jsonString = (String) structuresJsonStream.getFileContents();
+    public void readTplFile(boolean inputStream) {
+        String jsonString = "";
+        if (inputStream) {
+            FileAsStream structuresJsonStream = new FileAsStream(this.fileName, this.MODID);
+            jsonString = (String) structuresJsonStream.getFileContents();
+        } else {
+            Utils.createIfnotExists(this.fileDir,this.fileName);
+            jsonString = BufferedFileReader(fileDir+this.fileName);
+        }
+
         readFromJson(jsonString);
+
     }
 
     private void readFromJson(String jsonIn) {

@@ -18,6 +18,9 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.Logger;
 
+import static foxesworld.aidenfox.cfg.Environment.MODCFGDIR;
+import static foxesworld.aidenfox.cfg.Environment.paramsDirName;
+
 @Mod(modid = Environment.MODID, name = Environment.NAME, version = Environment.VERSION)
 public class main {
 
@@ -27,38 +30,40 @@ public class main {
 
     public static CommonProxy proxy;
     public static Logger logger;
+
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         logger = event.getModLog();
         proxy.preInit(event);
+        MODCFGDIR = event.getModConfigurationDirectory() + "/" + Environment.MODID;
 
         ConfigCreator cfg = new ConfigCreator(Environment.CFGNAME, event);
-            cfg.initCfg();
+        cfg.initCfg();
+
 
         Sounds sounds = new Sounds("sounds.json");
-            sounds.registerSounds();
+        sounds.registerSounds();
+        String paramPath = MODCFGDIR + paramsDirName;
+        MaterialParser materials = new MaterialParser(paramPath, "material.json");
+        materials.readTplFile(false);
 
-        MaterialParser materials= new MaterialParser("options/material.json");
-            materials.readTplFile();
+        BlocksParser blockParser = new BlocksParser(paramPath,"blocks.json");
+        blockParser.readTplFile(false);
 
-        BlocksParser blockParser = new BlocksParser("options/blocks.json");
-            blockParser.readTplFile();
+        Tools toolsParser = new Tools(paramPath, "tools.json");
+        toolsParser.readTplFile(false);
 
-        Tools toolsParser = new Tools("options/tools.json");
-            toolsParser.readTplFile();
-
-        ItemParser ItemParser = new ItemParser("options/items.json", Environment.MODID);
-            ItemParser.readTplFile();
-
+        ItemParser ItemParser = new ItemParser(paramPath,"items.json");
+        ItemParser.readTplFile(false);
         RegData data = new RegData();
-            data.regItems();
-            data.regBlocks();
+        data.regItems();
+        data.regBlocks();
 
-        OreGenParser oreGen = new OreGenParser("options/oreGen.json");
-            oreGen.readTplFile();
+        OreGenParser oreGen = new OreGenParser(paramPath,"oreGen.json");
+        oreGen.readTplFile(false);
 
-        StructureParser structures = new StructureParser("options/structures.json");
-            structures.readTplFile();
+        StructureParser structures = new StructureParser(paramPath, "structures.json");
+        structures.readTplFile(false);
     }
 
     @EventHandler

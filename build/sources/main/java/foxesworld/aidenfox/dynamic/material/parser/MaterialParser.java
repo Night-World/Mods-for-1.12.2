@@ -21,23 +21,34 @@ import com.google.gson.reflect.TypeToken;
 import foxesworld.aidenfox.cfg.Environment;
 import foxesworld.aidenfox.dynamic.material.Material;
 import foxesworld.aidenfox.methods.FileAsStream;
+import foxesworld.aidenfox.methods.Utils;
 
 import java.util.List;
 
+import static foxesworld.aidenfox.methods.BufferedFileReader.BufferedFileReader;
+
 public class MaterialParser {
 
-    private String materialsFileName;
+    private String fileName;
+    private String fileDir;
     private String MODID;
     private Gson gson;
 
-    public MaterialParser(String materialsFileName) {
-        this.materialsFileName = materialsFileName;
+    public MaterialParser(String fileDir, String fileName) {
+        this.fileName = fileName;
+        this.fileDir = fileDir;
         this.MODID = Environment.MODID;
     }
 
-    public void readTplFile() {
-        FileAsStream structuresJsonStream = new FileAsStream(this.materialsFileName, this.MODID);
-        String jsonString = (String) structuresJsonStream.getFileContents();
+    public void readTplFile(boolean inputStream) {
+        String jsonString = "";
+        if (inputStream) {
+            FileAsStream structuresJsonStream = new FileAsStream(this.fileName, this.MODID);
+            //jsonString = (String) structuresJsonStream.getFileContents();
+        } else {
+            Utils.createIfnotExists(this.fileDir,this.fileName);
+            jsonString = BufferedFileReader(fileDir+ this.fileName);
+        }
         readFromJson(jsonString);
     }
 
@@ -47,16 +58,16 @@ public class MaterialParser {
         };
         List<MaterialAttributes> object = gson.fromJson(jsonIn, typeToken.getType());
         for (MaterialAttributes obj : object) {
-           String materialName = obj.getMaterialName();
-           int materialHarvestLevel= obj.getMaterialHarvestLevel();
-           int materialUsages = obj.getMaterialUsages();
-           float materialEfficiency = obj.getMaterialEfficiency();
-           float materialDamage = obj.getMaterialDamage();
-           int materialEnchantability = obj.getMaterialEnchantability();
-           String fixMaterial = obj.getFixMaterial();
-           int fixMaterialAmmount = obj.getFixMaterialAmmount();
-           int fixMaterialMeta = obj.getFixMaterialMeta();
-           new Material(materialName, materialHarvestLevel, materialUsages, materialEfficiency, materialDamage, materialEnchantability, fixMaterial, fixMaterialAmmount, fixMaterialMeta);
+            String materialName = obj.getMaterialName();
+            int materialHarvestLevel = obj.getMaterialHarvestLevel();
+            int materialUsages = obj.getMaterialUsages();
+            float materialEfficiency = obj.getMaterialEfficiency();
+            float materialDamage = obj.getMaterialDamage();
+            int materialEnchantability = obj.getMaterialEnchantability();
+            String fixMaterial = obj.getFixMaterial();
+            int fixMaterialAmmount = obj.getFixMaterialAmmount();
+            int fixMaterialMeta = obj.getFixMaterialMeta();
+            new Material(materialName, materialHarvestLevel, materialUsages, materialEfficiency, materialDamage, materialEnchantability, fixMaterial, fixMaterialAmmount, fixMaterialMeta);
         }
     }
 }

@@ -1,0 +1,8 @@
+{
+   "parent": "block/inner_stairs",
+   "textures": {
+      "bottom": "foxesmod:blocks/stair",
+      "top": "foxesmod:blocks/stair",
+      "side": "foxesmod:blocks/stair"
+   }
+}

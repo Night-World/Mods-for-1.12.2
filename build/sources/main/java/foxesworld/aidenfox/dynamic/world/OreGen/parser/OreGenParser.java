@@ -21,24 +21,35 @@ import com.google.gson.reflect.TypeToken;
 import foxesworld.aidenfox.cfg.Environment;
 import foxesworld.aidenfox.methods.FileAsStream;
 import foxesworld.aidenfox.dynamic.world.OreGen.OreGen;
+import foxesworld.aidenfox.methods.Utils;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import java.util.List;
 
+import static foxesworld.aidenfox.methods.BufferedFileReader.BufferedFileReader;
+
 public class OreGenParser {
 
-    private String oresFileName;
+    private String fileName;
+    private String fileDir;
     private String MODID;
     private Gson gson;
 
-    public OreGenParser(String oresFileName) {
-        this.oresFileName = oresFileName;
+    public OreGenParser(String fileDir, String fileName) {
+        this.fileName = fileName;
+        this.fileDir = fileDir;
         this.MODID = Environment.MODID;
     }
 
-    public void readTplFile() {
-        FileAsStream structuresJsonStream = new FileAsStream(this.oresFileName, this.MODID);
-        String jsonString = (String) structuresJsonStream.getFileContents();
+    public void readTplFile(boolean inputStream) {
+        String jsonString = "";
+        if(inputStream) {
+            FileAsStream structuresJsonStream = new FileAsStream(this.fileName, this.MODID);
+            jsonString = (String) structuresJsonStream.getFileContents();
+        } else {
+            Utils.createIfnotExists(this.fileDir,this.fileName);
+            jsonString = BufferedFileReader(fileDir+this.fileName);
+        }
         readFromJson(jsonString);
     }
 

@@ -1,0 +1,52 @@
+Normal Block:
+test_block
+This creates a blockstate file called 'test_block.json', a block model file called 'test_block.json' and an item model file called 'test_block.json'
+The block will try to use a texture called 'test_block', which is located in /textures/blocks
+
+Handheld Item:
+test_sword
+This creates an item model file called 'test_sword.json'. The item model will look like a sword when held
+The item will try to use a texture called 'test_sword', which is located in /textures/items
+
+Normal Item:
+test_apple
+This creates an item model file called 'test_apple.json'
+The item will try to use a texture called 'test_apple', which is located in /textures/items
+
+Orientable Block:
+test_furnace
+This creates a blockstate file called 'test_furnace.json', a block model file called 'test_furnace.json' and an item model file called 'test_furnace.json' The block will behave like an orientable block (like a furnace)
+The block will try to use textures called 'test_furnace_top', 'test_furnace_front' and 'test_furnace_side', all of them are located in /textures/blocks
+
+Slab Block:
+test
+This creates two blockstate files, one named 'test_slab.json', the other named 'test_slab_double'. Note how the _slab suffix is added automatically
+It also creates two block model files, one called 'test_slab.json' and one called 'test_slab_double.json'. It creates one item model file called 'test_slab.json'
+The block will try to use a texture called 'test', which is located in /textures/blocks
+
+Stair Block:
+test
+This creates a blockstate file called 'test_stair.json'. Note how the _stair suffix is added automatically
+It also creates three block model files, one called 'test_stair.json', one called 'test_stair_inner.json' and one called 'test_stair_outer.json'. It creates one item model file called 'test_stair.json'
+The block will try to use a texture called 'test', which is located in /textures/blocks
+
+Variant Block / Block with Properties:
+test_clay;blue,red,green:color
+This creates a blockstate file called 'test_clay.json'. It creates block model files for each variant, in this case 'blue.json', 'red.json' and 'green.json'. It also creates Item model files for all variants with the same names.
+The block will try to use textures called 'blue', 'red' and 'green', all of them are located in /textures/blocks
+
+Shaped Recipes:
+3*minecraft:stone;3,(###,#P#,###),#,minecraft:dirt;2,P,minecraft:dirt:3,?group
+This creates a recipe file called 'stone.json'
+The first argument is the recipe output. Using NUMBER*, you can specify how many items are created. The ;3 after the minecraft:stone refers to the damage value of the output
+The second argument in brackets is the recipe. The lines are separated with commas (first is top line in crafting, second is middle line and third is last line). You can also not write lines (for 4x4 crafting). (##,##). You can use any characters as identifiers apart from *,;:?
+The next arguments specify what the characters in the second argument stand for. The format for items is the same (modid:name;meta). You cannot specify a count.
+The last argument is indicated by the '?'. It is the group name, if you want to group your recipes. If you don't write a ?, it will not assign the recipe to a group.
+
+Shapeless Recipes:
+3*minecraft:stone;3,minecraft:dirt;2,minecraft:dirt:3,?group
+This creates a recipe file called 'stone.json'
+The first argument is the recipe output. Using NUMBER*, you can specify how many items are created. The ;3 after the minecraft:stone refers to the damage value of the output
+The next arguments specify the ingredients used in this recipe. The format for items is the same (modid:name;meta). You cannot specify a count.
+The last argument is indicated by the '?'. It is the group name, if you want to group your recipes. If you don't write a ?, it will not assign the recipe to a group.
+
