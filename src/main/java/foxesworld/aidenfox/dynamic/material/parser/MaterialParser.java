@@ -18,41 +18,22 @@ package foxesworld.aidenfox.dynamic.material.parser;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import foxesworld.aidenfox.cfg.Environment;
 import foxesworld.aidenfox.dynamic.material.Material;
-import foxesworld.aidenfox.methods.FileAsStream;
-import foxesworld.aidenfox.methods.Utils;
 
 import java.util.List;
-
-import static foxesworld.aidenfox.methods.BufferedFileReader.BufferedFileReader;
 
 public class MaterialParser {
 
     private String fileName;
     private String fileDir;
-    private String MODID;
     private Gson gson;
 
     public MaterialParser(String fileDir, String fileName) {
         this.fileName = fileName;
         this.fileDir = fileDir;
-        this.MODID = Environment.MODID;
     }
 
-    public void readTplFile(boolean inputStream) {
-        String jsonString = "";
-        if (inputStream) {
-            FileAsStream structuresJsonStream = new FileAsStream(this.fileName, this.MODID);
-            //jsonString = (String) structuresJsonStream.getFileContents();
-        } else {
-            Utils.createIfnotExists(this.fileDir,this.fileName);
-            jsonString = BufferedFileReader(fileDir+ this.fileName);
-        }
-        readFromJson(jsonString);
-    }
-
-    private void readFromJson(String jsonIn) {
+    public void readFromJson(String jsonIn) {
         gson = new Gson();
         TypeToken<List<MaterialAttributes>> typeToken = new TypeToken<List<MaterialAttributes>>() {
         };
@@ -69,5 +50,13 @@ public class MaterialParser {
             int fixMaterialMeta = obj.getFixMaterialMeta();
             new Material(materialName, materialHarvestLevel, materialUsages, materialEfficiency, materialDamage, materialEnchantability, fixMaterial, fixMaterialAmmount, fixMaterialMeta);
         }
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public String getFileDir() {
+        return fileDir;
     }
 }

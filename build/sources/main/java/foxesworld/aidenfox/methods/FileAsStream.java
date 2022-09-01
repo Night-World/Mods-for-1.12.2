@@ -36,7 +36,8 @@ public class FileAsStream {
                  BufferedReader br = new BufferedReader(isr);) {
                 String line;
                 while ((line = br.readLine()) != null) {
-                    returnText += line.replace("   ", "");
+                    returnText += line;
+                    returnText += "\n";
                 }
                 this.fileContents.close();
             }

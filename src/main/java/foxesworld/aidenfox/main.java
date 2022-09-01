@@ -18,8 +18,10 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.Logger;
 
-import static foxesworld.aidenfox.cfg.Environment.MODCFGDIR;
-import static foxesworld.aidenfox.cfg.Environment.paramsDirName;
+import java.io.File;
+
+import static foxesworld.aidenfox.cfg.Environment.*;
+import static foxesworld.aidenfox.methods.tplFunctions.readTplFile;
 
 @Mod(modid = Environment.MODID, name = Environment.NAME, version = Environment.VERSION)
 public class main {
@@ -39,31 +41,36 @@ public class main {
 
         ConfigCreator cfg = new ConfigCreator(Environment.CFGNAME, event);
         cfg.initCfg();
-
+        genFolders();
+        String paramPath = MODCFGDIR + paramsDirName;
 
         Sounds sounds = new Sounds("sounds.json");
         sounds.registerSounds();
-        String paramPath = MODCFGDIR + paramsDirName;
-        MaterialParser materials = new MaterialParser(paramPath, "material.json");
-        materials.readTplFile(false);
 
-        BlocksParser blockParser = new BlocksParser(paramPath,"blocks.json");
-        blockParser.readTplFile(false);
+        MaterialParser materials = new MaterialParser(paramPath, "material.json");
+        materials.readFromJson(readTplFile(materials.getFileName(), materials.getFileDir(), false));
+
+
+        BlocksParser blockParser = new BlocksParser(paramPath, "blocks.json");
+        blockParser.readFromJson(readTplFile(blockParser.getFileName(), blockParser.getFileDir(), false));
 
         Tools toolsParser = new Tools(paramPath, "tools.json");
-        toolsParser.readTplFile(false);
+        toolsParser.readFromJson(readTplFile(toolsParser.getFileName(), toolsParser.getFileDir(), false));
 
-        ItemParser ItemParser = new ItemParser(paramPath,"items.json");
-        ItemParser.readTplFile(false);
+
+        ItemParser ItemParser = new ItemParser(paramPath, "items.json");
+        ItemParser.readFromJson(readTplFile(ItemParser.getFileName(), ItemParser.getFileDir(), false));
+
         RegData data = new RegData();
         data.regItems();
         data.regBlocks();
 
-        OreGenParser oreGen = new OreGenParser(paramPath,"oreGen.json");
-        oreGen.readTplFile(false);
+        OreGenParser oreGen = new OreGenParser(paramPath, "oreGen.json");
+        oreGen.readFromJson(readTplFile(oreGen.getFileName(), oreGen.getFileDir(), false));
 
         StructureParser structures = new StructureParser(paramPath, "structures.json");
-        structures.readTplFile(false);
+        structures.readFromJson(readTplFile(structures.getFileName(), structures.getFileDir(), false));
+
     }
 
     @EventHandler
@@ -76,4 +83,13 @@ public class main {
         proxy.postInit(event);
     }
 
+    private static void genFolders() {
+    String[] folders = {paramsDirName, generatedDirName};
+    for(String dir: folders){
+        File workFolder = new File(MODCFGDIR + "/" + dir);
+        if (!workFolder.exists()) {
+            workFolder.mkdir();
+        }
+    }
+    }
 }

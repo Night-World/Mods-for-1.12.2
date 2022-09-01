@@ -1,0 +1,6 @@
+{
+   "parent": "lapis_apple",
+   "textures": {
+      "layer0": "foxesmod:items/lapis_apple"
+   }
+}

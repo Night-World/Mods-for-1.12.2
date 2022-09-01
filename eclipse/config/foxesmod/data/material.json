@@ -1,1 +1,24 @@
-[  { "materialName": "foxesmod:dirt", "materialHarvestLevel": 1, "materialUsages": 64, "materialEfficiency": 2.8, "materialDamage": 1.5, "materialEnchantability": 8, "fixMaterial": "MINECRAFT:DIRT", "fixMaterialAmmount": 8, "fixMaterialMeta": 1  },  { "materialName": "foxesmod:gravel", "materialHarvestLevel": 2, "materialUsages": 128, "materialEfficiency": 3.0, "materialDamage": 1.8, "materialEnchantability": 10, "fixMaterial": "MINECRAFT:GRAVEL", "fixMaterialAmmount": 11, "fixMaterialMeta": 0  }]
+[
+  {
+    "materialName": "foxesmod:dirt",
+    "materialHarvestLevel": 1,
+    "materialUsages": 64,
+    "materialEfficiency": 2.8,
+    "materialDamage": 1.5,
+    "materialEnchantability": 8,
+    "fixMaterial": "MINECRAFT:DIRT",
+    "fixMaterialAmmount": 8,
+    "fixMaterialMeta": 1
+  },
+  {
+    "materialName": "foxesmod:gravel",
+    "materialHarvestLevel": 2,
+    "materialUsages": 128,
+    "materialEfficiency": 3.0,
+    "materialDamage": 1.8,
+    "materialEnchantability": 10,
+    "fixMaterial": "MINECRAFT:GRAVEL",
+    "fixMaterialAmmount": 11,
+    "fixMaterialMeta": 0
+  }
+]

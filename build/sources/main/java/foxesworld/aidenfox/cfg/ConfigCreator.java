@@ -1,6 +1,5 @@
 package foxesworld.aidenfox.cfg;
 
-import foxesworld.aidenfox.cfg.JsonGenerator.JsonGenerator;
 import foxesworld.aidenfox.proxy.CommonProxy;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -25,7 +24,7 @@ public class ConfigCreator {
     public ConfigCreator(String cfgName, FMLPreInitializationEvent e) {
         this.cfgName = cfgName;
         CommonProxy.config = new Configuration(new File(e.getModConfigurationDirectory().getPath(), ConfigCreator.cfgName));
-        JsonGenerator JsonGenerator = new JsonGenerator(e.getModConfigurationDirectory());
+        //JsonGenerator JsonGenerator = new JsonGenerator(e.getModConfigurationDirectory());
     }
 
     public static void initCfg() {

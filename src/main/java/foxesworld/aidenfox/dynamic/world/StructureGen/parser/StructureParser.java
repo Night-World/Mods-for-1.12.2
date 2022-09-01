@@ -19,20 +19,16 @@ package foxesworld.aidenfox.dynamic.world.StructureGen.parser;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 import foxesworld.aidenfox.cfg.Environment;
-import foxesworld.aidenfox.methods.FileAsStream;
-import foxesworld.aidenfox.methods.Utils;
 import net.minecraft.block.Block;
 
 import java.io.StringReader;
 
-import static foxesworld.aidenfox.methods.BufferedFileReader.BufferedFileReader;
 import static foxesworld.aidenfox.methods.Utils.debugSend;
 
 public class StructureParser {
 
     private String fileName;
     private String fileDir;
-    private String MODID;
     public String structureName;
     public Block topBlock;
     public Integer[] biomeToGen;
@@ -42,19 +38,6 @@ public class StructureParser {
     public StructureParser(String fileDir, String fileName) {
         this.fileName = fileName;
         this.fileDir = fileDir;
-        this.MODID = Environment.MODID;
-    }
-
-    public void readTplFile(boolean inputStream) {
-        String jsonString = "";
-        if(inputStream) {
-            FileAsStream structuresJsonStream = new FileAsStream(this.fileName, this.MODID);
-            jsonString = (String) structuresJsonStream.getFileContents();
-        } else {
-            Utils.createIfnotExists(this.fileDir,this.fileName);
-            jsonString = BufferedFileReader(fileDir+this.fileName);
-        }
-        readFromJson(jsonString);
     }
 
     public StructureParser(String structureName, Integer[] biomeToGen, int rarity, Block blockToGenOn, StructureInstance structureInstance) {
@@ -66,7 +49,7 @@ public class StructureParser {
         Environment.STRUCTURES.add(this);
     }
 
-    private void readFromJson(String JsonIn) {
+    public void readFromJson(String JsonIn) {
         gson = new Gson();
         StructureAttributes[] thisStructureData;
         JsonReader reader = new JsonReader(new StringReader(JsonIn));
@@ -80,6 +63,14 @@ public class StructureParser {
             StructureInstance structureInstance = new StructureInstance(this.structureName);
             new StructureParser(structureName, biomeToGen, rarity, Block.getBlockFromName(blockToGenOn), structureInstance);
         }
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public String getFileDir() {
+        return fileDir;
     }
 
 }

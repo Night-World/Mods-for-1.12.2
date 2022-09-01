@@ -15,6 +15,7 @@ public class BlockAttributes {
     private boolean creatureSpawn;
     private String itemDrop;
     private int dropAmmount;
+    private String[] display;
 
     public String getBlockName() {
         return blockName;
@@ -59,4 +60,6 @@ public class BlockAttributes {
     public int getDropAmmount() {
         return dropAmmount;
     }
+
+    public String[] getDisplay() { return  display;}
 }

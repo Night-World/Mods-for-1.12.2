@@ -1,1 +1,24 @@
-[  { "itemName": "staff", "itemType": "item", "onItemRightClick": "xpDerp->FLAME", "actionCoolDown": 30  },  { "itemName":"debug_item", "itemType": "item", "onItemRightClick": "playFoxesSound->event.action.other", "actionCoolDown": 50  },  { "itemName": "lapis_apple", "itemType": "food", "amount": 4, "saturation": 1, "isWolfFood": false, "alwaysEdible":true, "onEatenEffect": "xpParty->16", "actionCoolDown": 90  }]
+[
+  {
+    "itemName": "staff",
+    "itemType": "item",
+    "onItemRightClick": "explode->50",
+    "actionCoolDown": 30
+  },
+  {
+    "itemName":"debug_item",
+    "itemType": "item",
+    "onItemRightClick": "playFoxesSound->event.action.other",
+    "actionCoolDown": 50
+  },
+  {
+    "itemName": "lapis_apple",
+    "itemType": "food",
+    "amount": 4,
+    "saturation": 1,
+    "isWolfFood": false,
+    "alwaysEdible":true,
+    "onEatenEffect": "xpParty->16",
+    "actionCoolDown": 90
+  }
+]

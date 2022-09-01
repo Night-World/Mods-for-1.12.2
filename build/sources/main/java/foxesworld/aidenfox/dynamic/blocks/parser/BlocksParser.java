@@ -6,43 +6,27 @@ import foxesworld.aidenfox.cfg.Environment;
 import foxesworld.aidenfox.dynamic.blocks.blockType.Block;
 import foxesworld.aidenfox.dynamic.blocks.blockType.Slab;
 import foxesworld.aidenfox.dynamic.blocks.blockType.Stairs;
-import foxesworld.aidenfox.methods.FileAsStream;
-import foxesworld.aidenfox.methods.Utils;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 
 import java.util.List;
 
 import static foxesworld.aidenfox.cfg.ConfigCreator.regBlocks;
-import static foxesworld.aidenfox.methods.BufferedFileReader.BufferedFileReader;
+import static foxesworld.aidenfox.dynamic.JsonGenerated.JsonGenerated.genBlock;
+import static foxesworld.aidenfox.dynamic.JsonGenerated.stairs.BlockStairGenerator.generateBlockStair;
 
 public class BlocksParser {
 
     private String fileName;
     private String fileDir;
-    private String MODID;
     private Gson gson;
 
     public BlocksParser(String fileDir, String fileName) {
         this.fileName = fileName;
         this.fileDir = fileDir;
-        this.MODID = Environment.MODID;
     }
 
-    public void readTplFile(boolean inputStream) {
-        String jsonString = "";
-        if(inputStream) {
-            FileAsStream structuresJsonStream = new FileAsStream(this.fileName, this.MODID);
-            jsonString = (String) structuresJsonStream.getFileContents();
-        } else {
-            Utils.createIfnotExists(this.fileDir,this.fileName);
-            jsonString = BufferedFileReader(fileDir+this.fileName);
-        }
-
-        readFromJson(jsonString);
-    }
-
-    private void readFromJson(String jsonIn) {
+    public void readFromJson(String jsonIn) {
         if (regBlocks) {
             gson = new Gson();
             String blockName;
@@ -57,6 +41,7 @@ public class BlocksParser {
             boolean creatureSpawn = false;
             String itemDrop = "";
             int dropAmmount;
+            String[] display;
             TypeToken<List<BlockAttributes>> typeToken = new TypeToken<List<BlockAttributes>>() {
             };
             List<BlockAttributes> object = gson.fromJson(jsonIn, typeToken.getType());
@@ -75,14 +60,19 @@ public class BlocksParser {
                         blockResistance = obj.getBlockResistance();
                         creatureSpawn = obj.getCreatureSpawn();
                         itemDrop = obj.getItemDrop();
+                        display = obj.getDisplay();
+
+
                         if (!itemDrop.equals("")) {
                             dropAmmount = obj.getDropAmmount();
                         }
+                        genBlock(blockName);
                         new Block(blockName, blockMaterial, blockSound, blockHarvestTool, blockHarvestLevel, blockHardness, blockResistance, creatureSpawn, itemDrop, dropAmmount);
                         break;
 
                     case "Stairs":
                         fromBlock = obj.getFromBlock();
+                        generateBlockStair(blockName);
                         new Stairs(blockName, Environment.BLOCKS.get(fromBlock).getDefaultState());
                         break;
 
@@ -91,7 +81,15 @@ public class BlocksParser {
                         new Slab(blockName, blockMaterial, Environment.BLOCKS.get(fromBlock).getDefaultState());
                         break;
                 }
+
             }
         }
+    }
+    public String getFileName() {
+        return fileName;
+    }
+
+    public String getFileDir() {
+        return fileDir;
     }
 }

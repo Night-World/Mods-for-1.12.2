@@ -1,0 +1,6 @@
+{
+   "parent": "staff",
+   "textures": {
+      "layer0": "foxesmod:items/staff"
+   }
+}

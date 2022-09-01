@@ -1,1 +1,68 @@
-[  { "blockName": "black_marble", "blockType": "Block", "blockMaterial": "ROCK", "blockSound": "STONE", "blockTool": "pickaxe", "blockHarvestLevel": 2, "blockHardness": 9.5, "blockResistance": 19.5, "creatureSpawn": false, "itemDrop": "minecraft:coal", "dropAmmount": 6  },  { "blockName": "hardened_dirt", "blockType": "Block", "blockMaterial": "GROUND", "blockSound": "GROUND", "blockTool": "shovel", "blockHarvestLevel": 1, "blockHardness": 2.0, "blockResistance": 5.0, "creatureSpawn": false, "itemDrop": ""  },  { "blockName": "hardened_gravel", "blockType": "Block", "blockMaterial": "CLAY", "blockSound": "GROUND", "blockTool": "shovel", "blockHarvestLevel": 1, "blockHardness": 4.0, "blockResistance": 6.0, "creatureSpawn": false, "itemDrop": ""  },  { "blockName": "marble_raw", "blockType": "Block", "blockMaterial": "ROCK", "blockSound": "STONE", "blockTool": "pickaxe", "blockHarvestLevel": 1, "blockHardness": 2.8, "blockResistance": 6.0, "creatureSpawn": false, "itemDrop": ""  },  { "blockName": "marble_bricks", "blockType": "Block", "blockMaterial": "ROCK", "blockSound": "STONE", "blockTool": "pickaxe", "blockHarvestLevel": 3, "blockHardness": 9.0, "blockResistance": 18.0, "creatureSpawn": false, "itemDrop": ""  },  { "blockName": "stairs", "blockType": "Stairs", "fromBlock": "hardened_gravel"  }]
+[
+  {
+    "blockName": "black_marble",
+    "blockType": "Block",
+    "blockMaterial": "ROCK",
+    "blockSound": "STONE",
+    "blockTool": "pickaxe",
+    "blockHarvestLevel": 2,
+    "blockHardness": 9.5,
+    "blockResistance": 19.5,
+    "creatureSpawn": false,
+    "itemDrop": "minecraft:coal",
+    "dropAmmount": 6
+  },
+  {
+    "blockName": "hardened_dirt",
+    "blockType": "Block",
+    "blockMaterial": "GROUND",
+    "blockSound": "GROUND",
+    "blockTool": "shovel",
+    "blockHarvestLevel": 1,
+    "blockHardness": 2.0,
+    "blockResistance": 5.0,
+    "creatureSpawn": false,
+    "itemDrop": ""
+  },
+  {
+    "blockName": "hardened_gravel",
+    "blockType": "Block",
+    "blockMaterial": "CLAY",
+    "blockSound": "GROUND",
+    "blockTool": "shovel",
+    "blockHarvestLevel": 1,
+    "blockHardness": 4.0,
+    "blockResistance": 6.0,
+    "creatureSpawn": false,
+    "itemDrop": ""
+  },
+  {
+    "blockName": "marble_raw",
+    "blockType": "Block",
+    "blockMaterial": "ROCK",
+    "blockSound": "STONE",
+    "blockTool": "pickaxe",
+    "blockHarvestLevel": 1,
+    "blockHardness": 2.8,
+    "blockResistance": 6.0,
+    "creatureSpawn": false,
+    "itemDrop": ""
+  },
+  {
+    "blockName": "marble_bricks",
+    "blockType": "Block",
+    "blockMaterial": "ROCK",
+    "blockSound": "STONE",
+    "blockTool": "pickaxe",
+    "blockHarvestLevel": 3,
+    "blockHardness": 9.0,
+    "blockResistance": 18.0,
+    "creatureSpawn": false,
+    "itemDrop": ""
+  },
+  {
+    "blockName": "stairs",
+    "blockType": "Stairs",
+    "fromBlock": "hardened_gravel"
+  }
+]
