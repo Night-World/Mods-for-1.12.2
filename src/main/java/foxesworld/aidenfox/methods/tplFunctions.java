@@ -25,13 +25,14 @@ import static foxesworld.aidenfox.methods.Utils.debugSend;
 
 public class tplFunctions {
 
-    public static String readTplFile(String fileName, String fileDir, boolean inputStream) {
-       debugSend("tplDir = "+ fileDir + " | tplFile = " + fileName);
+    public static String readTplFile(String fileName, String fileDir, boolean exportData) {
         String jsonString = "";
-        if (!inputStream) {
+        if (!exportData) {
+            //debugSend("");
             FileAsStream structuresJsonStream = new FileAsStream(dataTemplateDir + fileName, Environment.MODID);
             jsonString = (String) structuresJsonStream.getFileContents();
         } else {
+            debugSend("tplDir = "+ fileDir + " | tplFile = " + fileName);
             createIfnotExists(fileDir, fileName);
             jsonString = BufferedFileReader(fileDir + fileName);
         }

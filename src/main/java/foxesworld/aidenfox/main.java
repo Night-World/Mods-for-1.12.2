@@ -22,6 +22,7 @@ import java.io.File;
 
 import static foxesworld.aidenfox.cfg.ConfigCreator.*;
 import static foxesworld.aidenfox.cfg.Environment.*;
+import static foxesworld.aidenfox.methods.Utils.debugSend;
 import static foxesworld.aidenfox.methods.tplFunctions.readTplFile;
 
 @Mod(modid = Environment.MODID, name = Environment.NAME, version = Environment.VERSION)
@@ -33,44 +34,55 @@ public class main {
 
     public static CommonProxy proxy;
     public static Logger logger;
+    Thread loadData;
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         logger = event.getModLog();
         proxy.preInit(event);
-        MODCFGDIR = event.getModConfigurationDirectory() + "/" + Environment.MODID;
+        MODCFGDIR = String.valueOf(event.getModConfigurationDirectory());
 
         ConfigCreator cfg = new ConfigCreator(Environment.CFGNAME, event);
         cfg.initCfg();
         genFolders();
-        String paramPath = MODCFGDIR + dataExportDir;
+        String paramPath = MODCFGDIR + File.separator + Environment.MODID + dataExportDir;
 
         Sounds sounds = new Sounds("sounds.json");
         sounds.registerSounds();
 
-        MaterialParser materials = new MaterialParser(paramPath, "material.json");
-        materials.readFromJson(readTplFile(materials.getFileName(), materials.getFileDir(), exportMaterials));
+        loadData = new Thread(new Runnable() {
+            public void run() {
+                debugSend("=== STARTING LOADING DATA ===");
+                long lStartTime = System.nanoTime();
+                MaterialParser materials = new MaterialParser(paramPath, "material.json");
+                materials.readFromJson(readTplFile(materials.getFileName(), materials.getFileDir(), exportMaterials));
+
+                BlocksParser blockParser = new BlocksParser(paramPath, "blocks.json");
+                blockParser.readFromJson(readTplFile(blockParser.getFileName(), blockParser.getFileDir(), exportBlocks));
+
+                Tools toolsParser = new Tools(paramPath, "tools.json");
+                toolsParser.readFromJson(readTplFile(toolsParser.getFileName(), toolsParser.getFileDir(), exportTools));
+
+                ItemParser ItemParser = new ItemParser(paramPath, "items.json");
+                ItemParser.readFromJson(readTplFile(ItemParser.getFileName(), ItemParser.getFileDir(), exportItems));
 
 
-        BlocksParser blockParser = new BlocksParser(paramPath, "blocks.json");
-        blockParser.readFromJson(readTplFile(blockParser.getFileName(), blockParser.getFileDir(), exportBlocks));
+                OreGenParser oreGen = new OreGenParser(paramPath, "oreGen.json");
+                oreGen.readFromJson(readTplFile(oreGen.getFileName(), oreGen.getFileDir(), exportOreGen));
 
-        Tools toolsParser = new Tools(paramPath, "tools.json");
-        toolsParser.readFromJson(readTplFile(toolsParser.getFileName(), toolsParser.getFileDir(), exportTools));
+                StructureParser structures = new StructureParser(paramPath, "structures.json");
+                structures.readFromJson(readTplFile(structures.getFileName(), structures.getFileDir(), exportStructures));
+                long endTime = System.currentTimeMillis();
 
+                RegData data = new RegData();
+                data.regItems();
+                data.regBlocks();
 
-        ItemParser ItemParser = new ItemParser(paramPath, "items.json");
-        ItemParser.readFromJson(readTplFile(ItemParser.getFileName(), ItemParser.getFileDir(), exportItems));
+                debugSend("=== DATA LOADED IN " + (int) ((endTime - lStartTime) / 1000) % 60 + " SECONDS + ===");
+            }
+        });
+        loadData.start();
 
-        RegData data = new RegData();
-        data.regItems();
-        data.regBlocks();
-
-        OreGenParser oreGen = new OreGenParser(paramPath, "oreGen.json");
-        oreGen.readFromJson(readTplFile(oreGen.getFileName(), oreGen.getFileDir(), exportOreGen));
-
-        StructureParser structures = new StructureParser(paramPath, "structures.json");
-        structures.readFromJson(readTplFile(structures.getFileName(), structures.getFileDir(), exportStructures));
 
     }
 
@@ -85,12 +97,12 @@ public class main {
     }
 
     private static void genFolders() {
-    String[] folders = {dataExportDir, generatedDirName};
-    for(String dir: folders){
-        File workFolder = new File(MODCFGDIR + "/" + dir);
-        if (!workFolder.exists()) {
-            workFolder.mkdir();
+        String[] folders = {dataExportDir, generatedDirName};
+        for (String dir : folders) {
+            File workFolder = new File(MODCFGDIR + "/" + dir);
+            if (!workFolder.exists()) {
+                workFolder.mkdir();
+            }
         }
-    }
     }
 }

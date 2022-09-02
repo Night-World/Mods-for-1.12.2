@@ -4,81 +4,60 @@ import foxesworld.aidenfox.cfg.Environment;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-import java.net.URI;
-import java.net.URL;
-import java.nio.file.*;
-import java.util.Collections;
-import java.util.Iterator;
 import java.util.Map;
 
 import static foxesworld.aidenfox.methods.Utils.debugSend;
+import static net.minecraftforge.fml.relauncher.Side.CLIENT;
 
 public class RegData {
 
-    //ResourceLocation resourcelocation = new ResourceLocation(MODCFGDIR + generatedDirName);
+    private ResourceLocation assetsLocation;
 
-    public RegData() {}
-
-   public static void regItems() {
+    public static void regItems() {
         for (Map.Entry entry : Environment.ITEMS.entrySet()) {
-            net.minecraft.item.Item thisItem = (net.minecraft.item.Item) entry.getValue();
-            final ResourceLocation regName = thisItem.getRegistryName();
-            final ModelResourceLocation mrl = new ModelResourceLocation(regName, "inventory");
+            Item thisItem = (Item) entry.getValue();
             ForgeRegistries.ITEMS.registerAll(thisItem);
-            ModelBakery.registerItemVariants(thisItem, mrl);
-            ModelLoader.setCustomModelResourceLocation(thisItem, 0,  mrl);
+            itemRenderer(thisItem);
         }
     }
 
     public static void regBlocks() {
         for (Map.Entry entry : Environment.BLOCKS.entrySet()) {
             Block block = (Block) entry.getValue();
-            debugSend("Registering " + block.getRegistryName());
             ForgeRegistries.BLOCKS.register(block);
             ForgeRegistries.ITEMS.register(new ItemBlock(block).setRegistryName(block.getRegistryName()));
-            ModelLoader.setCustomModelResourceLocation(net.minecraft.item.Item.getItemFromBlock(block), 0, new ModelResourceLocation(block.getRegistryName(), "inventory"));
-        }
-
-    }
-
-    private static void resourceLocation(String pathToDir){
-        FileSystem filesystem = null;
-
-        URL url = main.class.getResource(pathToDir);
-
-        try
-        {
-            if (url != null)
-            {
-                URI uri = url.toURI();
-                Path path = null;
-
-                if ("file".equals(uri.getScheme()))
-                {
-                    path = Paths.get(main.class.getResource(pathToDir).toURI());
-                }
-                else
-                {
-
-                    filesystem = FileSystems.newFileSystem(uri, Collections.emptyMap());
-                    path = filesystem.getPath(pathToDir);
-
-                }
-
-                Iterator<Path> it = Files.walk(path).iterator();
-
-                while(it.hasNext())
-                    System.out.println(it.next());
-            }
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
+            blockRenderer(block);
         }
     }
+
+    @SideOnly(CLIENT)
+    private static void itemRenderer(Item thisItem) {
+        final ResourceLocation regName = thisItem.getRegistryName();
+        final ModelResourceLocation mrl = new ModelResourceLocation(regName, "inventory");
+        debugSend("Registering render of  " + regName);
+        ModelBakery.registerItemVariants(thisItem, mrl);
+        ModelLoader.setCustomModelResourceLocation(thisItem, 0, mrl);
+    }
+    @SideOnly(CLIENT)
+    private static void blockRenderer(Block thisBlock) {
+        final ResourceLocation regName = thisBlock.getRegistryName();
+        final ModelResourceLocation mrl = new ModelResourceLocation(regName, "inventory");
+        debugSend("Registering render of  " + regName);
+        ModelLoader.setCustomModelResourceLocation(net.minecraft.item.Item.getItemFromBlock(thisBlock), 0, mrl);
+    }
+
+    private static String getItemLocation(ResourceLocation regName){
+        ResourceLocation location = new ResourceLocation(Environment.MODCFGDIR + Environment.generatedDirName + regName);
+        String path = location.getPath();
+        return path;
+    }
+
+
 }

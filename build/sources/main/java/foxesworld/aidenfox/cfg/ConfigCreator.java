@@ -1,11 +1,13 @@
 package foxesworld.aidenfox.cfg;
 
 import foxesworld.aidenfox.proxy.CommonProxy;
+import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 import java.io.File;
 
+@Config(modid = Environment.MODID)
 public class ConfigCreator {
 
     public static Boolean debug = false;

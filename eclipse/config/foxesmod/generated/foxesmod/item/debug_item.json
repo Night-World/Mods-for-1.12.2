@@ -1,0 +1,6 @@
+{
+   "parent": "debug_item",
+   "textures": {
+      "layer0": "foxesmod:items/debug_item"
+   }
+}

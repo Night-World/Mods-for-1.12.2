@@ -49,6 +49,14 @@ public class Utils {
         }
     }
 
+    public static void ThreadSleep(int time){
+        try {
+            Thread.sleep(time + 'L');
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void playFoxesSound(World worldIn, EntityPlayer playerIn, String snd){
         Thread sndPlay = new Thread(new Runnable() {
             public void run() {
