@@ -1,4 +1,4 @@
-package foxesworld.aidenfox.deprecated.effects;
+package foxesworld.hardcontent.deprecated.effects;
 
 import net.minecraft.init.MobEffects;
 import net.minecraft.potion.Potion;

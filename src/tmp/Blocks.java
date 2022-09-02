@@ -1,11 +1,11 @@
-package foxesworld.aidenfox.dynamic.blocks;
+package foxesworld.hardcontent.dynamic.block;
 
-import foxesworld.aidenfox.dynamic.blocks.blockType.Block;
-import foxesworld.aidenfox.dynamic.blocks.blockType.Stairs;
+import foxesworld.hardcontent.dynamic.block.blockType.Block;
+import foxesworld.hardcontent.dynamic.block.blockType.Stairs;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 
-import static foxesworld.aidenfox.methods.Utils.debugSend;
+import static foxesworld.hardcontent.methods.Utils.debugSend;
 
 public class Blocks {
 

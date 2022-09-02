@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package foxesworld.aidenfox.dynamic.items;
+package foxesworld.hardcontent.dynamic.item;
 
-import foxesworld.aidenfox.cfg.Environment;
-import foxesworld.aidenfox.dynamic.items.parser.ItemParser;
+import foxesworld.hardcontent.cfg.Environment;
+import foxesworld.hardcontent.dynamic.item.parser.ItemParser;
 
 public class Item {
 

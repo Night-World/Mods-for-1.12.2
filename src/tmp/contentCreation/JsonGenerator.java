@@ -1,12 +1,12 @@
-package foxesworld.aidenfox.cfg.contentCreation;
+package foxesworld.hardcontent.cfg.contentCreation;
 
-import foxesworld.aidenfox.cfg.Environment;
+import foxesworld.hardcontent.cfg.Environment;
 
 import java.io.*;
 import java.util.ArrayList;
 
-import static foxesworld.aidenfox.cfg.Environment.generatedDirName;
-import static foxesworld.aidenfox.cfg.Environment.paramsDirName;
+import static foxesworld.hardcontent.cfg.Environment.generatedDirName;
+import static foxesworld.hardcontent.cfg.Environment.paramsDirName;
 
 public class JsonGenerator {
     public static ArrayList<String> toGenerate = new ArrayList();

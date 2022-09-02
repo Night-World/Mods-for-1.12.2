@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package foxesworld.aidenfox.deprecated.entity;
+package foxesworld.hardcontent.deprecated.entity;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;

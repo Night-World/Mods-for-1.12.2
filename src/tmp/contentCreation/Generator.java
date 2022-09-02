@@ -1,7 +1,7 @@
-package foxesworld.aidenfox.cfg.contentCreation;
+package foxesworld.hardcontent.cfg.contentCreation;
 
 import com.google.gson.stream.JsonWriter;
-import foxesworld.aidenfox.cfg.Environment;
+import foxesworld.hardcontent.cfg.Environment;
 
 import java.io.FileWriter;
 import java.util.ArrayList;

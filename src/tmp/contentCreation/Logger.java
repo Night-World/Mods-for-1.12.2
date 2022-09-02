@@ -1,4 +1,4 @@
-package foxesworld.aidenfox.cfg.contentCreation;
+package foxesworld.hardcontent.cfg.contentCreation;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;

@@ -1,7 +1,7 @@
-package foxesworld.aidenfox.deprecated.food;
+package foxesworld.hardcontent.deprecated.food;
 
-import foxesworld.aidenfox.cfg.Environment;
-import foxesworld.aidenfox.methods.CreativeTab;
+import foxesworld.hardcontent.cfg.Environment;
+import foxesworld.hardcontent.methods.CreativeTab;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 import java.util.List;
 
-import static foxesworld.aidenfox.methods.Utils.addLore;
+import static foxesworld.hardcontent.methods.Utils.addLore;
 
 public abstract class Food extends ItemFood {
 

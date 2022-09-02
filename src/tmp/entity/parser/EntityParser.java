@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package foxesworld.aidenfox.deprecated.entity.parser;
+package foxesworld.hardcontent.deprecated.entity.parser;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import foxesworld.aidenfox.deprecated.entity.MobEntity;
-import foxesworld.aidenfox.methods.FileAsStream;
+import foxesworld.hardcontent.deprecated.entity.MobEntity;
+import foxesworld.hardcontent.methods.FileAsStream;
 import net.minecraft.entity.Entity;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;

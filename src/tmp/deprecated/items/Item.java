@@ -1,7 +1,7 @@
-package foxesworld.aidenfox.deprecated.items;
+package foxesworld.hardcontent.deprecated.items;
 
-import foxesworld.aidenfox.cfg.Environment;
-import foxesworld.aidenfox.methods.CreativeTab;
+import foxesworld.hardcontent.cfg.Environment;
+import foxesworld.hardcontent.methods.CreativeTab;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -9,7 +9,7 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 import java.util.List;
 
-import static foxesworld.aidenfox.methods.Utils.addLore;
+import static foxesworld.hardcontent.methods.Utils.addLore;
 
 public class Item extends net.minecraft.item.Item {
 

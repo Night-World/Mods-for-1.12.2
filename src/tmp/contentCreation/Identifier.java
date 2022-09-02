@@ -1,4 +1,4 @@
-package foxesworld.aidenfox.cfg.contentCreation;
+package foxesworld.hardcontent.cfg.contentCreation;
 
 public class Identifier {
     private final String key;
