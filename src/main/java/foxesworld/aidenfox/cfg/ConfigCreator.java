@@ -9,9 +9,10 @@ import java.io.File;
 public class ConfigCreator {
 
     public static Boolean debug = false;
-    private static String cfgName = "hardtools.cfg";
+    private static String cfgName = "hardcontent.cfg";
     private static final String CATEGORY_GENERAL = "General";
     private static final String ContentOptions = "ContentOptions";
+    private static final String dataGen = "Data Generation";
 
     /*ContentOptions*/
     public static boolean structureGen = true;
@@ -19,6 +20,14 @@ public class ConfigCreator {
     public static boolean regMaterials = true;
     public static boolean regItems = true;
     public static boolean regBlocks = true;
+
+    /*DataGen*/
+    public static boolean exportMaterials = true;
+    public static boolean exportBlocks = true;
+    public static boolean exportTools = true;
+    public static boolean exportItems = true;
+    public static boolean exportOreGen = true;
+    public static boolean exportStructures = true;
 
 
     public ConfigCreator(String cfgName, FMLPreInitializationEvent e) {
@@ -46,7 +55,7 @@ public class ConfigCreator {
     }
 
     private static void initGeneralConfig(Configuration cfg) {
-        cfg.addCustomCategoryComment(CATEGORY_GENERAL, "General HardTools Configuration Version." + Environment.VERSION);
+        cfg.addCustomCategoryComment(CATEGORY_GENERAL, "General HardData Configuration Version." + Environment.VERSION);
         debug = cfg.getBoolean("debug", CATEGORY_GENERAL, false, "Debug logging");
 
         cfg.addCustomCategoryComment(ContentOptions, "What content to enable");
@@ -55,6 +64,14 @@ public class ConfigCreator {
         regMaterials = cfg.getBoolean("regMaterial", ContentOptions, true, "Should we register materials");
         regItems = cfg.getBoolean("regItems", ContentOptions, true, "Should we register Ites (Tools and Food also)");
         regBlocks = cfg.getBoolean("regBlocks", ContentOptions, true, "Should we register Blocks");
-    }
 
+
+        cfg.addCustomCategoryComment(dataGen, "Data files to generate in config");
+        exportMaterials = cfg.getBoolean("exportMaterials", dataGen, true, "Should we export materials");
+        exportBlocks = cfg.getBoolean("exportBlocks", dataGen, true, "Should we export Blocks");
+        exportTools = cfg.getBoolean("exportTools", dataGen, true, "Should we export Tools");
+        exportItems = cfg.getBoolean("exportItems", dataGen, true, "Should we export Items");
+        exportOreGen = cfg.getBoolean("exportOreGen", dataGen, true, "Should we export generating ores");
+        exportStructures = cfg.getBoolean("exportStructures", dataGen, true, "Should we export Structures gen settings");
+    }
 }

@@ -23,10 +23,13 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
+import static foxesworld.aidenfox.cfg.Environment.dataTemplateDir;
+import static foxesworld.aidenfox.methods.Utils.debugSend;
+
 public class FileOptions {
 
     public static String BufferedFileReader(String pathToFile){
-        System.out.println("ThisPath " + pathToFile);
+        debugSend("Reading " + pathToFile);
         String fileCntents = "";
         BufferedReader br = null;
         try {
@@ -53,7 +56,6 @@ public class FileOptions {
     }
 
     public static void createIfnotExists(String fileDir, String filename){
-        String dataTemplateDir = "dataTemplates/";
         File cfgFile = new File(fileDir + filename);
         FileAsStream templateFile = new FileAsStream(dataTemplateDir + filename, Environment.MODID);
         Object templateFileContents = templateFile.getFileContents();

@@ -17,7 +17,6 @@
 package foxesworld.aidenfox.dynamic.blocks.blockType;
 
 import foxesworld.aidenfox.cfg.Environment;
-import foxesworld.aidenfox.dynamic.JsonGenerated.JsonGenerated;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -25,7 +24,6 @@ import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -59,7 +57,7 @@ public class Block extends net.minecraft.block.Block {
         this.setResistance(resistance);
         this.setRegistryName(Environment.MODID, name);
         setCreativeTab(MOD_TAB);
-        ResourceLocation loc = new ResourceLocation(JsonGenerated.bindDir);
+        //ResourceLocation loc = new ResourceLocation(JsonGenerated.bindDir);
 
         Environment.BLOCKS.put(name, this);
     }

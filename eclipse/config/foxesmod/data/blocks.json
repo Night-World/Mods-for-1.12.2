@@ -10,7 +10,10 @@
     "blockResistance": 19.5,
     "creatureSpawn": false,
     "itemDrop": "minecraft:coal",
-    "dropAmmount": 6
+    "dropAmmount": 6,
+    "display": [
+
+    ]
   },
   {
     "blockName": "hardened_dirt",
@@ -22,7 +25,10 @@
     "blockHardness": 2.0,
     "blockResistance": 5.0,
     "creatureSpawn": false,
-    "itemDrop": ""
+    "itemDrop": "",
+    "display": [
+
+    ]
   },
   {
     "blockName": "hardened_gravel",
@@ -34,7 +40,10 @@
     "blockHardness": 4.0,
     "blockResistance": 6.0,
     "creatureSpawn": false,
-    "itemDrop": ""
+    "itemDrop": "",
+    "display": [
+
+    ]
   },
   {
     "blockName": "marble_raw",
@@ -46,7 +55,10 @@
     "blockHardness": 2.8,
     "blockResistance": 6.0,
     "creatureSpawn": false,
-    "itemDrop": ""
+    "itemDrop": "",
+    "display": [
+
+    ]
   },
   {
     "blockName": "marble_bricks",
@@ -58,11 +70,17 @@
     "blockHardness": 9.0,
     "blockResistance": 18.0,
     "creatureSpawn": false,
-    "itemDrop": ""
+    "itemDrop": "",
+    "display": [
+
+    ]
   },
   {
     "blockName": "stairs",
     "blockType": "Stairs",
-    "fromBlock": "hardened_gravel"
+    "fromBlock": "hardened_gravel",
+    "display": [
+
+    ]
   }
 ]

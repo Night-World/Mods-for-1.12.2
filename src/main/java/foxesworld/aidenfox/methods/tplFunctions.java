@@ -18,6 +18,7 @@ package foxesworld.aidenfox.methods;
 
 import foxesworld.aidenfox.cfg.Environment;
 
+import static foxesworld.aidenfox.cfg.Environment.dataTemplateDir;
 import static foxesworld.aidenfox.methods.FileOptions.BufferedFileReader;
 import static foxesworld.aidenfox.methods.FileOptions.createIfnotExists;
 import static foxesworld.aidenfox.methods.Utils.debugSend;
@@ -27,14 +28,13 @@ public class tplFunctions {
     public static String readTplFile(String fileName, String fileDir, boolean inputStream) {
        debugSend("tplDir = "+ fileDir + " | tplFile = " + fileName);
         String jsonString = "";
-        if (inputStream) {
-            FileAsStream structuresJsonStream = new FileAsStream(fileName, Environment.MODID);
+        if (!inputStream) {
+            FileAsStream structuresJsonStream = new FileAsStream(dataTemplateDir + fileName, Environment.MODID);
             jsonString = (String) structuresJsonStream.getFileContents();
         } else {
             createIfnotExists(fileDir, fileName);
             jsonString = BufferedFileReader(fileDir + fileName);
         }
-        //readFromJson(jsonString);
         return jsonString;
     }
 }

@@ -12,10 +12,11 @@ public class Environment {
 
     public static final String MODID = "foxesmod";
     public static final String NAME = "HardContent creator";
-    public static final String VERSION = "1.16.0-ALPHA";
+    public static final String VERSION = "1.16.2-ALPHA";
     public static String MODCFGDIR = "";
     public static final String CFGNAME = MODID+"/hardcontent.cfg";
-    public static String paramsDirName = "/data/";
+    public static final String dataExportDir = "/data/";
+    public static final String dataTemplateDir = "dataTemplates/";
     public static String generatedDirName = "/generatedWIP/";
     public static final String clientsideProxy = "foxesworld.aidenfox.proxy.ClientProxy";
     public static final String serversideProxy = "foxesworld.aidenfox.proxy.CommonProxy";
