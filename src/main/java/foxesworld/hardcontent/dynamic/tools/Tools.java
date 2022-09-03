@@ -8,7 +8,7 @@ import net.minecraft.item.Item;
 
 import java.io.StringReader;
 
-import static foxesworld.hardcontent.cfg.ConfigCreator.regTools;
+import static foxesworld.hardcontent.cfg.ConfigCreator.CONFIG.regTools;
 
 public class Tools {
 

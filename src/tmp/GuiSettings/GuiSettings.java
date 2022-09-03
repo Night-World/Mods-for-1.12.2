@@ -16,7 +16,7 @@
 
 package foxesworld.hardcontent.cfg.GuiSettings;
 
-import foxesworld.hardcontent.cfg.ConfigCreator;
+import foxesworld.hardcontent.cfg.ConfigCreator.CONFIG;
 import foxesworld.hardcontent.cfg.Environment;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.inventory.GuiContainer;
@@ -39,14 +39,14 @@ public class GuiSettings extends GuiContainer{
     @Override
     public void initGui(){
         buttonList.clear();
-        buttonList.add(new GuiButton(1, (this.width - xSize) / 2 + 5, this.height / 2 - 80, 170, 20, I18n.format(I18n.format("customdebug.coords") + ": " + on(ConfigCreator.regItems))));
+        buttonList.add(new GuiButton(1, (this.width - xSize) / 2 + 5, this.height / 2 - 80, 170, 20, I18n.format(I18n.format("customdebug.coords") + ": " + on(CONFIG.regItems))));
     }
 
     @Override
     protected void actionPerformed(GuiButton button){
         switch (button.id) {
             case 1: {
-                ConfigCreator.regItems = swap(ConfigCreator.regItems);
+                CONFIG.regItems = swap(CONFIG.regItems);
                 this.initGui();
                 ConfigManager.sync(Environment.MODID, Config.Type.INSTANCE);
                 break;

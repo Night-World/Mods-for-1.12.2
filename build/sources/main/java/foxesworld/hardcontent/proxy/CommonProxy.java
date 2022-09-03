@@ -13,6 +13,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import static foxesworld.hardcontent.cfg.Environment.MODCFGDIR;
 
 public class CommonProxy {
+
     public static Configuration config;
     public static EntityPlayer playerInstance;
 
@@ -22,7 +23,6 @@ public class CommonProxy {
         LoadData loadData = new LoadData();
         loadData.loadContent();
         RegistryHandler.preInitRegistries();
-
     }
 
     public void init(FMLInitializationEvent event) {

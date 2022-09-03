@@ -23,7 +23,7 @@ import foxesworld.hardcontent.dynamic.item.itemsType.ItemType;
 
 import java.util.List;
 
-import static foxesworld.hardcontent.cfg.ConfigCreator.regItems;
+import static foxesworld.hardcontent.cfg.ConfigCreator.CONFIG.regItems;
 import static foxesworld.hardcontent.dynamic.JsonGenerated.item.GenerateItem.generateItem;
 import static foxesworld.hardcontent.methods.Utils.debugSend;
 

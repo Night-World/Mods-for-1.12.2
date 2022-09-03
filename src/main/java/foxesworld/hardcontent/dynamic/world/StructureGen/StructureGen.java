@@ -31,7 +31,7 @@ import net.minecraftforge.fml.common.IWorldGenerator;
 
 import java.util.Random;
 
-import static foxesworld.hardcontent.cfg.ConfigCreator.structureGen;
+import static foxesworld.hardcontent.cfg.ConfigCreator.CONFIG.structureGen;
 import static foxesworld.hardcontent.methods.Utils.debugSend;
 
 

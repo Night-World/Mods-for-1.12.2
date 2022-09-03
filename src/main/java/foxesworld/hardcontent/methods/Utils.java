@@ -18,7 +18,7 @@ import static foxesworld.hardcontent.main.logger;
 public class Utils {
 
     public static void debugSend(String msg) {
-        if (ConfigCreator.debug) {
+        if (ConfigCreator.CONFIG.debug) {
             logger.info(msg);
         }
     }

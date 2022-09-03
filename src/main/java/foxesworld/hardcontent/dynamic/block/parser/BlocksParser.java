@@ -11,7 +11,7 @@ import net.minecraft.block.material.Material;
 
 import java.util.List;
 
-import static foxesworld.hardcontent.cfg.ConfigCreator.regBlocks;
+import static foxesworld.hardcontent.cfg.ConfigCreator.CONFIG.regBlocks;
 import static foxesworld.hardcontent.dynamic.JsonGenerated.JsonGenerated.genBlock;
 import static foxesworld.hardcontent.dynamic.JsonGenerated.stairs.BlockStairGenerator.generateBlockStair;
 

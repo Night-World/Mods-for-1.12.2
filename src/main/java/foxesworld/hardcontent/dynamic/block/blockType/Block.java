@@ -47,7 +47,7 @@ public class Block extends net.minecraft.block.Block {
 
     public Block(String name, Material material, SoundType snd, String harvestTool, Integer harvestLevel, float hardness, float resistance, boolean creatureSpawn, String itemDrop, int dropAmmount) {
         super(material);
-        debugSend("[" + name + "|Block] " + material + " | " + snd + " | " + harvestTool + " | " + harvestLevel + " | " + hardness + " | " + resistance);
+        debugSend("[" + name + "|Block] registered");
         this.name = name;
         this.creatureSpawn = creatureSpawn;
         this.itemDrop = itemDrop;

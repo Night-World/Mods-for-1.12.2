@@ -24,14 +24,15 @@ import foxesworld.hardcontent.dynamic.sounds.Sounds;
 import foxesworld.hardcontent.dynamic.tools.Tools;
 import foxesworld.hardcontent.dynamic.world.OreGen.parser.OreGenParser;
 import foxesworld.hardcontent.dynamic.world.StructureGen.parser.StructureParser;
+import foxesworld.hardcontent.methods.FileAsStream;
 
 import java.io.File;
 
-import static foxesworld.hardcontent.cfg.ConfigCreator.*;
-import static foxesworld.hardcontent.cfg.Environment.MODCFGDIR;
-import static foxesworld.hardcontent.cfg.Environment.dataExportDir;
+import static foxesworld.hardcontent.cfg.ConfigCreator.CONFIG;
+import static foxesworld.hardcontent.cfg.Environment.*;
+import static foxesworld.hardcontent.methods.FileOptions.BufferedFileReader;
+import static foxesworld.hardcontent.methods.FileOptions.createIfnotExists;
 import static foxesworld.hardcontent.methods.Utils.debugSend;
-import static foxesworld.hardcontent.data.DataParse.readTplFile;
 
 public class LoadData {
 
@@ -49,35 +50,49 @@ public class LoadData {
                 sounds.registerSounds();
 
                 MaterialParser materials = new MaterialParser(paramPath, "material.json");
-                materials.readFromJson(readTplFile(materials.getFileName(), materials.getFileDir(), exportMaterials));
+                materials.readFromJson(readTplFile(materials.getFileName(), materials.getFileDir(), CONFIG.exportMaterials));
 
                 BlocksParser blockParser = new BlocksParser(paramPath, "blocks.json");
-                blockParser.readFromJson(readTplFile(blockParser.getFileName(), blockParser.getFileDir(), exportBlocks));
+                blockParser.readFromJson(readTplFile(blockParser.getFileName(), blockParser.getFileDir(), CONFIG.exportBlocks));
 
                 Tools toolsParser = new Tools(paramPath, "tools.json");
-                toolsParser.readFromJson(readTplFile(toolsParser.getFileName(), toolsParser.getFileDir(), exportTools));
+                toolsParser.readFromJson(readTplFile(toolsParser.getFileName(), toolsParser.getFileDir(), CONFIG.exportTools));
 
                 ItemParser ItemParser = new ItemParser(paramPath, "items.json");
-                ItemParser.readFromJson(readTplFile(ItemParser.getFileName(), ItemParser.getFileDir(), exportItems));
+                ItemParser.readFromJson(readTplFile(ItemParser.getFileName(), ItemParser.getFileDir(), CONFIG.exportItems));
 
 
                 OreGenParser oreGen = new OreGenParser(paramPath, "oreGen.json");
-                oreGen.readFromJson(readTplFile(oreGen.getFileName(), oreGen.getFileDir(), exportOreGen));
+                oreGen.readFromJson(readTplFile(oreGen.getFileName(), oreGen.getFileDir(), CONFIG.exportOreGen));
 
                 StructureParser structures = new StructureParser(paramPath, "structures.json");
-                structures.readFromJson(readTplFile(structures.getFileName(), structures.getFileDir(), exportStructures));
-                long endTime = System.currentTimeMillis();
+                structures.readFromJson(readTplFile(structures.getFileName(), structures.getFileDir(), CONFIG.exportStructures));
 
                 RegData data = new RegData();
                 data.regItems();
                 data.regBlocks();
+                long endTime = System.nanoTime();
 
                 debugSend("=== DATA LOADED IN " + (int) ((endTime - lStartTime) / 1000) % 60 + " SECONDS + ===");
             }
         });
     }
 
-    public void loadContent(){
+    private static String readTplFile(String fileName, String fileDir, boolean exportData) {
+        String jsonString = "";
+        if (!exportData) {
+            debugSend("Reading " + fileName + " from inyernal resource");
+            FileAsStream structuresJsonStream = new FileAsStream(dataTemplateDir + fileName, "");
+            jsonString = (String) structuresJsonStream.getFileContents();
+        } else {
+            debugSend("Reading " + fileName + " from external folder");
+            createIfnotExists(fileDir, fileName);
+            jsonString = BufferedFileReader(fileDir + fileName);
+        }
+        return jsonString;
+    }
+
+    public void loadContent() {
         this.loadData.start();
     }
 }

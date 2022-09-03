@@ -19,7 +19,7 @@ package foxesworld.hardcontent.dynamic.material;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.EnumHelper;
 
-import static foxesworld.hardcontent.cfg.ConfigCreator.regMaterials;
+import static foxesworld.hardcontent.cfg.ConfigCreator.CONFIG.regMaterials;
 import static foxesworld.hardcontent.cfg.Environment.MATERIALS;
 import static foxesworld.hardcontent.methods.Utils.debugSend;
 import static net.minecraft.block.Block.getBlockFromName;
