@@ -38,6 +38,7 @@ public class StructureParser {
     public StructureParser(String fileDir, String fileName) {
         this.fileName = fileName;
         this.fileDir = fileDir;
+        debugSend("Starting structureScan");
     }
 
     public StructureParser(String structureName, Integer[] biomeToGen, int rarity, Block blockToGenOn, StructureInstance structureInstance) {

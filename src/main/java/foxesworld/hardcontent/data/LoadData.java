@@ -28,7 +28,7 @@ import foxesworld.hardcontent.methods.FileAsStream;
 
 import java.io.File;
 
-import static foxesworld.hardcontent.cfg.ConfigCreator.CONFIG;
+import static foxesworld.hardcontent.cfg.ConfigCreator.CONFIGdatagen;
 import static foxesworld.hardcontent.cfg.Environment.*;
 import static foxesworld.hardcontent.methods.FileOptions.BufferedFileReader;
 import static foxesworld.hardcontent.methods.FileOptions.createIfnotExists;
@@ -50,30 +50,30 @@ public class LoadData {
                 sounds.registerSounds();
 
                 MaterialParser materials = new MaterialParser(paramPath, "material.json");
-                materials.readFromJson(readTplFile(materials.getFileName(), materials.getFileDir(), CONFIG.exportMaterials));
+                materials.readFromJson(readTplFile(materials.getFileName(), materials.getFileDir(), CONFIGdatagen.exportMaterials));
 
                 BlocksParser blockParser = new BlocksParser(paramPath, "blocks.json");
-                blockParser.readFromJson(readTplFile(blockParser.getFileName(), blockParser.getFileDir(), CONFIG.exportBlocks));
+                blockParser.readFromJson(readTplFile(blockParser.getFileName(), blockParser.getFileDir(), CONFIGdatagen.exportBlocks));
 
                 Tools toolsParser = new Tools(paramPath, "tools.json");
-                toolsParser.readFromJson(readTplFile(toolsParser.getFileName(), toolsParser.getFileDir(), CONFIG.exportTools));
+                toolsParser.readFromJson(readTplFile(toolsParser.getFileName(), toolsParser.getFileDir(), CONFIGdatagen.exportTools));
 
                 ItemParser ItemParser = new ItemParser(paramPath, "items.json");
-                ItemParser.readFromJson(readTplFile(ItemParser.getFileName(), ItemParser.getFileDir(), CONFIG.exportItems));
+                ItemParser.readFromJson(readTplFile(ItemParser.getFileName(), ItemParser.getFileDir(), CONFIGdatagen.exportItems));
 
 
                 OreGenParser oreGen = new OreGenParser(paramPath, "oreGen.json");
-                oreGen.readFromJson(readTplFile(oreGen.getFileName(), oreGen.getFileDir(), CONFIG.exportOreGen));
+                oreGen.readFromJson(readTplFile(oreGen.getFileName(), oreGen.getFileDir(), CONFIGdatagen.exportOreGen));
 
                 StructureParser structures = new StructureParser(paramPath, "structures.json");
-                structures.readFromJson(readTplFile(structures.getFileName(), structures.getFileDir(), CONFIG.exportStructures));
+                structures.readFromJson(readTplFile(structures.getFileName(), structures.getFileDir(), CONFIGdatagen.exportStructures));
 
                 RegData data = new RegData();
                 data.regItems();
                 data.regBlocks();
                 long endTime = System.nanoTime();
 
-                debugSend("=== DATA LOADED IN " + (int) ((endTime - lStartTime) / 1000) % 60 + " SECONDS + ===");
+                debugSend("=== DATA LOADED IN " + (int) ((endTime - lStartTime) / 1000) % 60 +  " SECONDS  ===");
             }
         });
     }
@@ -81,9 +81,9 @@ public class LoadData {
     private static String readTplFile(String fileName, String fileDir, boolean exportData) {
         String jsonString = "";
         if (!exportData) {
-            debugSend("Reading " + fileName + " from inyernal resource");
-            FileAsStream structuresJsonStream = new FileAsStream(dataTemplateDir + fileName, "");
-            jsonString = (String) structuresJsonStream.getFileContents();
+            debugSend("Reading " + fileName + " from internal resource");
+            FileAsStream templateFile = new FileAsStream(dataTemplateDir + fileName, Environment.MODID);
+            jsonString = (String) templateFile.getFileContents();
         } else {
             debugSend("Reading " + fileName + " from external folder");
             createIfnotExists(fileDir, fileName);

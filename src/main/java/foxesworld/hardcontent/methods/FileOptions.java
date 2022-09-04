@@ -23,12 +23,10 @@ import java.util.Arrays;
 import java.util.List;
 
 import static foxesworld.hardcontent.cfg.Environment.dataTemplateDir;
-import static foxesworld.hardcontent.methods.Utils.debugSend;
 
 public class FileOptions {
 
     public static String BufferedFileReader(String pathToFile){
-        debugSend("Reading " + pathToFile);
         String fileCntents = "";
         BufferedReader br = null;
         try {

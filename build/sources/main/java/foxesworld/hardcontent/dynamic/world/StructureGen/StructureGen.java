@@ -16,6 +16,7 @@
 
 package foxesworld.hardcontent.dynamic.world.StructureGen;
 
+import foxesworld.hardcontent.cfg.ConfigCreator;
 import foxesworld.hardcontent.cfg.Environment;
 import foxesworld.hardcontent.dynamic.world.StructureGen.parser.StructureInstance;
 import foxesworld.hardcontent.dynamic.world.StructureGen.parser.StructureParser;
@@ -31,7 +32,6 @@ import net.minecraftforge.fml.common.IWorldGenerator;
 
 import java.util.Random;
 
-import static foxesworld.hardcontent.cfg.ConfigCreator.CONFIG.structureGen;
 import static foxesworld.hardcontent.methods.Utils.debugSend;
 
 
@@ -39,7 +39,7 @@ public class StructureGen implements IWorldGenerator {
 
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
-        if(structureGen) {
+        if(ConfigCreator.CONFIGgenerate.structureGen) {
             switch (world.provider.getDimension()) {
                 case 1: //End
                     break;

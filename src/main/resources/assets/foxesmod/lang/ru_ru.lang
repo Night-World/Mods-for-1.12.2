@@ -33,3 +33,26 @@ item.debug_item.name=Предмет Хвастовства
 item.debug_item.lore=Захотел себе такой же?
 item.staff.name=Посох Кадгара
 item.staff.lore=Именно с ним когда-то ходил Медив
+
+#Config
+foxesmod.cfg.sub.general=Основные настройки
+foxesmod.cfg.sub.generate=Регистрация вещей
+foxesmod.cfg.sub.exportReading=Какие вещи экспортиоуем
+
+foxesmod.cfg.general.debug=Дебаг логирование
+
+#Registrations
+foxesmod.cfg.generate.structureGen=Решистрация структур
+foxesmod.cfg.generate.oreGen=Регистрация руд
+foxesmod.cfg.generate.regMaterials=Регистрация материалов
+foxesmod.cfg.generate.regItems=Регистрация предметов
+foxesmod.cfg.generate.regTools=Регистрация мнструментов
+foxesmod.cfg.generate.regBlocks=Регистрация блоков
+
+#datagen
+foxesmod.cfg.datagen.materials=Экспорт материалов
+foxesmod.cfg.datagen.blocks=Экспорт блоков
+foxesmod.cfg.datagen.tools=Экспорт инструментов
+foxesmod.cfg.datagen.items=Экспорт предметов
+foxesmod.cfg.datagen.ores=Экспорт руд
+foxesmod.cfg.datagen.structures=Экспорт структур

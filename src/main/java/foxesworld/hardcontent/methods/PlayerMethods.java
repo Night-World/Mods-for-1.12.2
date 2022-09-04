@@ -39,6 +39,10 @@ public class PlayerMethods {
         return lookPos.get(cord);
     }
 
+    public EntityPlayer getPlayer() {
+        return player;
+    }
+
     /*
     public Double getpointerVec3d (Character cord){
         Vec3d vec = this.player.getLookVec();

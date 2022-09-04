@@ -35,6 +35,8 @@ import static net.minecraftforge.fml.relauncher.Side.CLIENT;
 public class RegData {
 
     private ResourceLocation assetsLocation;
+    private static final String generatedDir = Environment.MODCFGDIR + Environment.generatedDirName;
+    private static final ResourceLocation resLocation = new ResourceLocation(generatedDir);
 
     public static void regItems() {
         for (Map.Entry entry : Environment.ITEMS.entrySet()) {
@@ -57,19 +59,21 @@ public class RegData {
     private static void itemRenderer(Item thisItem) {
         final ResourceLocation regName = thisItem.getRegistryName();
         final ModelResourceLocation mrl = new ModelResourceLocation(regName, "inventory");
-        debugSend("Registering render of  " + regName);
+        debugSend("Registering item resource  " + thisItem.getRegistryName());
         ModelBakery.registerItemVariants(thisItem, mrl);
         ModelLoader.setCustomModelResourceLocation(thisItem, 0, mrl);
     }
+
+
     @SideOnly(CLIENT)
     private static void blockRenderer(Block thisBlock) {
         final ResourceLocation regName = thisBlock.getRegistryName();
         final ModelResourceLocation mrl = new ModelResourceLocation(regName, "inventory");
-        debugSend("Registering render of  " + regName);
+        debugSend("Registering block resource " + regName);
         ModelLoader.setCustomModelResourceLocation(net.minecraft.item.Item.getItemFromBlock(thisBlock), 0, mrl);
     }
 
-    private static String getItemLocation(ResourceLocation regName){
+    private static String getItemLocation(ResourceLocation regName) {
         ResourceLocation location = new ResourceLocation(Environment.MODCFGDIR + Environment.generatedDirName + regName);
         String path = location.getPath();
         return path;

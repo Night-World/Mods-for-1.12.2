@@ -22,11 +22,13 @@ import net.minecraft.block.BlockStairs;
 import net.minecraft.block.state.IBlockState;
 
 import static foxesworld.hardcontent.cfg.CreativeTab.MOD_TAB;
+import static foxesworld.hardcontent.methods.Utils.debugSend;
 
 public class Stairs extends BlockStairs {
 
     public Stairs(String name, IBlockState state) {
         super(state);
+        debugSend("[" + name + "|Stairs] registered");
         this.setRegistryName(name);
         this.setTranslationKey(name);
         setCreativeTab(MOD_TAB);

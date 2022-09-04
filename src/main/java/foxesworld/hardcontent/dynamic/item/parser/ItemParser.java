@@ -18,16 +18,13 @@ package foxesworld.hardcontent.dynamic.item.parser;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import foxesworld.hardcontent.dynamic.item.itemsType.FoodType;
-import foxesworld.hardcontent.dynamic.item.itemsType.ItemType;
+import foxesworld.hardcontent.cfg.ConfigCreator;
+import foxesworld.hardcontent.dynamic.item.addingItem.AddItem;
+import foxesworld.hardcontent.dynamic.item.addingItem.ItemAttributes;
 
 import java.util.List;
 
-import static foxesworld.hardcontent.cfg.ConfigCreator.CONFIG.regItems;
-import static foxesworld.hardcontent.dynamic.JsonGenerated.item.GenerateItem.generateItem;
-import static foxesworld.hardcontent.methods.Utils.debugSend;
-
-public class ItemParser {
+public final class ItemParser {
 
     private String fileName;
     private String fileDir;
@@ -39,41 +36,13 @@ public class ItemParser {
     }
 
     public void readFromJson(String jsonIn) {
-        if (regItems) {
+        if (ConfigCreator.CONFIGgenerate.regItems) {
             gson = new Gson();
-            int actionCoolDown = 0;
             TypeToken<List<ItemAttributes>> typeToken = new TypeToken<List<ItemAttributes>>() {
             };
             List<ItemAttributes> object = gson.fromJson(jsonIn, typeToken.getType());
             for (ItemAttributes obj : object) {
-                ItemType item;
-                FoodType food;
-                String itemName = obj.getName();
-                switch (obj.getItemType()) {
-                    case "item":
-                        String onRightClick = obj.getOnItemRightClick();
-                        if (!onRightClick.equals("")) {
-                            actionCoolDown = obj.getActionCoolDown();
-                        }
-                        generateItem(itemName, itemName);
-                        item = new ItemType(itemName, onRightClick, actionCoolDown);
-                        break;
-
-                    case "food":
-                        int amount = obj.getAmount();
-                        float saturation = obj.getSaturation();
-                        boolean isWolfFood = obj.isWolfFood;
-                        boolean alwaysEdible = obj.isAlwaysEdible();
-                        String onEatenEffect = obj.getOnEatenEffect();
-                        if (!onEatenEffect.equals("")) {
-                            actionCoolDown = obj.getActionCoolDown();
-                        }
-                        generateItem(itemName, itemName);
-                        food = new FoodType(itemName, amount, saturation, isWolfFood, alwaysEdible, onEatenEffect, actionCoolDown);
-                        break;
-                    default:
-                        debugSend("Unexpected value: " + obj.getItemType());
-                }
+                AddItem AddItem= new AddItem(obj);
             }
         }
     }

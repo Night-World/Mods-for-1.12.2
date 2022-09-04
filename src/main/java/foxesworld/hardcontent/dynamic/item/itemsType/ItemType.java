@@ -18,7 +18,7 @@ package foxesworld.hardcontent.dynamic.item.itemsType;
 
 import foxesworld.hardcontent.cfg.CreativeTab;
 import foxesworld.hardcontent.cfg.Environment;
-import foxesworld.hardcontent.dynamic.item.itemsType.actions.ItemActions;
+import foxesworld.hardcontent.dynamic.item.itemActions.ItemActions;
 import foxesworld.hardcontent.methods.PlayerMethods;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;

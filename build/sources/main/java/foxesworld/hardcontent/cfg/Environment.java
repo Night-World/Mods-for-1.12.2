@@ -14,7 +14,7 @@ public class Environment {
     //@Mod
     public static final String MODID = "foxesmod";
     public static final String NAME = "HardContent creator";
-    public static final String VERSION = "1.16.5-ALPHA";
+    public static final String VERSION = "1.17.5-ALPHA";
     public static final String acceptedVersions = "[1.12.2]";
 
     //Proxy
@@ -25,10 +25,11 @@ public class Environment {
     public static String MODCFGDIR = "";
     public static final String cfgExtension = ".cfg";
     public static final String CFGNAME = "hardcontent";
+    public static final String CfgName = MODID+'/'+CFGNAME;
     public static final String CFGDIR = MODID + File.separator + CFGNAME + cfgExtension;
 
     //Content Directories
-    public static final String dataTemplateDir = "dataTemplates/";
+    public static final String dataTemplateDir = "data_templates/";
     public static final String dataExportDir = File.separator + "data" + File.separator;
     public static final String generatedDirName = File.separator + "generated" + File.separator;
 
