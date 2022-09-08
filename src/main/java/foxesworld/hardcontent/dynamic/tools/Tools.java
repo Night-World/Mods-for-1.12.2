@@ -2,7 +2,7 @@ package foxesworld.hardcontent.dynamic.tools;
 
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
-import foxesworld.hardcontent.cfg.ConfigCreator;
+import foxesworld.hardcontent.cfg.ConfigInit;
 import foxesworld.hardcontent.dynamic.tools.parser.ToolAttributes;
 import foxesworld.hardcontent.dynamic.tools.toolsType.*;
 import net.minecraft.item.Item;
@@ -22,7 +22,7 @@ public class Tools {
 
 
     public void readFromJson(String JsonIn) {
-        if(ConfigCreator.CONFIGgenerate.regTools) {
+        if(ConfigInit.CONFIGgenerate.regTools) {
             gson = new Gson();
             ToolAttributes[] toolsData;
             JsonReader reader = new JsonReader(new StringReader(JsonIn));

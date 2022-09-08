@@ -23,8 +23,8 @@ import foxesworld.hardcontent.dynamic.block.blockType.Stairs;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 
-import static foxesworld.hardcontent.dynamic.JsonGenerated.JsonGenerated.genBlock;
-import static foxesworld.hardcontent.dynamic.JsonGenerated.stairs.BlockStairGenerator.generateBlockStair;
+import static foxesworld.hardcontent.data.JsonGenerated.JsonGenerated.genBlock;
+import static foxesworld.hardcontent.data.JsonGenerated.stairs.BlockStairGenerator.generateBlockStair;
 
 public class AddBlock {
     private BlockAttributes blockAttributes;

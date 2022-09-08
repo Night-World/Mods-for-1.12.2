@@ -87,11 +87,8 @@ key_key.hotbar.8:9
 key_key.hotbar.9:10
 key_key.redraw:19
 key_key.settings:25
-key_Toggle:15
-key_Extra information:211
-key_Add info to original tooltip:210
 soundCategory_master:1.0
-soundCategory_music:0.0
+soundCategory_music:0.5
 soundCategory_record:1.0
 soundCategory_weather:1.0
 soundCategory_block:1.0

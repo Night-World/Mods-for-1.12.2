@@ -2,7 +2,7 @@
   {
     "itemName": "staff",
     "itemType": "item",
-    "onItemRightClick": "explode->20",
+    "onItemRightClick": "xpDerp->FLAME",
     "actionCoolDown": 30
   },
   {

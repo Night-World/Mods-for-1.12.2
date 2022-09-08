@@ -16,7 +16,7 @@
 
 package foxesworld.hardcontent.dynamic.world.OreGen;
 
-import foxesworld.hardcontent.cfg.ConfigCreator;
+import foxesworld.hardcontent.cfg.ConfigInit;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.state.pattern.BlockMatcher;
@@ -54,7 +54,7 @@ public class OreGen implements IWorldGenerator {
 
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
-        if (ConfigCreator.CONFIGgenerate.oreGen) {
+        if (ConfigInit.CONFIGgenerate.oreGen) {
             if (!this.oreName.equals(null)) {
                 switch (world.provider.getDimension()) {
                     case 0:

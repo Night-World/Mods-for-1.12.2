@@ -1,6 +1,7 @@
 package foxesworld.hardcontent.methods;
 
-import foxesworld.hardcontent.cfg.ConfigCreator;
+import foxesworld.hardcontent.cfg.ConfigInit;
+import foxesworld.hardcontent.dynamic.sounds.Sounds;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumParticleTypes;
@@ -12,13 +13,12 @@ import net.minecraft.world.World;
 import java.util.List;
 import java.util.Random;
 
-import static foxesworld.hardcontent.cfg.Environment.SOUNDS;
 import static foxesworld.hardcontent.main.logger;
 
 public class Utils {
 
     public static void debugSend(String msg) {
-        if (ConfigCreator.CONFIGgeneral.debug) {
+        if (ConfigInit.CONFIGgeneral.debug) {
             logger.info(msg);
         }
     }
@@ -64,14 +64,9 @@ public class Utils {
                         playerIn.posX,
                         playerIn.posY,
                         playerIn.posZ,
-                        SOUNDS.get(snd),
+                        Sounds.getSound(snd),
                         SoundCategory.NEUTRAL,
                         1.5F, 1F);
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
             }
         });
         sndPlay.start();

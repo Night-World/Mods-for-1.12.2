@@ -16,7 +16,7 @@
 
 package foxesworld.hardcontent.dynamic.material;
 
-import foxesworld.hardcontent.cfg.ConfigCreator;
+import foxesworld.hardcontent.cfg.ConfigInit;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.EnumHelper;
 ;
@@ -47,7 +47,7 @@ public class Material {
         this.fixMaterial = fixMaterial;
         this.fixMaterialAmmount = fixMaterialAmmount;
         this.fixMaterialMeta = fixMaterialMeta;
-        if (ConfigCreator.CONFIGgenerate.regMaterials) {
+        if (ConfigInit.CONFIGgenerate.regMaterials) {
             MATERIAL = EnumHelper.addToolMaterial(this.materialName, this.materialHarvestLevel, this.materialUsages, this.materialEfficiency, this.materialDamage, this.materialEnchantability).setRepairItem(new ItemStack(getBlockFromName(this.fixMaterial), this.fixMaterialAmmount, this.fixMaterialMeta));
             debugSend("Putting " + this.materialName + " to registry with Fixmaterial - " + this.fixMaterial);
             MATERIALS.put(this.materialName, this.MATERIAL);

@@ -26,7 +26,7 @@ import static foxesworld.hardcontent.cfg.Environment.dataTemplateDir;
 
 public class FileOptions {
 
-    public static String BufferedFileReader(String pathToFile){
+    public static String BufferedFileReader(String pathToFile) {
         String fileCntents = "";
         BufferedReader br = null;
         try {
@@ -52,11 +52,11 @@ public class FileOptions {
         return fileCntents;
     }
 
-    public static void createIfnotExists(String fileDir, String filename){
+    public static void createIfnotExists(String fileDir, String filename) {
         File cfgFile = new File(fileDir + filename);
         FileAsStream templateFile = new FileAsStream(dataTemplateDir + filename, Environment.MODID);
         Object templateFileContents = templateFile.getFileContents();
-        if(!cfgFile.exists()){
+        if (!cfgFile.exists()) {
             try {
                 cfgFile.createNewFile();
             } catch (IOException e) {

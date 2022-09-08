@@ -24,9 +24,6 @@ import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
 import static foxesworld.hardcontent.methods.Utils.playFoxesSound;
 
 public class ItemActions {
@@ -72,46 +69,11 @@ public class ItemActions {
                 break;
 
             case "explode":
-                xplode(Float.parseFloat(this.itemRequestData));
-                 break;
+                world.createExplosion(pMethods.getPlayer(), pMethods.getPlayerLook('x'), pMethods.getPlayerLook('y'), pMethods.getPlayerLook('z'), Float.parseFloat(this.itemRequestData),true);
+                break;
 
             default:
                 player.sendMessage(new TextComponentString("Unknown action '" + this.itemRequest + "'"));
         }
-
-    }
-
-    private void xplode(float itemRequestData) {
-        int numberOfTasks = 5;
-        ExecutorService executor= Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
-        try{
-            for ( int i=0; i < numberOfTasks; i++){
-                executor.execute(new exploder(i, world, pMethods, itemRequestData));
-            }
-        }catch(Exception err){
-            err.printStackTrace();
-        }
-        executor.shutdown();
     }
 }
-class exploder implements Runnable{
-    int id;
-    World world;
-    PlayerMethods pMethods;
-    float itemRequestData;
-    public exploder(int i, World world, PlayerMethods pMethods, float itemRequestData){
-        this.id = i;
-        this.world = world;
-        this.pMethods = pMethods;
-        this.itemRequestData = itemRequestData;
-    }
-    @Override
-    public void run(){
-        try{
-            this.world.createExplosion(pMethods.getPlayer(), pMethods.getPlayerLook('x'), pMethods.getPlayerLook('y'), pMethods.getPlayerLook('z'), itemRequestData,true);
-        }catch(Exception err){
-            err.printStackTrace();
-        }
-    }
-    }
-

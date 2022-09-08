@@ -28,7 +28,7 @@ import foxesworld.hardcontent.methods.FileAsStream;
 
 import java.io.File;
 
-import static foxesworld.hardcontent.cfg.ConfigCreator.CONFIGdatagen;
+import static foxesworld.hardcontent.cfg.ConfigInit.CONFIGdatagen;
 import static foxesworld.hardcontent.cfg.Environment.*;
 import static foxesworld.hardcontent.methods.FileOptions.BufferedFileReader;
 import static foxesworld.hardcontent.methods.FileOptions.createIfnotExists;
@@ -61,14 +61,13 @@ public class LoadData {
                 ItemParser ItemParser = new ItemParser(paramPath, "items.json");
                 ItemParser.readFromJson(readTplFile(ItemParser.getFileName(), ItemParser.getFileDir(), CONFIGdatagen.exportItems));
 
-
                 OreGenParser oreGen = new OreGenParser(paramPath, "oreGen.json");
                 oreGen.readFromJson(readTplFile(oreGen.getFileName(), oreGen.getFileDir(), CONFIGdatagen.exportOreGen));
 
                 StructureParser structures = new StructureParser(paramPath, "structures.json");
                 structures.readFromJson(readTplFile(structures.getFileName(), structures.getFileDir(), CONFIGdatagen.exportStructures));
 
-                RegData data = new RegData();
+                RegistryData data = new RegistryData();
                 data.regItems();
                 data.regBlocks();
                 long endTime = System.nanoTime();

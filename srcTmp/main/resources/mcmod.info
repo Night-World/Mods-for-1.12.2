@@ -1,0 +1,18 @@
+[{
+  "modid": "hardenedcore",
+  "name": "Hardened Core",
+  "description": "Shared code for FoxesWorld mods.",
+  "version": "${version}",
+  "logoFile": "hardenedcore.png",
+  "mcversion": "${mc_version}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": [ "AidenFox" ],
+  "credits": "Aiden Fox",
+  "screenshots": [],
+  "parent": "",
+  "requiredMods": [],
+  "dependencies": [],
+  "dependants": [],
+  "useDependencyInformation": false
+}]

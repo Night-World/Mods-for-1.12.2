@@ -18,7 +18,7 @@ package foxesworld.hardcontent.dynamic.item.parser;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import foxesworld.hardcontent.cfg.ConfigCreator;
+import foxesworld.hardcontent.cfg.ConfigInit;
 import foxesworld.hardcontent.dynamic.item.addingItem.AddItem;
 import foxesworld.hardcontent.dynamic.item.addingItem.ItemAttributes;
 
@@ -36,7 +36,7 @@ public final class ItemParser {
     }
 
     public void readFromJson(String jsonIn) {
-        if (ConfigCreator.CONFIGgenerate.regItems) {
+        if (ConfigInit.CONFIGgenerate.regItems) {
             gson = new Gson();
             TypeToken<List<ItemAttributes>> typeToken = new TypeToken<List<ItemAttributes>>() {
             };

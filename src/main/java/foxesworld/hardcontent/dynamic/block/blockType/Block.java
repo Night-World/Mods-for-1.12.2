@@ -25,6 +25,7 @@ import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -58,8 +59,8 @@ public class Block extends net.minecraft.block.Block {
         this.setHardness(hardness);
         this.setResistance(resistance);
         this.setRegistryName(Environment.MODID, name);
+        nbtTest(this);
         setCreativeTab(MOD_TAB);
-        //ResourceLocation loc = new ResourceLocation(JsonGenerated.bindDir);
 
         Environment.BLOCKS.put(name, this);
     }
@@ -97,9 +98,20 @@ public class Block extends net.minecraft.block.Block {
         addLore(this.name, "tile", tooltip);
     }
 
+    private void nbtTest(Block block) {
+        ItemStack item = new ItemStack(Item.getItemFromBlock(block));
+        NBTTagCompound nbttagcompound = item.getTagCompound();
+        if (nbttagcompound == null) {
+            nbttagcompound = new NBTTagCompound();
+            item.setTagCompound(nbttagcompound);
+        }
+        NBTTagCompound displayTag = nbttagcompound.getCompoundTag("display");
+        displayTag.setString("lore", "gfgf");
+
+    }
+
     //@Override
     public void initModel() {
         ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), 0, new ModelResourceLocation(getRegistryName(), "inventory"));
     }
-
 }

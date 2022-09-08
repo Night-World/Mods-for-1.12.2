@@ -21,6 +21,7 @@ import foxesworld.hardcontent.methods.SpawnEntity;
 import foxesworld.hardcontent.methods.XpParty;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 
@@ -58,9 +59,9 @@ public class FoodActions {
                 break;
 
             case "xpParty":
+                XpParty.setParticle(EnumParticleTypes.EXPLOSION_HUGE);
                 XpParty.XpParty(16.0, Integer.valueOf(this.foodRequestData),this.player, this.world, eSpawner);
                 //XpParty.setSoundPlay("event.action.fail");
-                XpParty.start();
                 break;
 
             default:

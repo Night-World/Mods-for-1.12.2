@@ -19,7 +19,7 @@ package foxesworld.hardcontent.dynamic.item.addingItem;
 import foxesworld.hardcontent.dynamic.item.itemsType.FoodType;
 import foxesworld.hardcontent.dynamic.item.itemsType.ItemType;
 
-import static foxesworld.hardcontent.dynamic.JsonGenerated.item.GenerateItem.generateItem;
+import static foxesworld.hardcontent.data.JsonGenerated.item.GenerateItem.generateItem;
 import static foxesworld.hardcontent.methods.Utils.debugSend;
 
 public class AddItem {

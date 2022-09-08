@@ -2,7 +2,7 @@ package foxesworld.hardcontent.dynamic.block.parser;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import foxesworld.hardcontent.cfg.ConfigCreator;
+import foxesworld.hardcontent.cfg.ConfigInit;
 import foxesworld.hardcontent.dynamic.block.addingBlock.AddBlock;
 import foxesworld.hardcontent.dynamic.block.addingBlock.BlockAttributes;
 
@@ -20,7 +20,7 @@ public class BlocksParser {
     }
 
     public void readFromJson(String jsonIn) {
-        if (ConfigCreator.CONFIGgenerate.regBlocks) {
+        if (ConfigInit.CONFIGgenerate.regBlocks) {
             gson = new Gson();
             TypeToken<List<BlockAttributes>> typeToken = new TypeToken<List<BlockAttributes>>() {
             };
