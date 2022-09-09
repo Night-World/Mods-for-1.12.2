@@ -19,6 +19,7 @@ package foxesworld.hardcontent.gui.mainmenu.configuration;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import foxesworld.hardcontent.Main;
 import foxesworld.hardcontent.gui.mainmenu.configuration.elements.*;
 import foxesworld.hardcontent.gui.mainmenu.gui.GuiCustom;
 import foxesworld.hardcontent.gui.mainmenu.lib.ANCHOR;
@@ -28,9 +29,9 @@ import foxesworld.hardcontent.gui.mainmenu.lib.texts.TextResourceLocation;
 import foxesworld.hardcontent.gui.mainmenu.lib.texts.TextString;
 import foxesworld.hardcontent.gui.mainmenu.lib.texts.TextURL;
 import foxesworld.hardcontent.gui.mainmenu.lib.textures.ITexture;
+import foxesworld.hardcontent.gui.mainmenu.lib.textures.TextureApng;
 import foxesworld.hardcontent.gui.mainmenu.lib.textures.TextureResourceLocation;
 import foxesworld.hardcontent.gui.mainmenu.lib.textures.TextureURL;
-import foxesworld.hardcontent.main;
 import org.apache.logging.log4j.Level;
 
 import java.util.*;
@@ -196,7 +197,7 @@ public class GuiConfig {
                     background.ichBinEineSlideshow = true;
 
                     if (slideShowObject.has("synced") && slideShowObject.get("synced").getAsBoolean()) {
-                        GuiCustom mainMenu = main.INSTANCE.config.getGUI("mainmenu");
+                        GuiCustom mainMenu = Main.INSTANCE.config.getGUI("mainmenu");
                         background.slideShow = mainMenu.guiConfig.background.slideShow;
                     } else {
                         JsonArray imageArray = slideShowObject.get("images").getAsJsonArray();
@@ -246,7 +247,7 @@ public class GuiConfig {
 
         JsonElement textElement = jsonObject.get("texts");
         if (textElement != null) {
-            main.INSTANCE.logger.log(Level.ERROR, "The texts category in CMM has been renamed to labels.");
+            Main.INSTANCE.logger.log(Level.ERROR, "The texts category in CMM has been renamed to labels.");
         }
 
         JsonElement labelElement = jsonObject.get("labels");
@@ -452,7 +453,7 @@ public class GuiConfig {
             JsonArray array = jsonElement.getAsJsonArray();
             return array.get(rng.nextInt(array.size())).getAsString();
         } else {
-            main.INSTANCE.logger.log(Level.ERROR, "Error getting random value out of " + jsonElement.toString());
+            Main.INSTANCE.logger.log(Level.ERROR, "Error getting random value out of " + jsonElement.toString());
             return "ERROR";
         }
     }
@@ -463,12 +464,11 @@ public class GuiConfig {
             return new TextureURL(url);
         } else {
             if (textureString.endsWith("apng")) {
-                //return new TextureApng(textureString);
+                return new TextureApng(new TextureResourceLocation(textureString));
             } else {
                 return new TextureResourceLocation(textureString);
             }
         }
-        return null;
     }
 
     private IAction getWantedAction(JsonObject actionObject) {

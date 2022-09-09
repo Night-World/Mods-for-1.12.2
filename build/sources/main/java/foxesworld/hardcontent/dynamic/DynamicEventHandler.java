@@ -20,7 +20,7 @@ import foxesworld.hardcontent.dynamic.world.WorldEventListener;
 import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-import static foxesworld.hardcontent.main.logger;
+import static foxesworld.hardcontent.Main.logger;
 
 public class DynamicEventHandler {
 

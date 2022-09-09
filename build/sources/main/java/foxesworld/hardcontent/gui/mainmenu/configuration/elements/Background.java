@@ -22,28 +22,25 @@ import foxesworld.hardcontent.gui.mainmenu.lib.textures.ITexture;
 
 import java.util.Locale;
 
-public class Background extends Element
-{
-	public static final Background OPTIONS_BACKGROUND = new Background(null, null);
-	
-	public ITexture image;
-	public MODE mode;
+public class Background extends Element {
+    public static final Background OPTIONS_BACKGROUND = new Background(null, null);
 
-	public boolean ichBinEineSlideshow;
-	public Slideshow slideShow;
+    public ITexture image;
+    public MODE mode;
 
-	public Background(GuiConfig parent, ITexture iTexture)
-	{
-		super(parent);
-		this.image = iTexture;
-		this.mode = MODE.FILL;
+    public boolean ichBinEineSlideshow;
+    public Slideshow slideShow;
 
-		this.ichBinEineSlideshow = false;
-		this.slideShow = null;
-	}
+    public Background(GuiConfig parent, ITexture iTexture) {
+        super(parent);
+        this.image = iTexture;
+        this.mode = MODE.FILL;
 
-	public void setMode(String newMode)
-	{
-		this.mode = MODE.valueOf(newMode.toUpperCase(Locale.US));
-	}
+        this.ichBinEineSlideshow = false;
+        this.slideShow = null;
+    }
+
+    public void setMode(String newMode) {
+        this.mode = MODE.valueOf(newMode.toUpperCase(Locale.US));
+    }
 }

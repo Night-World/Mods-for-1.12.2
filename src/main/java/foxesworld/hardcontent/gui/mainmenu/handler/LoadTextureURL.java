@@ -22,33 +22,26 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-public class LoadTextureURL extends Thread
-{
-	TextureURL texture;
+public class LoadTextureURL extends Thread {
+    TextureURL texture;
 
-	public LoadTextureURL(TextureURL texture)
-	{
-		this.texture = texture;
-		
-		this.setDaemon(true);
-	}
+    public LoadTextureURL(TextureURL texture) {
+        this.texture = texture;
 
-	@Override
-	public void run()
-	{
-		BufferedImage bi = null;
-		try
-		{
-			bi = ImageIO.read(texture.getURL());
-		}
-		catch (IOException e)
-		{
-			
-		}
+        this.setDaemon(true);
+    }
 
-		if (bi != null)
-		{
-			texture.finishLoading(bi);
-		}
-	}
+    @Override
+    public void run() {
+        BufferedImage bi = null;
+        try {
+            bi = ImageIO.read(texture.getURL());
+        } catch (IOException e) {
+
+        }
+
+        if (bi != null) {
+            texture.finishLoading(bi);
+        }
+    }
 }

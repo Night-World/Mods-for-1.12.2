@@ -21,9 +21,9 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.stream.JsonReader;
+import foxesworld.hardcontent.Main;
 import foxesworld.hardcontent.cfg.Environment;
 import foxesworld.hardcontent.gui.mainmenu.gui.GuiCustom;
-import foxesworld.hardcontent.main;
 import org.apache.commons.io.IOUtils;
 
 import java.io.*;
@@ -41,34 +41,25 @@ public class ConfigurationLoader {
     public void load() throws Exception {
         JsonParser jsonParser = new JsonParser();
 
-        File configFolder = new File(main.INSTANCE.configFolder, Environment.MODID);
-        if (!configFolder.exists())
-        {
+        File configFolder = new File(Main.INSTANCE.configFolder, Environment.MODID);
+        if (!configFolder.exists()) {
             configFolder.mkdir();
         }
 
-        File mainmenuConfig = new File(configFolder, "mainmenu.json");
-        if (!mainmenuConfig.exists())
-        {
+        File mainmenuConfig = new File(configFolder, configFileName);
+        if (!mainmenuConfig.exists()) {
             InputStream input = null;
 
             OutputStream output = null;
-            try
-            {
+            try {
                 output = new FileOutputStream(mainmenuConfig);
                 input = getClass().getResourceAsStream(configFile);
                 ByteStreams.copy(input, output);
-            }
-            catch (FileNotFoundException e1)
-            {
+            } catch (FileNotFoundException e1) {
                 e1.printStackTrace();
-            }
-            catch (IOException e)
-            {
+            } catch (IOException e) {
                 e.printStackTrace();
-            }
-            finally
-            {
+            } finally {
                 IOUtils.closeQuietly(output);
                 IOUtils.closeQuietly(input);
             }

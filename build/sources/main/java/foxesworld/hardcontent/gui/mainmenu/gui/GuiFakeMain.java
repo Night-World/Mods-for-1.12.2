@@ -22,20 +22,16 @@ import net.minecraft.client.gui.GuiMainMenu;
 
 import java.util.List;
 
-public class GuiFakeMain extends GuiMainMenu
-{
-	public GuiFakeMain()
-	{
-		this.mc = Minecraft.getMinecraft();
-	}
-	
-	public void initGui()
-    {
-		
+public class GuiFakeMain extends GuiMainMenu {
+    public GuiFakeMain() {
+        this.mc = Minecraft.getMinecraft();
     }
-	
-	public List<GuiButton> getButtonList()
-	{
-		return this.buttonList;
-	}
+
+    public void initGui() {
+
+    }
+
+    public List<GuiButton> getButtonList() {
+        return this.buttonList;
+    }
 }

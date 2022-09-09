@@ -15,7 +15,7 @@
       "text": "menu.singleplayer",
       "normalTextColor": 10139216,
       "hoverTextColor": 10339216,
-      "posX": -300,
+      "posX": -280,
       "posY": 0,
       "width": 200,
       "height": 20,
@@ -30,7 +30,7 @@
       "text": "menu.multiplayer",
       "normalTextColor": 10139216,
       "hoverTextColor": 10339216,
-      "posX": -300,
+      "posX": -280,
       "posY": 24,
       "width": 200,
       "height": 20,
@@ -44,7 +44,7 @@
     "mods": {
       "text": "fml.menu.mods",
       "normalTextColor": 10526880,
-      "posX": -300,
+      "posX": -280,
       "posY": 72,
       "width": 200,
       "height": 20,
@@ -58,7 +58,7 @@
     "options": {
       "text": "menu.options",
       "normalTextColor": 10526880,
-      "posX": -300,
+      "posX": -280,
       "posY": 48,
       "width": 200,
       "height": 20,
@@ -73,7 +73,7 @@
       "text": "menu.quit",
       "normalTextColor": 10498096,
       "hoverTextColor": 10698096,
-      "posX": -300,
+      "posX": -280,
       "posY": 94,
       "width": 200,
       "height": 20,
@@ -95,16 +95,13 @@
       }
     },
     "refresh": {
-      "text": "",
+      "text": "TEST",
       "posX": -154,
       "posY": 132,
       "width": 20,
-      "height": 20,
-      "enabled": false,
-      "texture": "foxesmod:textures/gui/ui/buttons.png",
-      "action": {
-        "type": "refresh"
-      }
+      "height": 40,
+      "pressSound": "foxesmod:event.action.test",
+      "texture": "foxesmod:textures/gui/ui/button_big.png"
     }
   },
   "labels": {

@@ -23,6 +23,7 @@ public class ConfigStructure {
     public static class CONFIGgeneral {
         @Config.LangKey(Environment.MODID + ".cfg.general.debug")
         public Boolean debug = false;
+        public boolean mainmenu = true;
     }
 
     public static class CONFIGdatagen {

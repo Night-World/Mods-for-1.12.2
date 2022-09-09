@@ -19,7 +19,7 @@ package foxesworld.hardcontent.gui.mainmenu.lib.textures;
 import foxesworld.hardcontent.gui.mainmenu.MainMenu;
 import foxesworld.hardcontent.gui.mainmenu.handler.LoadTextureURL;
 import foxesworld.hardcontent.gui.mainmenu.lib.StringReplacer;
-import foxesworld.hardcontent.main;
+import foxesworld.hardcontent.Main;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.texture.TextureUtil;
 import org.apache.logging.log4j.Level;
@@ -39,7 +39,7 @@ public class TextureURL implements ITexture {
         try {
             this.url = new URL(StringReplacer.replacePlaceholders(url));
         } catch (MalformedURLException e) {
-            main.INSTANCE.logger.log(Level.ERROR, "Invalid URL: " + url);
+            Main.INSTANCE.logger.log(Level.ERROR, "Invalid URL: " + url);
             e.printStackTrace();
         }
 

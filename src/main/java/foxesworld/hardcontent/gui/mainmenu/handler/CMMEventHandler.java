@@ -16,12 +16,12 @@
 
 package foxesworld.hardcontent.gui.mainmenu.handler;
 
+import foxesworld.hardcontent.Main;
 import foxesworld.hardcontent.gui.mainmenu.gui.GuiCustom;
 import foxesworld.hardcontent.gui.mainmenu.gui.GuiCustomButton;
 import foxesworld.hardcontent.gui.mainmenu.gui.GuiCustomWrappedButton;
 import foxesworld.hardcontent.gui.mainmenu.gui.GuiFakeMain;
 import foxesworld.hardcontent.gui.mainmenu.lib.Reference;
-import foxesworld.hardcontent.main;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiMainMenu;
@@ -59,14 +59,14 @@ public class CMMEventHandler {
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public void openGui(GuiOpenEvent event) {
         if (event.getGui() instanceof GuiMainMenu) {
-            GuiCustom customMainMenu = main.INSTANCE.config.getGUI("mainmenu");
+            GuiCustom customMainMenu = Main.INSTANCE.config.getGUI("mainmenu");
             if (customMainMenu != null) {
                 event.setGui(customMainMenu);
             }
         } else if (event.getGui() instanceof GuiCustom) {
             GuiCustom custom = (GuiCustom) event.getGui();
 
-            GuiCustom target = main.INSTANCE.config.getGUI(custom.guiConfig.name);
+            GuiCustom target = Main.INSTANCE.config.getGUI(custom.guiConfig.name);
             if (target != custom) {
                 event.setGui(target);
             }
@@ -109,13 +109,13 @@ public class CMMEventHandler {
                     removedButtons.put(b.id, b);
                     if (b.id == Reference.OPEN_EYE_BUTTON && Loader.isModLoaded(Reference.OPEN_EYE_MODID)) {
                         // OpenEye
-                        main.INSTANCE.logger.log(Level.DEBUG, "Found OpenEye button, use a wrapped button to config this. (" + b.id + ")");
+                        Main.INSTANCE.logger.log(Level.DEBUG, "Found OpenEye button, use a wrapped button to config this. (" + b.id + ")");
                     } else if (b.id == Reference.VERSION_CHECKER_BUTTON && Loader.isModLoaded(Reference.VERSION_CHECKER_MODID)) {
                         // VersionChecker
-                        main.INSTANCE.logger.log(Level.DEBUG, "Found VersionChecker button, use a wrapped button to config this. (" + b.id + ")");
+                        Main.INSTANCE.logger.log(Level.DEBUG, "Found VersionChecker button, use a wrapped button to config this. (" + b.id + ")");
                     } else {
                         // Others
-                        main.INSTANCE.logger.log(Level.DEBUG, "Found unsupported button, use a wrapped button to config this. (" + b.id + ")");
+                        Main.INSTANCE.logger.log(Level.DEBUG, "Found unsupported button, use a wrapped button to config this. (" + b.id + ")");
                     }
                 }
             }
@@ -123,7 +123,7 @@ public class CMMEventHandler {
             for (GuiButton o : actualGui.getButtonList()) {
                 if (o instanceof GuiCustomWrappedButton) {
                     GuiCustomWrappedButton b = (GuiCustomWrappedButton) o;
-                    main.INSTANCE.logger.log(Level.DEBUG, "Initiating Wrapped Button " + b.wrappedButtonID + " with " + removedButtons.get(b.wrappedButtonID));
+                    Main.INSTANCE.logger.log(Level.DEBUG, "Initiating Wrapped Button " + b.wrappedButtonID + " with " + removedButtons.get(b.wrappedButtonID));
                     b.init(removedButtons.get(b.wrappedButtonID));
                 }
             }
@@ -144,8 +144,8 @@ public class CMMEventHandler {
     @SubscribeEvent
     public void tick(TickEvent.ClientTickEvent event) {
         if (event.phase == TickEvent.Phase.END) {
-            if (main.INSTANCE.config != null)
-                main.INSTANCE.config.tick();
+            if (Main.INSTANCE.config != null)
+                Main.INSTANCE.config.tick();
         }
     }
 }

@@ -16,7 +16,6 @@
 
 package foxesworld.hardcontent.gui.mainmenu.lib.texts;
 
-public interface IText
-{
-	public String get();
+public interface IText {
+    public String get();
 }

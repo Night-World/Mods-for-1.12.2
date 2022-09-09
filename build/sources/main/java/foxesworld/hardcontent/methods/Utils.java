@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 import java.util.List;
 import java.util.Random;
 
-import static foxesworld.hardcontent.main.logger;
+import static foxesworld.hardcontent.Main.logger;
 
 public class Utils {
 

@@ -16,6 +16,7 @@
 
 package foxesworld.hardcontent.gui.mainmenu.gui;
 
+import foxesworld.hardcontent.Main;
 import foxesworld.hardcontent.gui.mainmenu.configuration.Alignment;
 import foxesworld.hardcontent.gui.mainmenu.configuration.Config;
 import foxesworld.hardcontent.gui.mainmenu.configuration.GuiConfig;
@@ -24,7 +25,6 @@ import foxesworld.hardcontent.gui.mainmenu.lib.MODE;
 import foxesworld.hardcontent.gui.mainmenu.lib.actions.ActionOpenLink;
 import foxesworld.hardcontent.gui.mainmenu.lib.textures.ITexture;
 import foxesworld.hardcontent.gui.mainmenu.util.RenderUtil;
-import foxesworld.hardcontent.main;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.*;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -111,7 +111,7 @@ public class GuiCustom extends GuiScreen implements GuiYesNoCallback {
 
         if (!loadedSplashText && guiConfig.splashText != null) {
             if (guiConfig.splashText.synced) {
-                this.splashText = main.INSTANCE.config.getGUI("mainmenu").splashText;
+                this.splashText = Main.INSTANCE.config.getGUI("mainmenu").splashText;
             } else {
                 loadSplashTexts();
             }
@@ -187,7 +187,7 @@ public class GuiCustom extends GuiScreen implements GuiYesNoCallback {
                     Object object = oclass.getMethod("getDesktop", new Class[0]).invoke((Object) null, new Object[0]);
                     oclass.getMethod("browse", new Class[]{URI.class}).invoke(object, new Object[]{new URI(link)});
                 } catch (Throwable throwable) {
-                    main.INSTANCE.logger.error("Couldn't open link", throwable);
+                    Main.INSTANCE.logger.error("Couldn't open link", throwable);
                 }
             }
         }
@@ -216,7 +216,7 @@ public class GuiCustom extends GuiScreen implements GuiYesNoCallback {
         if (panorama != null) {
             if (guiConfig.panorama != null) {
                 if (guiConfig.panorama.synced) {
-                    GuiCustom mainMenu = main.INSTANCE.config.getGUI("mainmenu");
+                    GuiCustom mainMenu = Main.INSTANCE.config.getGUI("mainmenu");
                     this.panoramaTimer = mainMenu.panoramaTimer;
 
                     if (mainMenu.guiConfig.panorama.animate) {
@@ -532,7 +532,7 @@ public class GuiCustom extends GuiScreen implements GuiYesNoCallback {
         }
 
         if (Keyboard.isKeyDown(Keyboard.KEY_LCONTROL) && Keyboard.isKeyDown(Keyboard.KEY_R)) {
-            main.INSTANCE.reload();
+            Main.INSTANCE.reload();
 
             if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)) {
                 mc.refreshResources();

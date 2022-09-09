@@ -16,14 +16,12 @@
 
 package foxesworld.hardcontent.gui.mainmenu.configuration;
 
-public class Alignment
-{
-	public float factorX;
-	public float factorY;
+public class Alignment {
+    public float factorX;
+    public float factorY;
 
-	public Alignment(float factorX, float factorY)
-	{
-		this.factorX = factorX;
-		this.factorY = factorY;
-	}
+    public Alignment(float factorX, float factorY) {
+        this.factorX = factorX;
+        this.factorY = factorY;
+    }
 }

@@ -18,7 +18,6 @@ package foxesworld.hardcontent.gui.mainmenu.lib.actions;
 
 import foxesworld.hardcontent.gui.mainmenu.gui.GuiCustom;
 
-public interface IAction
-{
-	public void perform(Object source,GuiCustom parent);
+public interface IAction {
+    public void perform(Object source, GuiCustom parent);
 }

@@ -21,9 +21,9 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.stream.JsonReader;
+import foxesworld.hardcontent.Main;
 import foxesworld.hardcontent.cfg.Environment;
 import foxesworld.hardcontent.gui.mainmenu.gui.GuiCustom;
-import foxesworld.hardcontent.main;
 import org.apache.commons.io.IOUtils;
 
 import java.io.*;
@@ -41,7 +41,7 @@ public class ConfigurationLoader {
     public void load() throws Exception {
         JsonParser jsonParser = new JsonParser();
 
-        File configFolder = new File(main.INSTANCE.configFolder, Environment.MODID);
+        File configFolder = new File(Main.INSTANCE.configFolder, Environment.MODID);
         if (!configFolder.exists()) {
             configFolder.mkdir();
         }

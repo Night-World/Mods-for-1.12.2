@@ -16,8 +16,8 @@
 
 package foxesworld.hardcontent.gui.mainmenu.lib.actions;
 
+import foxesworld.hardcontent.Main;
 import foxesworld.hardcontent.gui.mainmenu.gui.GuiCustom;
-import foxesworld.hardcontent.main;
 import net.minecraft.client.gui.GuiMainMenu;
 import org.lwjgl.input.Keyboard;
 
@@ -25,7 +25,7 @@ public class ActionRefresh implements IAction {
 
     @Override
     public void perform(Object source, GuiCustom menu) {
-        main.INSTANCE.reload();
+        Main.INSTANCE.reload();
 
         if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)) {
             menu.mc.refreshResources();

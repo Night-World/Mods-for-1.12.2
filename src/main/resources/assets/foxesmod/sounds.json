@@ -7,6 +7,19 @@
       "foxesmod:event/warn/warn2"
     ]
   },
+  "event.action.test": {
+    "category": "player",
+    "stream": true,
+    "sounds": [
+      "foxesmod:event/test/test1",
+      "foxesmod:event/test/test2",
+      "foxesmod:event/test/test3",
+      "foxesmod:event/test/test4",
+      "foxesmod:event/test/test5",
+      "foxesmod:event/test/test6",
+      "foxesmod:event/test/test7"
+    ]
+  },
   "event.action.fail": {
     "category": "player",
     "stream": true,

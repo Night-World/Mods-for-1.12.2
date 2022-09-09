@@ -16,7 +16,6 @@
 
 package foxesworld.hardcontent.gui.mainmenu.lib;
 
-public enum ANCHOR
-{
-	START, MIDDLE, END;
+public enum ANCHOR {
+    START, MIDDLE, END;
 }

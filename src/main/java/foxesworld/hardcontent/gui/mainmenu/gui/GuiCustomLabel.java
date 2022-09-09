@@ -37,217 +37,180 @@ import java.util.List;
 import static foxesworld.hardcontent.gui.mainmenu.lib.ANCHOR.MIDDLE;
 import static foxesworld.hardcontent.gui.mainmenu.lib.ANCHOR.START;
 
-public class GuiCustomLabel extends Gui
-{
-	Label text;
-	int posX, posY;
+public class GuiCustomLabel extends Gui {
+    Label text;
+    int posX, posY;
 
-	FontRenderer fontRendererObj;
+    FontRenderer fontRendererObj;
 
-	int width;
-	int height;
+    int width;
+    int height;
 
-	GuiCustom parent;
+    GuiCustom parent;
 
-	static final String TIME_FORMAT = "HH:mm";
-	static final SimpleDateFormat dateFormat = new SimpleDateFormat(TIME_FORMAT);
-	static Field mcpversionField;
-	public static String mcpversion;
+    static final String TIME_FORMAT = "HH:mm";
+    static final SimpleDateFormat dateFormat = new SimpleDateFormat(TIME_FORMAT);
+    static Field mcpversionField;
+    public static String mcpversion;
 
-	boolean hovered;
+    boolean hovered;
 
-	static
-	{
-		try
-		{
-			mcpversionField = Loader.class.getDeclaredField("mcpversion");
-			mcpversionField.setAccessible(true);
-			mcpversion = (String) mcpversionField.get(null);
-		}
-		catch (Exception e)
-		{
-			e.printStackTrace();
-		}
-	}
+    static {
+        try {
+            mcpversionField = Loader.class.getDeclaredField("mcpversion");
+            mcpversionField.setAccessible(true);
+            mcpversion = (String) mcpversionField.get(null);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-	public GuiCustomLabel(GuiCustom customGUI, Label text, int posX, int posY)
-	{
-		this.text = text;
-		this.posX = posX;
-		this.posY = posY;
-		this.parent = customGUI;
-		fontRendererObj = Minecraft.getMinecraft().fontRenderer;
+    public GuiCustomLabel(GuiCustom customGUI, Label text, int posX, int posY) {
+        this.text = text;
+        this.posX = posX;
+        this.posY = posY;
+        this.parent = customGUI;
+        fontRendererObj = Minecraft.getMinecraft().fontRenderer;
 
-		hovered = false;
+        hovered = false;
 
-		width = fontRendererObj.getStringWidth(text.text.get());
-		height = fontRendererObj.FONT_HEIGHT;
+        width = fontRendererObj.getStringWidth(text.text.get());
+        height = fontRendererObj.FONT_HEIGHT;
 
-		if (text.name.equals("fml"))
-		{
-			String string = "";
-			List<String> brandings = FMLCommonHandler.instance().getBrandings(true);
-			for (int i = 0; i < brandings.size(); i++)
-			{
-				String brd = brandings.get(i);
-				if (!com.google.common.base.Strings.isNullOrEmpty(brd))
-				{
-					string += brd + ((i < brandings.size() - 1) ? "\n" : "");
-				}
-			}
+        if (text.name.equals("fml")) {
+            String string = "";
+            List<String> brandings = FMLCommonHandler.instance().getBrandings(true);
+            for (int i = 0; i < brandings.size(); i++) {
+                String brd = brandings.get(i);
+                if (!com.google.common.base.Strings.isNullOrEmpty(brd)) {
+                    string += brd + ((i < brandings.size() - 1) ? "\n" : "");
+                }
+            }
+            this.text.text = this.text.hoverText = new TextString(string);
+        }
+    }
 
-			this.text.text = this.text.hoverText = new TextString(string);
-		}
-	}
+    public void drawLabel(Minecraft mc, int mouseX, int mouseY) {
+        if (text.fontSize != 1F) {
+            GlStateManager.translate(posX, posY, 0);
+            GlStateManager.scale(text.fontSize, text.fontSize, 1);
+            GlStateManager.translate(-posX, -posY, 0);
+        }
 
-	public void drawLabel(Minecraft mc, int mouseX, int mouseY)
-	{
-		if (text.fontSize != 1F)
-		{
-			GlStateManager.translate(posX, posY, 0);
-			GlStateManager.scale(text.fontSize, text.fontSize, 1);
-			GlStateManager.translate(-posX, -posY, 0);
-		}
+        String toDraw = hovered ? text.hoverText.get() : text.text.get();
 
-		String toDraw = hovered ? text.hoverText.get() : text.text.get();
+        boolean newHovered = isMouseAboveLabel(mouseX, mouseY);
 
-		boolean newHovered = isMouseAboveLabel(mouseX, mouseY);
+        if (newHovered && !hovered && text.hoverSound != null) {
+            Minecraft.getMinecraft().getSoundHandler().playSound(new PositionedSoundRecord(new ResourceLocation(text.hoverSound), SoundCategory.MASTER, 1F, 1F, false, 0, AttenuationType.NONE, 0, 0, 0));
+        }
 
-		if (newHovered && !hovered && text.hoverSound != null)
-		{
-			Minecraft.getMinecraft().getSoundHandler().playSound(new PositionedSoundRecord(new ResourceLocation(text.hoverSound), SoundCategory.MASTER, 1F, 1F, false, 0, AttenuationType.NONE, 0, 0, 0));
-		}
+        hovered = newHovered;
 
-		hovered = newHovered;
+        if (toDraw.contains("\n")) {
+            int modY = 0;
+            String[] lines = toDraw.split("\n");
+            for (String line : lines) {
+                String lineDraw = StringReplacer.replacePlaceholders(line);
 
-		if (toDraw.contains("\n"))
-		{
-			int modY = 0;
-			String[] lines = toDraw.split("\n");
-			for (String line : lines)
-			{
-				String lineDraw = StringReplacer.replacePlaceholders(line);
+                int textWidth = fontRendererObj.getStringWidth(lineDraw);
 
-				int textWidth = fontRendererObj.getStringWidth(lineDraw);
+                int offsetX = text.anchor == START ? 0 : (text.anchor == MIDDLE ? -(textWidth / 2) : (-textWidth));
 
-				int offsetX = text.anchor == START ? 0 : (text.anchor == MIDDLE ? -(textWidth / 2) : (-textWidth));
+                if (hovered) {
+                    this.drawString(fontRendererObj, lineDraw, posX + offsetX, posY + modY, text.hoverColor);
+                } else {
+                    this.drawString(fontRendererObj, lineDraw, posX + offsetX, posY + modY, text.color);
+                }
 
-				if (hovered)
-				{
-					this.drawString(fontRendererObj, lineDraw, posX + offsetX, posY + modY, text.hoverColor);
-				}
-				else
-				{
-					this.drawString(fontRendererObj, lineDraw, posX + offsetX, posY + modY, text.color);
-				}
+                modY += fontRendererObj.FONT_HEIGHT;
+            }
+        } else {
+            toDraw = StringReplacer.replacePlaceholders(toDraw);
+            int textWidth = fontRendererObj.getStringWidth(toDraw);
 
-				modY += fontRendererObj.FONT_HEIGHT;
-			}
-		}
-		else
-		{
-			toDraw = StringReplacer.replacePlaceholders(toDraw);
-			int textWidth = fontRendererObj.getStringWidth(toDraw);
+            int offsetX = text.anchor == START ? 0 : (text.anchor == MIDDLE ? -(textWidth / 2) : (-textWidth));
 
-			int offsetX = text.anchor == START ? 0 : (text.anchor == MIDDLE ? -(textWidth / 2) : (-textWidth));
+            if (hovered) {
+                this.drawString(fontRendererObj, toDraw, posX + offsetX, posY, text.hoverColor);
+            } else {
+                this.drawString(fontRendererObj, toDraw, posX + offsetX, posY, text.color);
+            }
+        }
 
-			if (hovered)
-			{
-				this.drawString(fontRendererObj, toDraw, posX + offsetX, posY, text.hoverColor);
-			}
-			else
-			{
-				this.drawString(fontRendererObj, toDraw, posX + offsetX, posY, text.color);
-			}
-		}
+        if (text.fontSize != 1F) {
+            GlStateManager.translate(posX, posY, 0);
+            GlStateManager.scale(1 / text.fontSize, 1 / text.fontSize, 1);
+            GlStateManager.translate(-posX, -posY, 0);
+        }
+    }
 
-		if (text.fontSize != 1F)
-		{
-			GlStateManager.translate(posX, posY, 0);
-			GlStateManager.scale(1 / text.fontSize, 1 / text.fontSize, 1);
-			GlStateManager.translate(-posX, -posY, 0);
-		}
-	}
+    private boolean isMouseAboveLabel(int mouseX, int mouseY) {
+        String stringText = this.text.text.get();
 
-	private boolean isMouseAboveLabel(int mouseX, int mouseY)
-	{
-		String stringText = this.text.text.get();
+        if (stringText.contains("\n")) {
+            String[] lines = stringText.split("\n");
 
-		if (stringText.contains("\n"))
-		{
-			String[] lines = stringText.split("\n");
+            for (int i = 0; i < lines.length; i++) {
+                int width = this.fontRendererObj.getStringWidth(lines[i]);
+                int height = this.fontRendererObj.FONT_HEIGHT;
 
-			for (int i = 0; i < lines.length; i++)
-			{
-				int width = this.fontRendererObj.getStringWidth(lines[i]);
-				int height = this.fontRendererObj.FONT_HEIGHT;
-				
-				int modX = 0;
+                int modX = 0;
 
-				switch (text.anchor)
-				{
-					case END:
-						modX = -width;
-						break;
-					case MIDDLE:
-						modX = -width / 2;
-						break;
-					case START:
-						break;
-					default:
-						break;
-				}
+                switch (text.anchor) {
+                    case END:
+                        modX = -width;
+                        break;
+                    case MIDDLE:
+                        modX = -width / 2;
+                        break;
+                    case START:
+                        break;
+                    default:
+                        break;
+                }
 
-				if (mouseX >= posX + modX && mouseY >= posY + this.fontRendererObj.FONT_HEIGHT * i && mouseX < posX + width + modX && mouseY < posY + this.fontRendererObj.FONT_HEIGHT * i + height)
-				{
-					return true;
-				}
-			}
+                if (mouseX >= posX + modX && mouseY >= posY + this.fontRendererObj.FONT_HEIGHT * i && mouseX < posX + width + modX && mouseY < posY + this.fontRendererObj.FONT_HEIGHT * i + height) {
+                    return true;
+                }
+            }
 
-			return false;
-		}
-		else
-		{
-			int width = this.fontRendererObj.getStringWidth(stringText);
-			int height = this.fontRendererObj.FONT_HEIGHT;
+            return false;
+        } else {
+            int width = this.fontRendererObj.getStringWidth(stringText);
+            int height = this.fontRendererObj.FONT_HEIGHT;
 
-			// Anchor Difference
-			int modX = 0;
+            // Anchor Difference
+            int modX = 0;
 
-			switch (text.anchor)
-			{
-				case END:
-					modX = -width;
-					break;
-				case MIDDLE:
-					modX = -width / 2;
-					break;
-				case START:
-					break;
-				default:
-					break;
-			}
+            switch (text.anchor) {
+                case END:
+                    modX = -width;
+                    break;
+                case MIDDLE:
+                    modX = -width / 2;
+                    break;
+                case START:
+                    break;
+                default:
+                    break;
+            }
 
-			return mouseX >= posX + modX && mouseY >= posY && mouseX < posX + width + modX && mouseY < posY + height;
-		}
-	}
+            return mouseX >= posX + modX && mouseY >= posY && mouseX < posX + width + modX && mouseY < posY + height;
+        }
+    }
 
-	public void mouseClicked(int mouseX, int mouseY, int mouseButton)
-	{
-		boolean flag = isMouseAboveLabel(mouseX, mouseY);
+    public void mouseClicked(int mouseX, int mouseY, int mouseButton) {
+        boolean flag = isMouseAboveLabel(mouseX, mouseY);
 
-		if (flag && text.action != null)
-		{
-			if (text.pressSound != null)
-			{
-				Minecraft.getMinecraft().getSoundHandler().playSound(new PositionedSoundRecord(new ResourceLocation(text.pressSound), SoundCategory.MASTER, 1F, 1F, false, 0, AttenuationType.NONE, 0, 0, 0));
-			}
-			else
-			{
-				Minecraft.getMinecraft().getSoundHandler().playSound(new PositionedSoundRecord(new ResourceLocation("ui.button.click"), SoundCategory.MASTER, 1F, 1F, false, 0, AttenuationType.NONE, 0, 0, 0));
-			}
+        if (flag && text.action != null) {
+            if (text.pressSound != null) {
+                Minecraft.getMinecraft().getSoundHandler().playSound(new PositionedSoundRecord(new ResourceLocation(text.pressSound), SoundCategory.MASTER, 1F, 1F, false, 0, AttenuationType.NONE, 0, 0, 0));
+            } else {
+                Minecraft.getMinecraft().getSoundHandler().playSound(new PositionedSoundRecord(new ResourceLocation("ui.button.click"), SoundCategory.MASTER, 1F, 1F, false, 0, AttenuationType.NONE, 0, 0, 0));
+            }
 
-			text.action.perform(this.text, parent);
-		}
-	}
+            text.action.perform(this.text, parent);
+        }
+    }
 }

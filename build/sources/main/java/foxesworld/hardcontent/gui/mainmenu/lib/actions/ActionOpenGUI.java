@@ -18,7 +18,7 @@ package foxesworld.hardcontent.gui.mainmenu.lib.actions;
 
 import com.google.common.util.concurrent.Runnables;
 import foxesworld.hardcontent.gui.mainmenu.gui.GuiCustom;
-import foxesworld.hardcontent.main;
+import foxesworld.hardcontent.Main;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.*;
 import net.minecraft.realms.RealmsBridge;
@@ -38,7 +38,7 @@ public class ActionOpenGUI implements IAction {
         if (guiName.startsWith("custom.")) {
             String customName = guiName.substring(7);
 
-            gui = main.INSTANCE.config.getGUI(customName);
+            gui = Main.INSTANCE.config.getGUI(customName);
         } else {
             if (guiName.equalsIgnoreCase("mods")) {
                 gui = new GuiModList(menu);

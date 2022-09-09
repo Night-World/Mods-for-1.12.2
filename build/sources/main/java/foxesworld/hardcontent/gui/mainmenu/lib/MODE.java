@@ -16,7 +16,6 @@
 
 package foxesworld.hardcontent.gui.mainmenu.lib;
 
-public enum MODE
-{
-	FILL, STRETCH, CENTER, TILE
+public enum MODE {
+    FILL, STRETCH, CENTER, TILE
 }

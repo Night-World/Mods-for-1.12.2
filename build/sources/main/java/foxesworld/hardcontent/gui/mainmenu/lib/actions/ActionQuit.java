@@ -18,11 +18,9 @@ package foxesworld.hardcontent.gui.mainmenu.lib.actions;
 
 import foxesworld.hardcontent.gui.mainmenu.gui.GuiCustom;
 
-public class ActionQuit implements IAction
-{
-	@Override
-	public void perform(Object source, GuiCustom menu)
-	{
-		menu.mc.shutdown();
-	}
+public class ActionQuit implements IAction {
+    @Override
+    public void perform(Object source, GuiCustom menu) {
+        menu.mc.shutdown();
+    }
 }

@@ -38,7 +38,7 @@ minecraft {
 	runDir = "eclipse"
     
 	replace '@VERSION@', project.version
-	// makeObfSourceJar = false
+	makeObfSourceJar = true
 }
 
 processResources {
@@ -76,11 +76,5 @@ artifacts {
 }
 
 dependencies {
-    implementation 'junit:junit:4.13.1'
-    implementation 'junit:junit:4.13.1'
-    implementation 'org.junit.jupiter:junit-jupiter:5.7.0'
-    implementation 'org.junit.jupiter:junit-jupiter:5.7.0'
-    implementation 'org.junit.jupiter:junit-jupiter:5.7.0'
-    implementation 'org.junit.jupiter:junit-jupiter:5.7.0'
-    implementation 'org.junit.jupiter:junit-jupiter:5.7.0'
+	compile name: 'japng-0.5.1'
 }

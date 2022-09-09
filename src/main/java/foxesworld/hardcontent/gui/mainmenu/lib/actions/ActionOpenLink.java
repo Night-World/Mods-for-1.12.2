@@ -21,24 +21,20 @@ import foxesworld.hardcontent.gui.mainmenu.gui.GuiCustom;
 import foxesworld.hardcontent.gui.mainmenu.gui.GuiCustomConfirmOpenLink;
 import net.minecraft.client.Minecraft;
 
-public class ActionOpenLink implements IAction
-{
-	String link;
-	
-	public ActionOpenLink(String link)
-	{
-		this.link = link;
-	}
+public class ActionOpenLink implements IAction {
+    String link;
 
-	@Override
-	public void perform(Object source,GuiCustom menu)
-	{
-		Minecraft.getMinecraft().displayGuiScreen(new GuiCustomConfirmOpenLink(menu, getLink(), -1, false));
-		menu.beingChecked = source;
-	}
+    public ActionOpenLink(String link) {
+        this.link = link;
+    }
 
-	public String getLink()
-	{
-		return StringReplacer.replacePlaceholders(link);
-	}
+    @Override
+    public void perform(Object source, GuiCustom menu) {
+        Minecraft.getMinecraft().displayGuiScreen(new GuiCustomConfirmOpenLink(menu, getLink(), -1, false));
+        menu.beingChecked = source;
+    }
+
+    public String getLink() {
+        return StringReplacer.replacePlaceholders(link);
+    }
 }
