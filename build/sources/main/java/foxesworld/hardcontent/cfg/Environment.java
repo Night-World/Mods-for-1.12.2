@@ -14,7 +14,7 @@ public class Environment {
     //@Mod
     public static final String MODID = "foxesmod";
     public static final String NAME = "HardContent creator";
-    public static final String VERSION = "1.19.0-ALPHA";
+    public static final String VERSION = "1.19.1-ALPHA";
     public static final String acceptedVersions = "[1.12.2]";
 
     //Proxy

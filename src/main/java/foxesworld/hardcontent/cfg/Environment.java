@@ -14,7 +14,7 @@ public class Environment {
     //@Mod
     public static final String MODID = "foxesmod";
     public static final String NAME = "HardContent creator";
-    public static final String VERSION = "1.19.1-ALPHA";
+    public static final String VERSION = "1.19.2-EXPERIMENTAL";
     public static final String acceptedVersions = "[1.12.2]";
 
     //Proxy
@@ -38,6 +38,5 @@ public class Environment {
     public static Map<String, Item> ITEMS = new HashMap<>();
     public static Map<String, SoundEvent> SOUNDS = new HashMap();
     public static Map<String, Item.ToolMaterial> MATERIALS = new HashMap();
-    //public static Map<Integer, MenuAttributes> MENUDATA = new HashMap<Integer, MenuAttributes>();
     public static ArrayList<StructureParser> STRUCTURES = new ArrayList<StructureParser>();
 }

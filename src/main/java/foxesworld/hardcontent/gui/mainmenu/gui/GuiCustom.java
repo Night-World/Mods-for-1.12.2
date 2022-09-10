@@ -139,7 +139,6 @@ public class GuiCustom extends GuiScreen implements GuiYesNoCallback {
         }
 
         int idCounter = 6000;
-
         // Add Custom Buttons
         for (Button b : guiConfig.customButtons) {
             if (b.wrappedButtonID != -1) {

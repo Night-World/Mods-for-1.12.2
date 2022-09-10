@@ -15,7 +15,6 @@
  */
 
 package foxesworld.hardcontent.gui.mainmenu.lib.actions;
-
 import foxesworld.hardcontent.gui.mainmenu.gui.GuiCustom;
 
 public interface IAction {

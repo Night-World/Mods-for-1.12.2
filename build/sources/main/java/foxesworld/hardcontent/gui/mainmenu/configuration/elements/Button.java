@@ -50,6 +50,7 @@ public class Button extends Element {
     public int textOffsetY;
 
     public int wrappedButtonID;
+    public boolean status;
 
     public Button(GuiConfig parent, IText text, int posX, int posY, int width, int height, Alignment alignment) {
         super(parent);

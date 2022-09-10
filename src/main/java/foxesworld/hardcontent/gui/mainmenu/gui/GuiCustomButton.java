@@ -45,6 +45,7 @@ public class GuiCustomButton extends GuiButton {
         super(buttonId, b.posX, b.posY, b.width, b.height, I18n.format(b.text.get(), new Object[0]));
 
         this.texture = b.texture;
+        this.enabled = b.status;
         this.normalText = b.normalTextColor;
         this.hoverText = b.hoverTextColor;
         this.b = b;
@@ -55,6 +56,10 @@ public class GuiCustomButton extends GuiButton {
         if (hovered && this.b.tooltip != null) {
             this.drawHoveringText(mc, LogicUtil.getTooltip(this.b.tooltip.get()), mouseX, mouseY, fontrenderer);
         }
+    }
+
+    public void setStatus(boolean enable){
+        this.enabled = enable;
     }
 
     public void func_191745_a(Minecraft mc, int mouseX, int mouseY, float partialTicks) {
@@ -186,9 +191,11 @@ public class GuiCustomButton extends GuiButton {
     @Override
     public void playPressSound(SoundHandler soundHandlerIn) {
         if (b.pressSound != null) {
+            this.setStatus(false);
             soundHandlerIn.playSound(new PositionedSoundRecord(new ResourceLocation(b.pressSound), SoundCategory.MASTER, 1F, 1F, false, 0, AttenuationType.NONE, 0, 0, 0));
         } else {
             super.playPressSound(soundHandlerIn);
         }
     }
+
 }

@@ -271,9 +271,16 @@ public class GuiConfig {
 
         for (Entry<String, JsonElement> entry : buttons) {
             String name = entry.getKey();
+            boolean status;
             JsonObject object = (JsonObject) entry.getValue();
+            if(object.has("enabled")) {
+                status = object.get("enabled").getAsBoolean();
+            } else {
+                status = true;
+            }
             Button b = getButton(object);
             b.name = entry.getKey();
+            b.status = status;
             customButtons.add(b);
         }
     }

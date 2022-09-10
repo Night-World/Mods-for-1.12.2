@@ -85,8 +85,8 @@
     },
     "language": {
       "text": "",
-      "posX": -124,
-      "posY": 132,
+      "posX": -70,
+      "posY": 94,
       "width": 20,
       "height": 20,
       "action": {
@@ -94,21 +94,21 @@
         "gui": "languages"
       }
     },
-    "refresh": {
+    "testBtn": {
       "text": "TEST",
-      "posX": -154,
-      "posY": 132,
-      "width": 20,
+      "posX": -140,
+      "posY": 118,
+      "width": 60,
       "height": 40,
       "pressSound": "foxesmod:event.action.test",
       "texture": "foxesmod:textures/gui/ui/button_big.png"
     }
   },
   "labels": {
-    "fml": {
-      "text": "",
-      "posX": 2,
-      "posY": -40,
+    "copyright": {
+      "text": "(c) FoxesWorld",
+      "posX": 20,
+      "posY": -50,
       "color": -1,
       "alignment": "bottom_left"
     }
